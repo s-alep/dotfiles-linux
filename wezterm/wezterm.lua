@@ -39,6 +39,7 @@ config.keys = {
 config.window_background_opacity = 0.95
 -- For example, changing the color scheme:
 config.color_scheme = "Material Palenight (base16)"
+config.default_prog={ "/bin/bash"} 
 -- config.default_prog = { "C:\\Program Files\\Git\\bin\\bash.exe", "--login" }
 -- and finally, return the configuration to wezterm
 return config

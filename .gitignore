@@ -1,9 +1,7 @@
-mimeapps.list
-coc/
-dconf/
-go/
-gtk-3.0/
-neofetch/
-pulse/
-systemd/
-yay/
+*
+
+!/nvim/
+!/nnn/
+!/wezterm/
+!/the-unnamed.omp.json
+!/.bashrc
