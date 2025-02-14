@@ -14,7 +14,7 @@ return {
       keymaps = {
         ['<Esc>'] = { 'actions.close', mode = 'n' },
       },
-      vim.keymap.set('n', '<leader>o', '<CMD>Oil --float<CR>', { desc = 'Oil' }),
+      vim.keymap.set('n', '<leader>l', '<CMD>Oil --float<CR>', { desc = 'Oil' }),
     }
   end,
 }
