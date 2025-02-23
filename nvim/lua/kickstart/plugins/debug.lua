@@ -20,35 +20,34 @@ return {
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
-
+    'mfussenegger/nvim-dap-python',
     -- Add your own debuggers here
-    'leoluz/nvim-dap-go',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
     {
-      '<F5>',
+      '<leader>dd',
       function()
         require('dap').continue()
       end,
       desc = 'Debug: Start/Continue',
     },
     {
-      '<F1>',
+      '<leader>di',
       function()
         require('dap').step_into()
       end,
       desc = 'Debug: Step Into',
     },
     {
-      '<F2>',
+      '<leader>dv',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
     },
     {
-      '<F3>',
+      '<leader>do',
       function()
         require('dap').step_out()
       end,
@@ -70,7 +69,7 @@ return {
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<F7>',
+      '<leader>du',
       function()
         require('dapui').toggle()
       end,
@@ -121,28 +120,58 @@ return {
     }
 
     -- Change breakpoint icons
-    -- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-    -- vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
-    -- local breakpoint_icons = vim.g.have_nerd_font
-    --     and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-    --   or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
-    -- for type, icon in pairs(breakpoint_icons) do
-    --   local tp = 'Dap' .. type
-    --   local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
-    --   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
-    -- end
+    vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
+    vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+    local breakpoint_icons = vim.g.have_nerd_font
+        and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
+      or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
+    for type, icon in pairs(breakpoint_icons) do
+      local tp = 'Dap' .. type
+      local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
+      vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
+    end
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    require('dap-python').setup 'python3'
+    local project_dap_config = vim.fn.getcwd() .. '/.nvim/dap.lua'
+    if vim.fn.filereadable(project_dap_config) == 1 then
+      local project_dap = dofile(project_dap_config)
 
-    -- Install golang specific config
-    require('dap-go').setup {
-      delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-        detached = vim.fn.has 'win32' == 0,
-      },
-    }
+      -- Ensure Python DAP configurations exist
+      if project_dap and project_dap.configurations and project_dap.configurations.python then
+        vim.list_extend(dap.configurations.python, project_dap.configurations.python)
+      end
+    end
+    vim.keymap.set('n', '<Leader>dr', function()
+      -- Reload default DAP settings
+      package.loaded['dap-config'] = nil
+      require 'dap-config'
+
+      -- Reload project-specific config if it exists
+      local project_dap_config = vim.fn.getcwd() .. '/.nvim/dap.lua'
+      if vim.fn.filereadable(project_dap_config) == 1 then
+        dofile(project_dap_config)
+      end
+
+      print 'DAP configuration reloaded!'
+    end, { desc = 'Reload DAP Configuration' })
+    -- dap.configurations.python = {
+    --   {
+    --     name = 'Uvicorn setup',
+    --     type = 'python',
+    --     request = 'launch',
+    --     module = 'uvicorn',
+    --     args = {
+    --       'app.main:app', -- Adjust if needed
+    --       '--host',
+    --       '0.0.0.0',
+    --       '--port',
+    --       '8000',
+    --       '--reload',
+    --     },
+    --   },
+    -- }
   end,
 }

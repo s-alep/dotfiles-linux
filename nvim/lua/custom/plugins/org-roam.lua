@@ -8,21 +8,12 @@ return {
   },
   config = function()
     require('org-roam').setup {
-      directory = '/mnt/c/Users/SpyrosAlepakos/my-brain/org-files/notes/',
       org_files = {
-        '/mnt/c/Users/SpyrosAlepakos/my-brain/org-files/music-notes/',
-        '/mnt/c/Users/SpyrosAlepakos/my-brain/org-files/journal/',
+        '~/syncthing/my-brain/org-files/journal/**/*',
       },
       extensions = {
         dailies = {
-          directory = '/mnt/c/Users/SpyrosAlepakos/my-brain/org-files/journal/',
-        },
-      },
-      templates = {
-        i = {
-          description = 'Issue',
-          template = '\n* Description\n%?\n* Subtasks\n** Think\n* Documentation',
-          target = '/mnt/c/Users/SpyrosAlepakos/my-brain/org-files/notes/%<%Y%m%d%H%M%S>-%[slug].org',
+          directory = '~/syncthing/my-brain/org-files/journal/',
         },
       },
     }
