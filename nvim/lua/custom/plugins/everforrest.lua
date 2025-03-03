@@ -8,6 +8,6 @@ return {
     vim.g.everforest_transparent_background = true
     vim.g.everforrest_cursor = 'red'
     vim.g.everforrest_float_style = 'dim'
-    vim.cmd.colorscheme 'everforest'
+    vim.cmd.colorscheme 'gruvbox'
   end,
 }

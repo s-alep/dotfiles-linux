@@ -1,0 +1,7 @@
+#:schema https://raw.githubusercontent.com/insanum/gcalcli/HEAD/data/config-schema.json
+[calendars]
+default-calendars = ["spyr1996@gmail.com", "EuroLeague Basketball", "Olympiacos"]
+ignore-calendars = ["Άδειες Allweb 2021", "Holidays In Greece", "Διακοπές στην Ελλάδα"]
+
+[output]
+week-start = "monday"
