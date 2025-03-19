@@ -15,8 +15,21 @@ return { -- Collection of various small independent plugins/modules
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
-
+    require('mini.files').setup {
+      vim.keymap.set('n', '<leader>x', '<CMD>lua MiniFiles.open()<CR>', { desc = 'File E[X]plorer' }),
+    }
+    require('mini.sessions').setup {
+      vim.keymap.set('n', '<leader>tl', '<CMD>lua MiniSessions.read()<CR>', { desc = '[T]oggle Session [L]oad' }),
+    }
     require('mini.move').setup()
+    require('mini.pairs').setup()
+    require('mini.splitjoin').setup {
+      mappings = {
+        toggle = 'gj',
+        split = '',
+        join = '',
+      },
+    }
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
     --  and try some other statusline plugin

@@ -33,6 +33,7 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'isort', 'black' },
+      xml = { 'xmlformatter' },
     },
   },
 }

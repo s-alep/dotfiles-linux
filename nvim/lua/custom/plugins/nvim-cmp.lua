@@ -97,6 +97,7 @@ return { -- Autocompletion
         },
         { name = 'copilot', group_index = 2 },
         { name = 'nvim_lsp' },
+        { name = 'render-markdown' },
         { name = 'luasnip' },
         { name = 'path' },
       },
