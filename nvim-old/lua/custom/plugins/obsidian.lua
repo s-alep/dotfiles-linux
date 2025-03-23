@@ -27,12 +27,10 @@ return {
       },
     },
     opts = {
-      ui = { enabled = false },
       workspaces = {
         {
           name = 'notes',
-          -- path = '~/code/notes/',
-          path = '/mnt/c/Users/SpyrosAlepakos/code/notes/',
+          path = '~/code/notes/',
         },
       },
       daily_notes = {
@@ -43,8 +41,7 @@ return {
         template = nil,
       },
       templates = {
-        -- folder = '/home/spyros/code/notes/templates',
-        folder = '/mnt/c/Users/SpyrosAlepakos/code/notes/templates/',
+        folder = '/home/spyros/code/notes/templates',
         date_format = '%Y-%m-%d',
         time_format = '%H:%M',
         substitutions = {},

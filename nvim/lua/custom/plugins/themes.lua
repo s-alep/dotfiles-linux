@@ -7,6 +7,10 @@ return {
   { 'thesimonho/kanagawa-paper.nvim' },
   { 'NTBBloodbath/doom-one.nvim' },
   { 'Shatur/neovim-ayu' },
+  { 'shaunsingh/nord.nvim' },
+  { 'rmehri01/onenord.nvim' },
+  { 'AlexvZyl/nordic.nvim' },
+  { 'sts10/vim-pink-moon' },
   {
     'sainnhe/everforest',
     lazy = false,
