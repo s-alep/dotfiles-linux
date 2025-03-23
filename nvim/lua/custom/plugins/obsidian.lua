@@ -31,8 +31,8 @@ return {
       workspaces = {
         {
           name = 'notes',
-          -- path = '~/code/notes/',
-          path = '/mnt/c/Users/SpyrosAlepakos/code/notes/',
+          path = '~/code/notes/',
+          -- path = '/mnt/c/Users/SpyrosAlepakos/code/notes/',
         },
       },
       daily_notes = {
@@ -43,9 +43,8 @@ return {
         template = nil,
       },
       templates = {
-        -- folder = '/home/spyros/code/notes/templates',
-        folder = '/mnt/c/Users/SpyrosAlepakos/code/notes/templates/',
-        date_format = '%Y-%m-%d',
+        folder = '/home/spyros/code/notes/templates',
+        -- folder = '/mnt/c/Users/SpyrosAlepakos/code/notes/templates/', date_format = '%Y-%m-%d',
         time_format = '%H:%M',
         substitutions = {},
       },
@@ -69,6 +68,17 @@ return {
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      bullet = {
+        enabled = true,
+        right_pad = 1,
+      },
+      heading = {
+        right_pad = 1,
+        right_margin = 1,
+        enabled = true,
+        -- icons = { '🏵️', '🌸', '💮', '🌼' },
+      },
+    },
   },
 }

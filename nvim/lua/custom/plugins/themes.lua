@@ -23,7 +23,7 @@ return {
       -- vim.g.everforrest_float_style = 'dim'
       -- vim.g.everforest_dim_inactive_windows = true
       -- vim.g.everforest_floag_style = 'dim'
-      vim.cmd.colorscheme 'kanagawa'
+      vim.cmd.colorscheme 'nordic'
     end,
   },
 }

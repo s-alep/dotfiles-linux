@@ -125,7 +125,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },
-
+  { 'tpope/vim-fugitive' },
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
   require 'kickstart.plugins.debug',
