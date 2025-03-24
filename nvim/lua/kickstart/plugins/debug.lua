@@ -157,21 +157,36 @@ return {
 
       print 'DAP configuration reloaded!'
     end, { desc = 'Reload DAP Configuration' })
-    -- dap.configurations.python = {
-    --   {
-    --     name = 'Uvicorn setup',
-    --     type = 'python',
-    --     request = 'launch',
-    --     module = 'uvicorn',
-    --     args = {
-    --       'app.main:app', -- Adjust if needed
-    --       '--host',
-    --       '0.0.0.0',
-    --       '--port',
-    --       '8000',
-    --       '--reload',
-    --     },
-    --   },
-    -- }
+    dap.configurations.python = {
+      {
+        name = 'Uvicorn setup',
+        type = 'python',
+        request = 'launch',
+        module = 'uvicorn',
+        args = {
+          'app.main:app', -- Adjust if needed
+          '--host',
+          '0.0.0.0',
+          '--port',
+          '8000',
+          '--reload',
+        },
+      },
+      {
+        name = 'Python Flask',
+        type = 'python',
+        request = 'launch',
+        module = 'flask',
+        env = {
+          FLASK_APP = 'sl2_flask.py',
+          FLASK_ENV = 'development',
+          FLASK_DEBUG = '1',
+        },
+        args = {
+          'run',
+        },
+        jinja = 'true',
+      },
+    }
   end,
 }
