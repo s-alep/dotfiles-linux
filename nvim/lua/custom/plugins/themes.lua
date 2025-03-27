@@ -1,16 +1,10 @@
 return {
   { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
-  { 'rebelot/kanagawa.nvim' },
-  { 'navarasu/onedark.nvim' },
+  { 'rebelot/kanagawa.nvim', opts = { transparent = true } },
   { 'EdenEast/nightfox.nvim' },
-  { 'ayu-theme/ayu-vim' },
   { 'thesimonho/kanagawa-paper.nvim' },
-  { 'NTBBloodbath/doom-one.nvim' },
   { 'Shatur/neovim-ayu' },
-  { 'shaunsingh/nord.nvim' },
-  { 'rmehri01/onenord.nvim' },
-  { 'AlexvZyl/nordic.nvim' },
-  { 'sts10/vim-pink-moon' },
+  { 'AlexvZyl/nordic.nvim', opts = { transparent = { bg = true } } },
   {
     'sainnhe/everforest',
     lazy = false,
@@ -23,7 +17,7 @@ return {
       -- vim.g.everforrest_float_style = 'dim'
       -- vim.g.everforest_dim_inactive_windows = true
       -- vim.g.everforest_floag_style = 'dim'
-      vim.cmd.colorscheme 'nordic'
+      vim.cmd.colorscheme 'kanagawa-dragon'
     end,
   },
 }
