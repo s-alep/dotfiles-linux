@@ -1,0 +1,82 @@
+@import "nord.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font, "Noto Sans CJK JP";
+  font-size: 15;
+  min-height: 0;
+}
+
+#waybar {
+  background: @surface0;
+  background-color : @surface0;
+  color: @text;
+}
+
+#workspaces {
+  padding : 1px;
+  border: none;
+  border-radius: 1rem;
+  box-shadow : none;
+  background-color: @surface0;
+}
+
+#workspaces button {
+  padding:0px;
+  box-shadow: none;
+  color: @lavender;
+  border-radius: 1rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @text;
+  box-shadow: none;
+  border:none;
+  padding:0px;
+  margin:0px;
+  background : @lavender;
+  border-radius: 2rem;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  background-color: @surface0;
+  padding: 0.3rem 1rem;
+  margin: 0px 0;
+}
+
+#clock {
+  color: @text;
+}
+
+#pulseaudio {
+  color: @text;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#custom-music {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#custom-lock{
+    color: @text;
+}
+
+#custom-power {
+    margin-right: 10px;
+    border-radius: 0px 1rem 1rem 0px;
+    color: @text;
+}
+
