@@ -1,0 +1,24 @@
+{
+  "base_keymap": "VSCode",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  // Fonts
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "relative_line_numbers": true,
+  "vim_mode": true,
+  "vim": {
+    "highlight_on_yank_duration": 100
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "show_whitespaces": "all",
+  "theme": {
+    "mode": "dark",
+    "light": "Tokyo Night Light",
+    "dark": "RustRover Dark"
+  }
+}
