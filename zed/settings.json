@@ -1,9 +1,59 @@
 {
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "path": "/usr/lib/rustup/bin/rust-analyzer"
+      }
+    }
+  },
+  "agent": {
+    "single_file_review": true,
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.0-flash"
+    },
+    "model_parameters": [],
+    "default_profile": "write",
+    "version": "2"
+  },
   "base_keymap": "VSCode",
   "telemetry": {
     "metrics": false,
     "diagnostics": false
   },
+  "restore_on_startup": "none",
+  "hide_mouse": "on_typing",
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false
+  },
+  "always_treat_brackets_as_autoclosed": true,
   // Fonts
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
@@ -16,9 +66,10 @@
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "show_whitespaces": "all",
+  "icon_theme": "Catppuccin Mocha",
   "theme": {
     "mode": "dark",
     "light": "Tokyo Night Light",
-    "dark": "RustRover Dark"
+    "dark": "Catppuccin Mocha - No Italics"
   }
 }

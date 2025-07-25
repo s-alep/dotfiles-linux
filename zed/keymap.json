@@ -7,6 +7,12 @@
 // from the command palette.
 [
   {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
@@ -29,7 +35,8 @@
     "context": "Dock",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight"
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "space a": "workspace::ToggleRightDock"
     }
   },
   {
@@ -40,9 +47,11 @@
       "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
       "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
       "space p": "file_finder::Toggle",
-      "space x": "workspace::ToggleLeftDock",
-      "space c c": "workspace::ToggleRightDock",
-      "space c i": "assistant::InlineAssist",
+      "space a": "workspace::ToggleRightDock",
+      "space x": "project_panel::ToggleFocus",
+      "space X": "zed::Extensions",
+      "space w i": "assistant::InlineAssist",
+      "space w e": "chat_panel::ToggleFocus",
       "space t t": "workspace::ToggleBottomDock",
       "space b": "editor::ToggleBreakpoint",
       "ctrl-h": "workspace::ActivatePaneLeft",
