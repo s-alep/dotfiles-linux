@@ -1,0 +1,18 @@
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'No Highligh' })
+vim.keymap.set('n', 'ciu', 'T_ct_', { desc = 'Change Inside underscore' })
+vim.keymap.set('n', 'cu', 'ct_', { desc = 'Change to underscore' })
+vim.keymap.set('n', 'diu', 'T_dt_', { desc = 'Delete inside underscore' })
+vim.keymap.set('n', 'du', 'dt_', { desc = 'Delete to underscore' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll Down and Center' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up and Center' })
+vim.keymap.set('n', '<leader>ep', 'viwp', { desc = 'Paste into current word' })
+vim.keymap.set('n', '<leader>ef', function()
+  vim.ui.input({ prompt = 'Enter filetype: ' }, function(input)
+    if input and input ~= '' then
+      vim.cmd('set filetype=' .. input)
+    end
+  end)
+end, { desc = 'Set filetype' })
+vim.keymap.set('n', '<leader>gd', ':vsp<cr>:te<cr>ilazydocker<cr>', { desc = 'Open Lazy Docker' })
+vim.keymap.set('n', ';;', 'A;<Esc>', { desc = 'Add ;' })
+vim.keymap.set({ 'n', 'v' }, '<leader>tf', vim.lsp.buf.format, { desc = '[T]ap [F]ormat' })

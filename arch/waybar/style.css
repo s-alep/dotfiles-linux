@@ -1,82 +1,45 @@
-@import "nord.css";
-
 * {
-  font-family: JetBrainsMono Nerd Font, "Noto Sans CJK JP";
-  font-size: 15;
-  min-height: 0;
+    background-color: #1e1e1e;
+    color: #8a8a8d;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14;
 }
 
-#waybar {
-  background: @surface0;
-  background-color : @surface0;
-  color: @text;
+.modules-left {
+    margin-left: 8px;
 }
 
-#workspaces {
-  padding : 1px;
-  border: none;
-  border-radius: 1rem;
-  box-shadow : none;
-  background-color: @surface0;
+.modules-right {
+    margin-right: 8px;
 }
 
 #workspaces button {
-  padding:0px;
-  box-shadow: none;
-  color: @lavender;
-  border-radius: 1rem;
+    all: initial;
+    padding: 0 6px;
+    margin: 0 1.5px;
+    min-width: 9px;
 }
 
-#workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
-}
-
-#workspaces button:hover {
-  color: @text;
-  box-shadow: none;
-  border:none;
-  padding:0px;
-  margin:0px;
-  background : @lavender;
-  border-radius: 2rem;
-}
-
-#custom-music,
 #tray,
-#backlight,
-#clock,
+#cpu,
 #battery,
+#network,
+#bluetooth,
 #pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
-  padding: 0.3rem 1rem;
-  margin: 0px 0;
+#clock,
+#language,
+#custom-power-menu {
+    min-width: 12px;
+    margin: 0 7.5px;
 }
 
-#clock {
-  color: @text;
+#custom-expand-icon {
+    margin-right: 12px;
 }
 
-#pulseaudio {
-  color: @text;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+tooltip {
+    padding: 2px;
 }
-
-#custom-music {
-  color: @blue;
-  border-radius: 1rem;
-}
-
-#custom-lock{
-    color: @text;
-}
-
-#custom-power {
-    margin-right: 10px;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @text;
-}
-

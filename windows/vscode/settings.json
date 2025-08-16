@@ -1,0 +1,188 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "python": true
+    },
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.pageUp",
+            "sequence": [
+                {
+                    "command": "editorScroll",
+                    "args": {
+                        "to": "up",
+                        "by": "wrappedLine",
+                        "value": 32
+                    }
+                },
+                {
+                    "command": "cursorMove",
+                    "args": {
+                        "to": "viewPortCenter"
+                    }
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.pageDown",
+            "sequence": [
+                {
+                    "command": "editorScroll",
+                    "args": {
+                        "to": "down",
+                        "by": "wrappedLine",
+                        "value": 32
+                    }
+                },
+                {
+                    "command": "cursorMove",
+                    "args": {
+                        "to": "viewPortCenter"
+                    }
+                }
+            ]
+        },
+        {
+            "command": "multiCommand.debugVariables",
+            "sequence": [
+                {
+                    "command": "workbench.view.debug"
+                },
+                {
+                    "command": "workbench.debug.action.focusVariablesView"
+                }
+            ]
+        }
+    ],
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape"
+        }
+    },
+    "workbench.view.showQuietly": {
+        "workbench.panel.output": true
+    },
+    "vscode-neovim.useWSL": true,
+    "breadcrumbs.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "window.restoreWindows": "none",
+    "window.restoreFullscreen": false,
+    "files.trimTrailingWhitespace": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "git.suggestSmartCommit": false,
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "workbench.editor.tabSizing": "fixed",
+    "workbench.editor.tabSizingFixedMaxWidth": 200,
+    "workbench.editor.showTabs": "single",
+    "errorLens.enabled": true,
+    "workbench.startupEditor": "none",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontSize": 16,
+    "terminal.integrated.letterSpacing": 1,
+    "editor.minimap.sectionHeaderLetterSpacing": 0,
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "workbench.layoutControl.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "window.menuBarVisibility": "compact",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "workbench.sideBar.location": "right",
+    "editor.wordWrap": "on",
+    "terminal.integrated.gpuAcceleration": "off",
+    "zenMode.showTabs": "none",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "remote.autoForwardPortsSource": "hybrid",
+    "terminal.integrated.smoothScrolling": false,
+    "editor.smoothScrolling": false,
+    "editor.accessibilitySupport": "off",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.fontLigatures": true,
+    "git.openRepositoryInParentFolders": "never",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "c"
+            ],
+            "commands": [
+                "codeium.openChatView"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "i"
+            ],
+            "commands": [
+                "codeium.openCodeiumCommand"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.chat.open"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "i"
+            ],
+            "commands": [
+                "codeium.openCodeiumCommand"
+            ],
+            "silent": true
+        }
+    ],
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "git.blame.editorDecoration.enabled": true,
+    "git.blame.statusBarItem.enabled": false,
+    "editor.lineNumbers": "relative",
+    "codeium.enableCodeLens": false,
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "debug.javascript.autoAttachFilter": "disabled",
+    "files.associations": {
+        "*.module": "php"
+    },
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "terminal.integrated.fontSize": 16,
+    "gruvboxMaterial.darkContrast": "hard",
+    "vscode-neovim.autoGeneratedDocumentSchemes": [
+        "vscode-chat-code-block",
+        "vscode-copilot-chat-code-block"
+    ],
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
+}
