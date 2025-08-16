@@ -1,0 +1,40 @@
+# aliases
+alias v='nvim'
+alias V='sudo nvim'
+alias zed='zeditor'
+alias c='clear'
+alias de='docker exec -it'
+alias lg='lazygit'
+alias ld='lazydocker'
+alias src='source ~/.bashrc'
+alias edt='nvim ~/.bashrc'
+alias ls="lsd -l --group-directories-first"
+alias la="lsd -la --group-directories-first"
+# alias d='cd "$(fd -d 1 -td . ~/Documents/dev | fzf --height=30% --border=rounded)"'
+alias d=/home/salepakos/.config/sessionizer.lua
+alias x='xdg-open'
+alias conf='nvim "$(fd -d 1 -td . ~/.config | fzf --height=30% --border=rounded)"'
+alias paruf="paru -Slq | fzf --multi --preview 'paru -Sii {1}' --preview-window=down:75% | xargs -ro paru -S"
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+eval "$(fzf --bash)"
+
+export FZF_PREVIEW_COLUMNS=40
+export FZF_PREVIEW_LINES=10
+export EDITOR='nvim'
+export TERM='xterm-256color'
+export MANPAGER='nvim +Man!'
+
+export CARGO='~/.cargo/bin'
+export PATH=$PATH:$CARGO
+
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_PLUG='o:fzopen;p:preview-tui;d:dragdrop'
+n(){
+    nautilus $1 &
+}
+ddap(){
+    docker exec -it $1 python -m debugpy --listen 0.0.0.0:5678 -m flask run
+}
+

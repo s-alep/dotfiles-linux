@@ -1,4 +1,14 @@
 {
+  "auto_install_extensions": {
+    "html": true,
+    "php": true,
+    "dockerfile": true,
+    "tokyo-night": true,
+    "pylsp": true,
+    "kanagawa-themes": true,
+    "iceberg": true,
+    "rust-rover-dark-theme": true
+  },
   "collaboration_panel": {
     "dock": "right"
   },
