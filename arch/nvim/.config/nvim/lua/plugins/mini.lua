@@ -50,67 +50,6 @@ return {
     end,
   },
   {
-    'echasnovski/mini.pick',
-    version = '*',
-    config = function()
-      require('mini.pick').setup {}
-
-      vim.keymap.set('n', '<leader>p', ':Pick files<cr>')
-      vim.keymap.set('n', '<leader>sg', ':Pick grep_live<cr>')
-      vim.keymap.set('n', '<leader>sr', ':Pick resume<cr>')
-      vim.keymap.set('n', '<leader><leader>', ':Pick buffers<cr>')
-
-      vim.api.nvim_create_user_command('Hook', function()
-        require('mini.pick').builtin.grep({
-          pattern = [[\#\[Hook]],
-        }, {
-          source = {},
-        })
-      end, {})
-      vim.api.nvim_create_user_command('Help', function()
-        vim.cmd [[Pick help]]
-      end, {})
-      vim.keymap.set('n', '<leader>sn', function()
-        require('mini.pick').start {
-          source = {
-            name = 'nvim config files',
-            items = vim.fn.systemlist 'find ~/.config/nvim -type f',
-          },
-          prompt = 'Pick a file',
-          on_accept = function(item)
-            vim.cmd('edit ' .. item)
-          end,
-        }
-      end, { desc = 'Pick config file' })
-    end,
-  },
-  {
-    'echasnovski/mini.extra',
-    version = '*',
-    config = function()
-      require('mini.extra').setup {}
-      vim.keymap.set('n', '<leader>q', ':Pick diagnostic<cr>')
-      vim.keymap.set('n', '<leader>sd', ':Pick history<cr>')
-      vim.keymap.set('n', '<leader>/', ':Pick buf_lines<cr>')
-      vim.keymap.set('n', 'gs', ':Pick lsp scope="document_symbol"<cr>')
-      vim.keymap.set('n', 'gs', ':Pick lsp scope="document_symbol"<cr>')
-      vim.keymap.set('n', 'gS', ':Pick lsp scope="workspace_symbol"<cr>')
-      vim.keymap.set('n', 'gI', ':Pick lsp scope="implementation"<cr>')
-      vim.keymap.set('n', 'gd', ':Pick lsp scope="definition"<cr>')
-
-      vim.api.nvim_create_user_command('Key', function()
-        vim.cmd [[Pick keymaps]]
-      end, {})
-    end,
-  },
-  {
-    'echasnovski/mini.icons',
-    version = '*',
-    config = function()
-      require('mini.icons').setup {}
-    end,
-  },
-  {
     'echasnovski/mini.ai',
     version = '*',
     config = function()

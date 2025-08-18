@@ -9,6 +9,7 @@
     "iceberg": true,
     "rust-rover-dark-theme": true
   },
+  "cursor_blink": false,
   "collaboration_panel": {
     "dock": "right"
   },
@@ -79,6 +80,6 @@
   "theme": {
     "mode": "dark",
     "light": "Tokyo Night Light",
-    "dark": "Kanagawa Dragon"
+    "dark": "Iceberg"
   }
 }

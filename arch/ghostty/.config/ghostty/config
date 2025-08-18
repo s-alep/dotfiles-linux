@@ -1,8 +1,9 @@
 font-family = "JetBrainsMono Nerd"
-background-opacity = 0.95 
-window-padding-x = 0
-window-padding-y = 0
-theme=Bright Lights
+background-opacity = 0.98
+window-padding-x = 0,0
+window-padding-y = 0,0
+window-padding-balance=true
+theme=iceberg-dark
 confirm-close-surface = false
 gtk-custom-css=custom.css
 

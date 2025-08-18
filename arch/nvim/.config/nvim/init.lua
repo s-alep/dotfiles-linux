@@ -40,7 +40,22 @@ require 'keymap'
 require 'terminal'
 require 'cab'
 
-vim.cmd.colorscheme 'rusty'
+local color = 'forestbones'
+vim.cmd.colorscheme(color)
+vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
 
+vim.keymap.set('n', '<leader>tg', function()
+  local normal = vim.fn.execute 'hi Normal'
+  local current_color = vim.api.nvim_exec2('colorscheme', { output = true }).output
+  if not string.find(normal, 'guibg') then
+    vim.cmd.colorscheme(current_color)
+  else
+    vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+  end
+end, { desc = '[T]oggle back[G]round opacity' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

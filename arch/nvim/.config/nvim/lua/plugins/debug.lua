@@ -32,13 +32,6 @@ return {
       desc = 'Debug: Step Into',
     },
     {
-      '<leader>dl',
-      function()
-        require('dap').step_over()
-      end,
-      desc = 'Debug: Step Over',
-    },
-    {
       '<leader>dk',
       function()
         require('dap').step_out()
@@ -71,7 +64,16 @@ return {
       ':DapClearBreakpoints<cr>',
       desc = 'Debug: Clear Breakpoints',
     },
-
+    {
+      '<leader>dl',
+      '<cmd>DapStepInto',
+      desc = 'Debug: Step Into',
+    },
+    {
+      '<leader>dc',
+      '<cmd>DapDisconnect',
+      desc = 'Debug: Disconnect',
+    },
     {
       '<leader>du',
       function()
@@ -82,14 +84,14 @@ return {
     {
       '<leader>dw',
       function()
-        require('dapui').float_element('watches', { width = 100, height = 35, enter = true, position = 'center' })
+        require('dapui').float_element('watches', { title = 'Watch', width = 100, height = 35, enter = true, position = 'center' })
       end,
       desc = 'Debug: View Watches',
     },
     {
       '<leader>dv',
       function()
-        require('dapui').float_element('scopes', { width = 100, height = 35, enter = true, position = 'center' })
+        require('dapui').float_element('scopes', { title = 'Scopes', width = 100, height = 35, enter = true, position = 'center' })
       end,
       desc = 'Debug: View Scope',
     },
@@ -179,6 +181,10 @@ return {
 
     require('dap-python').setup 'python3'
 
+    dap.adapters.lua = {
+      type = 'executable',
+      command = 'local-lua-debugger-vscode-debug-adapter',
+    }
     dap.adapters.php = {
       type = 'executable',
       command = 'php-debug-adapter', -- or full path to it
@@ -202,6 +208,19 @@ return {
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
+      },
+    }
+    dap.configurations.lua = {
+      {
+        name = 'Current file (local-lua-dbg, lua)',
+        type = 'lua',
+        request = 'launch',
+        cwd = '${workspaceFolder}',
+        program = {
+          lua = 'lua5.4',
+          file = '${file}',
+        },
+        args = {},
       },
     }
     dap.configurations.php = {

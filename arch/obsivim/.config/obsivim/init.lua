@@ -126,7 +126,7 @@ require("lazy").setup({
 	},
 })
 
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("eldritch")
 vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { fg = "#ff6c6b", bold = true })
 vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { fg = "#da8548", bold = true })
 vim.api.nvim_set_hl(0, "@markup.heading.3.markdown", { fg = "#98be65", bold = true })

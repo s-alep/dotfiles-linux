@@ -35,4 +35,4 @@ local function toggle_terminal()
 end
 
 -- Map <leader>tt to toggle the terminal
-vim.keymap.set('n', '<leader>tt', toggle_terminal, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tt', toggle_terminal, { desc = '[T]oggle [T]erminal', noremap = true, silent = true })

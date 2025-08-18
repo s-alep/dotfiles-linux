@@ -16,6 +16,7 @@
     "bluetooth",
     "network",
     "pulseaudio",
+    "backlight",
     "battery"
   ],
   "hyprland/workspaces": {
@@ -69,6 +70,17 @@
     "interval": 3,
     "nospacing": 1,
     "on-click": "ghostty -e nmtui"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "on-click": "hyprctl hyprsunset temperature 3800",
+    "on-click-right": "hyprctl hyprsunset identity",
+    "on-scroll-up": "hyprctl hyprsunset gamma +10",
+    "on-scroll-down": "hyprctl hyprsunset gamma -10",
+    "format-icons": [
+      ""
+    ]
   },
   "battery": {
     "format": "{capacity}% {icon}",
