@@ -5,9 +5,10 @@ local act = wezterm.action
 config.use_fancy_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.hide_tab_bar_if_only_one_tab = true
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.audible_bell = "Disabled"
-config.font_size = 15
+config.font_size = 13
+config.enable_wayland = false
 
 config.inactive_pane_hsb = {
 	saturation = 0.9,
@@ -22,10 +23,11 @@ config.window_padding = {
 }
 
 config.warn_about_missing_glyphs = false
-config.leader = { key = "a", mods = "CTRL" }
+config.leader = { key = "s", mods = "CTRL" }
 config.disable_default_key_bindings = true
+config.hide_mouse_cursor_when_typing = true
 config.keys = {
-	{ key = "s", mods = "LEADER", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
+	{ key = "V", mods = "LEADER", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 	{ key = "v", mods = "LEADER", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
 	{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
 	{ key = "c", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
@@ -46,8 +48,9 @@ config.keys = {
 	{ key = "7", mods = "CTRL", action = act({ ActivateTab = 6 }) },
 	{ key = "8", mods = "CTRL", action = act({ ActivateTab = 7 }) },
 	{ key = "9", mods = "CTRL", action = act({ ActivateTab = 8 }) },
-	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
-	{ key = "`", mods = "CTRL", action = act.ActivateCommandPalette },
+	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = false } }) },
+	{ key = ";", mods = "LEADER", action = act.ActivateCommandPalette },
+	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 
 	{ key = "F12", action = "ToggleFullScreen" },
 	{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
@@ -57,7 +60,7 @@ config.keys = {
 	{ key = "0", mods = "LEADER", action = act.ResetFontSize },
 }
 config.window_background_opacity = 0.96
-config.color_scheme = "Operator Mono Dark"
+config.color_scheme = "iceberg-dark"
 config.window_decorations = "RESIZE"
 
 return config

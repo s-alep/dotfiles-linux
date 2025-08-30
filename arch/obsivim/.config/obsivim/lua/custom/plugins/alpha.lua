@@ -9,6 +9,8 @@ return {
 			dashboard.button("n", " New Note", ":ObsidianNew<CR><CR>"),
 			dashboard.button("nt", " New Note From Template", ":ObsidianNewFromTemplate<CR>"),
 			dashboard.button("v", " Choose Vault", ":ObsidianWorkspace<CR>"),
+			dashboard.button("td", "󰃶 Today", ":ObsidianToday<CR>"),
+			dashboard.button("tm", " Tomorrow", ":ObsidianTomorrow<CR>"),
 			dashboard.button("r", "󱠇  MRU", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
 		}

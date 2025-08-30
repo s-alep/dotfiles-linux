@@ -24,8 +24,7 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "space a": "workspace::ToggleRightDock"
+      "ctrl-k": "workspace::ActivatePaneUp"
     }
   },
   {

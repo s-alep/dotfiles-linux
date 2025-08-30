@@ -1,4 +1,6 @@
-require 'opts'
+if not vim.g.vscode then
+  require 'opts'
+end
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -36,26 +38,40 @@ require('lazy').setup({
   },
 })
 
-require 'keymap'
-require 'terminal'
-require 'cab'
+if vim.g.vscode then
+  require 'code'
+else
+  require 'keymap'
+  require 'terminal'
+  require 'cab'
 
-local color = 'forestbones'
-vim.cmd.colorscheme(color)
-vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
-
-vim.keymap.set('n', '<leader>tg', function()
-  local normal = vim.fn.execute 'hi Normal'
-  local current_color = vim.api.nvim_exec2('colorscheme', { output = true }).output
-  if not string.find(normal, 'guibg') then
-    vim.cmd.colorscheme(current_color)
+  if vim.g.neovide then
+    vim.cmd.colorscheme 'habamax'
   else
+    local color = 'nord'
+    vim.cmd.colorscheme(color)
     vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'NONE' })
+
+    vim.keymap.set('n', '<leader>tg', function()
+      local normal = vim.fn.execute 'hi Normal'
+      local current_color = vim.api.nvim_exec2('colorscheme', { output = true }).output
+      if not string.find(normal, 'guibg') then
+        vim.cmd.colorscheme(current_color)
+      else
+        vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
+        vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'NONE' })
+      end
+    end, { desc = '[T]oggle back[G]round opacity' })
   end
-end, { desc = '[T]oggle back[G]round opacity' })
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

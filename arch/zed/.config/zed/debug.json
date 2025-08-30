@@ -7,9 +7,8 @@
     "label": "Attach",
     "adapter": "Debugpy",
     "request": "attach",
-    "debugAdapterPath": "/usr/bin/debugpy",
+    // "debugAdapterPath": "/usr/bin/debugpy",
     "connect": {
-      "host": "localhost",
       "port": 5678
     },
     "pathMappings": [

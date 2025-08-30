@@ -66,12 +66,12 @@ return {
     },
     {
       '<leader>dl',
-      '<cmd>DapStepInto',
+      '<cmd>DapStepInto<cr>',
       desc = 'Debug: Step Into',
     },
     {
       '<leader>dc',
-      '<cmd>DapDisconnect',
+      '<cmd>DapDisconnect<cr>',
       desc = 'Debug: Disconnect',
     },
     {
@@ -250,6 +250,17 @@ return {
         },
       },
       {
+        name = 'Python FastAPI',
+        type = 'python',
+        request = 'launch',
+        module = 'fastapi',
+        args = {
+          'dev',
+          'main.py',
+        },
+        jinja = 'true',
+      },
+      {
         name = 'Python Flask',
         type = 'python',
         request = 'launch',
@@ -260,7 +271,7 @@ return {
         jinja = 'true',
       },
       {
-        name = 'Uvicorn setup',
+        name = 'Uvicorn',
         type = 'python',
         request = 'launch',
         module = 'uvicorn',

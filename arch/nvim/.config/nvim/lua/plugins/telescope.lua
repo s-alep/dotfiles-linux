@@ -18,7 +18,7 @@ return {
   config = function()
     require('telescope').setup {
       pickers = {
-        colorscheme = { theme = 'dropdown', previewer = false },
+        colorscheme = { theme = 'dropdown', previewer = true },
         buffers = { theme = 'dropdown', previewer = false },
         grep_string = { theme = 'dropdown', previewer = true, layout = 'vertical' },
       },
@@ -43,7 +43,7 @@ return {
       builtin.keymaps()
     end, {})
     vim.api.nvim_create_user_command('Color', function()
-      builtin.colorscheme()
+      builtin.colorscheme { enable_preview = true }
     end, {})
     map('n', '<leader>p', builtin.find_files, { desc = '[P]ick files' })
     map('n', '<leader>q', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })

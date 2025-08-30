@@ -1,5 +1,5 @@
 return {
-  { 'cocopon/iceberg.vim' },
+  { 'shaunsingh/nord.nvim' },
   {
     'zenbones-theme/zenbones.nvim',
     dependencies = 'rktjmp/lush.nvim',
