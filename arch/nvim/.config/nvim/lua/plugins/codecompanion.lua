@@ -9,13 +9,20 @@ return {
   config = function()
     require('codecompanion').setup {
       adapters = {
-        gemini = function()
-          return require('codecompanion.adapters').extend('gemini', {
-            env = {
-              api_key = 'AIzaSyBE0a-K7qCtHA-fgd75zBWMyfT3RLnca8A',
-            },
-          })
-        end,
+        http = {
+          gemini = function()
+            return require('codecompanion.adapters').extend('gemini', {
+              env = {
+                api_key = 'cmd: echo $GOOGLE_AI_API_KEY',
+              },
+            })
+          end,
+        },
+      },
+      display = {
+        diff = {
+          provider = 'inline',
+        },
       },
       strategies = {
         chat = {
