@@ -23,7 +23,7 @@ config.window_padding = {
 }
 
 config.warn_about_missing_glyphs = false
-config.leader = { key = "s", mods = "CTRL" }
+config.leader = { key = "q", mods = "CTRL" }
 config.disable_default_key_bindings = true
 config.hide_mouse_cursor_when_typing = true
 config.keys = {
@@ -50,7 +50,6 @@ config.keys = {
 	{ key = "9", mods = "CTRL", action = act({ ActivateTab = 8 }) },
 	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = false } }) },
 	{ key = ";", mods = "LEADER", action = act.ActivateCommandPalette },
-	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 
 	{ key = "F12", action = "ToggleFullScreen" },
 	{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
@@ -59,8 +58,8 @@ config.keys = {
 	{ key = "_", mods = "SHIFT|CTRL", action = act.DecreaseFontSize },
 	{ key = "0", mods = "LEADER", action = act.ResetFontSize },
 }
-config.window_background_opacity = 0.96
-config.color_scheme = "iceberg-dark"
+config.window_background_opacity = 1
+config.color_scheme = "niji"
 config.window_decorations = "RESIZE"
 
 return config

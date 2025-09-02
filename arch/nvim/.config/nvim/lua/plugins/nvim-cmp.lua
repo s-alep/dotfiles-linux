@@ -1,3 +1,4 @@
+local codecompanion = require 'legendary.extensions.codecompanion'
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',

@@ -45,10 +45,11 @@ else
   require 'terminal'
   require 'cab'
 
+  vim.o.statusline = "%f [%{%v:lua.require'nvim-navic'.get_location()%}]"
   if vim.g.neovide then
     vim.cmd.colorscheme 'habamax'
   else
-    local color = 'nord'
+    local color = 'rose-pine'
     vim.cmd.colorscheme(color)
     vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
