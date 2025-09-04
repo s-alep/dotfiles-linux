@@ -1,6 +1,6 @@
 return {
   {
-    'echasnovski/mini.ai',
+    'nvim-mini/mini.ai',
     version = '*',
     config = function()
       require('mini.ai').setup {
@@ -9,7 +9,14 @@ return {
     end,
   },
   {
-    'echasnovski/mini.indentscope',
+    'nvim-mini/mini.icons',
+    version = '*',
+    config = function()
+      require('mini.icons').setup {}
+    end,
+  },
+  {
+    'nvim-mini/mini.indentscope',
     version = false,
     cond = not vim.g.vsocde,
     config = function()
@@ -26,7 +33,7 @@ return {
     end,
   },
   {
-    'echasnovski/mini.hipatterns',
+    'nvim-mini/mini.hipatterns',
     version = '*',
     cond = not vim.g.vsocde,
     config = function()
@@ -39,7 +46,7 @@ return {
     end,
   },
   {
-    'echasnovski/mini.splitjoin',
+    'nvim-mini/mini.splitjoin',
     version = '*',
     cond = not vim.g.vsocde,
     config = function()
@@ -47,7 +54,7 @@ return {
     end,
   },
   {
-    'echasnovski/mini.files',
+    'nvim-mini/mini.files',
     version = '*',
     cond = not vim.g.vsocde,
     config = function()
@@ -57,14 +64,14 @@ return {
     end,
   },
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     version = '*',
     config = function()
       require('mini.surround').setup {}
     end,
   },
   {
-    'echasnovski/mini-git',
+    'nvim-mini/mini-git',
     version = '*',
     cond = not vim.g.vsocde,
     config = function()
@@ -72,7 +79,7 @@ return {
     end,
   },
   {
-    'echasnovski/mini.pairs',
+    'nvim-mini/mini.pairs',
     version = '*',
     cond = not vim.g.vsocde,
     config = function()

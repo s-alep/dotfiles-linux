@@ -14,12 +14,15 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'nvim-mini/mini.icons' },
   },
   config = function()
     require('telescope').setup {
       pickers = {
-        colorscheme = { theme = 'dropdown', previewer = true },
+        colorscheme = { theme = 'dropdown', previewer = false },
+        keymaps = { theme = 'dropdown', previewer = false },
+        diagnostics = { theme = 'dropdown', previewer = false },
+        live_grep = { theme = 'dropdown', previewer = true },
         buffers = { theme = 'dropdown', previewer = false },
         grep_string = { theme = 'dropdown', previewer = true, layout = 'vertical' },
       },
@@ -32,20 +35,17 @@ return {
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+
     local map = vim.keymap.set
     local builtin = require 'telescope.builtin'
-    vim.api.nvim_create_user_command('Mpage', function()
-      builtin.man_pages()
-    end, {})
-    vim.api.nvim_create_user_command('Help', function()
-      builtin.help_tags()
-    end, {})
-    vim.api.nvim_create_user_command('Keys', function()
-      builtin.keymaps()
-    end, {})
-    vim.api.nvim_create_user_command('Color', function()
+
+    map('n', '<F1>', builtin.help_tags, { desc = 'Help' })
+    map('n', '<F2>', builtin.keymaps, { desc = 'Keymaps' })
+    map('n', '<F3>', function()
       builtin.colorscheme { enable_preview = true }
-    end, {})
+    end, { desc = 'Colors' })
+    map('n', '<F4>', builtin.man_pages, { desc = 'MPage' })
+
     map('n', '<leader>p', builtin.find_files, { desc = '[P]ick files' })
     map('n', '<leader>q', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     map('n', '<leader>sd', builtin.command_history, { desc = '[S]earch comman[D] history' })
@@ -62,23 +62,6 @@ return {
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
 
-    vim.api.nvim_create_user_command('Hook', function()
-      builtin.grep_string {
-        vimgrep_arguments = {
-          'rg',
-          '--color=never',
-          '--no-heading',
-          '--line-number',
-          '--column',
-          '--smart-case',
-        },
-        cwd = '~/Documents/dev/arbi',
-        search = '#[Hook',
-        word_match = '-w',
-        disable_coordinates = true,
-        only_sort_text = false,
-      }
-    end, {})
     vim.api.nvim_create_user_command('Hooks', function()
       builtin.grep_string {
         cwd = '~/Documents/dev/arbi',

@@ -7,7 +7,6 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
     'mfussenegger/nvim-dap-python',
   },
-
   cond = not vim.g.vscode,
   keys = {
     {

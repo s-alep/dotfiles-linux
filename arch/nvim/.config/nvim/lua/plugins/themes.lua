@@ -1,34 +1,29 @@
 return {
   { 'shaunsingh/nord.nvim' },
   {
-    'craftzdog/solarized-osaka.nvim',
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     opts = {
+      style = 'night',
       transparent = false,
-    },
-  },
-  -- lua/plugins/rose-pine.lua
-  {
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    opts = {
       styles = {
-        transparency = true,
+        comments = { italic = false },
+        keywords = { italic = false },
+        sidebars = 'dark',
+        floats = 'dark',
       },
     },
   },
   {
-    'eldritch-theme/eldritch.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = { transparent = true },
-  },
-  {
-    'zenbones-theme/zenbones.nvim',
-    dependencies = 'rktjmp/lush.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function() end,
+    'navarasu/onedark.nvim',
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('onedark').setup {
+        style = 'darker',
+      }
+      require('onedark').load()
+      -- vim.cmd.colorscheme 'tokyonight'
+    end,
   },
 }

@@ -16,12 +16,12 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('gs', require('telescope.builtin').lsp_document_symbols, '[G]o to Document [S]ymbols')
-        map('gS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[G]o to Workspace [S]ymbols')
-        map('gR', require('telescope.builtin').lsp_references, '[G]o to LSP [R]eferences')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        -- map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        -- map('gs', require('telescope.builtin').lsp_document_symbols, '[G]o to Document [S]ymbols')
+        -- map('gS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[G]o to Workspace [S]ymbols')
+        -- map('gR', require('telescope.builtin').lsp_references, '[G]o to LSP [R]eferences')
+        -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
           local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
