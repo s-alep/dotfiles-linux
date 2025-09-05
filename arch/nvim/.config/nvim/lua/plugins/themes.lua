@@ -1,5 +1,4 @@
 return {
-  { 'shaunsingh/nord.nvim' },
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -16,14 +15,20 @@ return {
     },
   },
   {
+    'ribru17/bamboo.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('bamboo').setup {}
+    end,
+  },
+  {
     'navarasu/onedark.nvim',
-    priority = 1000, -- make sure to load this before all the other start plugins
+    priority = 1000,
     config = function()
       require('onedark').setup {
-        style = 'darker',
+        style = 'warmer',
       }
-      require('onedark').load()
-      -- vim.cmd.colorscheme 'tokyonight'
     end,
   },
 }

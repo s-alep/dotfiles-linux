@@ -1,6 +1,6 @@
 font-family="JetBrainsMono Nerd Font"
 font-size=12
-background-opacity = 0.85
+background-opacity = 0.97
 window-padding-y = 0,0
 window-padding-balance=true
 theme=nord-wave

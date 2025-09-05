@@ -32,12 +32,12 @@ return {
               starts = 1
               ends = win_height
             else
-              width = math.floor(win_width * 0.5) -- 50%
+              width = math.floor(win_width * 0.37) -- 50%
               height = math.floor(win_height * 0.3) -- 30%
               starts = math.floor((win_width - width) / 2)
               -- center prompt: height * (50% + 30%)
               -- center window: height * [50% + (30% / 2)]
-              ends = math.floor(win_height * 0.65)
+              ends = math.floor(win_height * 0.5)
             end
 
             return {

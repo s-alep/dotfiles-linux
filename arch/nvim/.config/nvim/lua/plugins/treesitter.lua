@@ -80,31 +80,9 @@ return {
         enable = true,
         keymaps = {
           init_selection = 'gnn',
-          node_incremental = '<C-;>',
+          node_incremental = 'nm',
           scope_incremental = 'gns',
-          node_decremental = '<C-.>',
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-            ['ii'] = '@conditional.inner',
-            ['ai'] = '@conditional.outer',
-            ['il'] = '@loop.inner',
-            ['al'] = '@loop.outer',
-          },
-          selection_modes = {
-            ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V', -- linewise
-            ['@class.outer'] = '<c-v>', -- blockwise
-          },
-          include_surrounding_whitespace = true,
+          node_decremental = 'nn',
         },
       },
       auto_install = true,

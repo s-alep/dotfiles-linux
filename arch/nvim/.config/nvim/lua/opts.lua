@@ -32,3 +32,5 @@ vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'
 vim.opt.swapfile = false
 vim.o.winborder = 'rounded'
+
+vim.cmd [[se path+=**]]

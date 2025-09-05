@@ -3,8 +3,14 @@ return {
     'nvim-mini/mini.ai',
     version = '*',
     config = function()
+      local treesitter = require('mini.ai').gen_spec.treesitter
       require('mini.ai').setup {
         n_lines = 500,
+        custom_textobjects = {
+          f = treesitter { a = '@function.outer', i = '@function.inner' },
+          c = treesitter { a = '@class.outer', i = '@class.inner' },
+          i = treesitter { a = '@block.outer', i = '@block.inner' },
+        },
       }
     end,
   },
@@ -50,16 +56,8 @@ return {
     version = '*',
     cond = not vim.g.vsocde,
     config = function()
-      require('mini.splitjoin').setup { mappings = { toggle = 'gj', split = '', join = '' } }
-    end,
-  },
-  {
-    'nvim-mini/mini.files',
-    version = '*',
-    cond = not vim.g.vsocde,
-    config = function()
-      require('mini.files').setup {
-        vim.keymap.set('n', '<leader>x', ':lua MiniFiles.open()<cr>', { desc = 'e[X]plorer' }),
+      require('mini.splitjoin').setup {
+        mappings = { toggle = '<C-m>', split = '', join = '' },
       }
     end,
   },
