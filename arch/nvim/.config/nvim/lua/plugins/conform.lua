@@ -2,7 +2,6 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
-  cond = not vim.g.vscode,
   keys = {
     {
       '<leader>=',
@@ -30,10 +29,14 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      python = { 'ruff' },
+      elixir = { 'elixirls' },
       json = { 'prettier' },
       xml = { 'xmlformatter' },
+      html = { 'prettier' },
       php = { 'pretty-php' },
       javascript = { 'prettier' },
+      typescript = { 'prettier' },
       twig = { 'djlint' },
     },
   },

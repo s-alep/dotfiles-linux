@@ -15,6 +15,13 @@ return {
     end,
   },
   {
+    'nvim-mini/mini.hues',
+    version = '*',
+    config = function()
+      require('mini.hues').setup { background = '#000000', foreground = '#ffffff' }
+    end,
+  },
+  {
     'nvim-mini/mini.icons',
     version = '*',
     config = function()
@@ -24,7 +31,6 @@ return {
   {
     'nvim-mini/mini.indentscope',
     version = false,
-    cond = not vim.g.vsocde,
     config = function()
       require('mini.indentscope').setup {
         draw = {
@@ -41,7 +47,6 @@ return {
   {
     'nvim-mini/mini.hipatterns',
     version = '*',
-    cond = not vim.g.vsocde,
     config = function()
       local hipatterns = require 'mini.hipatterns'
       hipatterns.setup {
@@ -54,7 +59,6 @@ return {
   {
     'nvim-mini/mini.splitjoin',
     version = '*',
-    cond = not vim.g.vsocde,
     config = function()
       require('mini.splitjoin').setup {
         mappings = { toggle = '<C-m>', split = '', join = '' },
@@ -71,7 +75,6 @@ return {
   {
     'nvim-mini/mini-git',
     version = '*',
-    cond = not vim.g.vsocde,
     config = function()
       require('mini.git').setup {}
     end,
@@ -79,7 +82,6 @@ return {
   {
     'nvim-mini/mini.pairs',
     version = '*',
-    cond = not vim.g.vsocde,
     config = function()
       require('mini.pairs').setup()
     end,

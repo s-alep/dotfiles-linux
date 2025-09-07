@@ -2,7 +2,6 @@
 return { -- Autocompletion
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
-  cond = not vim.g.vscode,
   dependencies = {
     {
       'L3MON4D3/LuaSnip',

@@ -3,7 +3,6 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
     requires = 'nvim-treesitter/nvim-treesitter',
-    cond = not vim.g.vscode,
   },
   {
     'SmiteshP/nvim-navic',
@@ -54,10 +53,9 @@ return {
       }
     end,
   },
-  { 'nvim-treesitter/nvim-treesitter-context', cond = not vim.g.vscode },
-  { -- Highlight, edit, and navigate code
+  { 'nvim-treesitter/nvim-treesitter-context' },
+  {
     'nvim-treesitter/nvim-treesitter',
-    cond = not vim.g.vscode,
     lazy = false,
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',

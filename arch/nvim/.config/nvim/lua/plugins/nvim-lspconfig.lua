@@ -6,7 +6,6 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'hrsh7th/cmp-nvim-lsp',
   },
-  cond = not vim.g.vscode,
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -50,8 +49,9 @@ return {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
-      pyright = {},
+      ruff = {},
       ts_ls = {},
+      elixirls = {},
       gopls = {},
       jinja_lsp = {},
       phpactor = {},
