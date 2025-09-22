@@ -1,13 +1,15 @@
 require 'opts'
 
-Color = {
-  color = vim.g.neovide and 'habamax' or 'minispring',
-  opaque = 0,
+Color = vim.g.neovide and 'habamax' or {
+  autumn = 'tokyonight-storm',
+  summer = 'monokai-pro-ristretto',
+  spring = 'bamboo',
+  winter = 'material-oceanic'
 }
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,

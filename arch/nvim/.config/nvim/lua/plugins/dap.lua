@@ -101,10 +101,7 @@ return {
     require('mason-nvim-dap').setup {
       automatic_installation = true,
       handlers = {},
-      ensure_installed = {
-        'debugpy',
-        'php-debug-adapter',
-      },
+      ensure_installed = {'debugpy', 'php-debug-adapter', 'java-debug-adapter'},
     }
 
     dapui.setup {
@@ -183,6 +180,15 @@ return {
       type = 'executable',
       command = 'local-lua-debugger-vscode-debug-adapter',
     }
+
+    dap.adapters.java = function(callback)
+      callback({
+        type = 'server';
+        host = '127.0.0.1';
+        port = 5005;
+      })
+    end
+
     dap.adapters.php = {
       type = 'executable',
       command = 'php-debug-adapter', -- or full path to it
@@ -206,6 +212,19 @@ return {
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
+      },
+    }
+
+    dap.configurations.java = {
+      {
+        classPaths = {},
+        projectName = "Hello",
+        javaExec = "/usr/bin/java",
+        mainClass = "Hello",
+        modulePaths = {},
+        name = "Launch Hello",
+        request = "launch",
+        type = "java"
       },
     }
     dap.configurations.lua = {

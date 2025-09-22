@@ -16,6 +16,6 @@ vim.keymap.set('n', '<leader>ef', function()
     end
   end)
 end, { desc = 'Set filetype' })
-vim.keymap.set('n', '<leader>gd', ':vsp<cr>:te<cr>ilazydocker<cr>', { desc = 'Open Lazy Docker' })
 vim.keymap.set('n', ';;', 'A;<Esc>', { desc = 'Add ;' })
 vim.keymap.set({ 'n', 'v' }, '<leader>tf', vim.lsp.buf.format, { desc = '[T]ap [F]ormat' })
+vim.keymap.set('n', 'gD', '<cmd>vsplit | wincmd l | lua vim.lsp.buf.definition()<cr>')

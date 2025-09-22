@@ -1,20 +1,27 @@
-vim.cmd.colorscheme(Color.color)
-if Color.opaque == 1 then
-  vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'NormalNC', { link = 'Normal' })
-  vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'NormalFloat' })
-else
-  vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
-  vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
-  require('lualine').setup {}
+local project_name = string.match(vim.fn.getcwd(), '[^/]+$')
+local opaque = project_name == 'AngularApp'
+
+local function GetSeason()
+  local now = os.date("*t")
+  local month = now.month
+  if month == 12 or month == 1 or month == 2 then
+    return 'winter'
+  elseif month == 3 or month == 4 or month == 5 then
+    return 'spring'
+  elseif month == 6 or month == 7 or month == 8 then
+    return 'summer'
+  elseif month == 9 or month == 10 or month == 11 then
+    return 'autumn'
+  end
 end
 
-vim.keymap.set('n', '<leader>tg', function()
+vim.cmd.colorscheme(Color[GetSeason()])
+
+vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
+require('lualine').setup {}
+
+local function toggle_opacity()
   local normal = vim.fn.execute 'hi Normal'
   local current_color = vim.api.nvim_exec2('colorscheme', { output = true }).output
   if not string.find(normal, 'guibg') then
@@ -23,12 +30,20 @@ vim.keymap.set('n', '<leader>tg', function()
     vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
     require('lualine').setup {}
   else
-    vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
+    local normal_bg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg
+    vim.api.nvim_set_hl(0, 'StatusLine', { bg = normal_bg })
+    vim.api.nvim_set_hl(0, 'StatusLineNC', { bg =  normal_bg})
+    require('lualine').setup {}
     vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'NormalNC', { link = 'Normal' })
   end
-end, { desc = '[T]oggle back[G]round opacity' })
+end
+
+vim.keymap.set('n', '<leader>tg', toggle_opacity, { desc = '[T]oggle back[G]round opacity' })
+
+if opaque then
+  toggle_opacity()
+end

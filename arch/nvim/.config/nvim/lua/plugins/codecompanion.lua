@@ -35,7 +35,7 @@ return {
 
     vim.keymap.set({ 'n', 'v' }, '<leader>we', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<leader>ww', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
+    vim.keymap.set({ 'n', 'v' }, '<leader>wi', ':CodeCompanion ', { noremap = true, silent = true })
     vim.keymap.set('v', 'ga', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
-    vim.cmd [[cab cc CodeCompanion]]
   end,
 }

@@ -13,6 +13,7 @@ return {
       'nvim-mini/mini.icons',
     },
     config = function()
+      require('mini.icons').setup()
       require('mini.pick').setup {
         mappings = {
           scroll_down = '<C-d>',
@@ -54,7 +55,11 @@ return {
       map('n', '<leader><leader>', '<cmd>Pick buffers<cr>')
       map('n', '<leader>p', '<cmd>Pick files<cr>')
       map('n', '<leader>sg', '<cmd>Pick grep_live<cr>')
-      map('n', '<leader>/', '<cmd>Pick buf_lines<cr>')
+      map('n', '<leader>/', function ()
+        require('mini.extra').pickers.buf_lines({
+          scope = 'current'
+        })
+      end)
       map('n', '<leader>q', '<cmd>Pick diagnostic<cr>')
       map('n', '<leader>sm', '<cmd>Pick marks<cr>')
       map('n', '<leader>sr', '<cmd>Pick resume<cr>')
@@ -74,15 +79,14 @@ return {
 
       map('n', '<leader>gb', '<cmd>Pick git_branches<cr>')
       map('n', '<leader>gc', '<cmd>Pick git_commits<cr>')
-      map('n', '<leader>gf', '<cmd>Pick git_files<cr>')
       map('n', '<leader>gh', '<cmd>Pick git_hunks<cr>')
 
       local lspicker = require('mini.extra').pickers.lsp
-      map('n', 'gD', function()
-        lspicker { scope = 'declaration' }
-      end)
+      -- map('n', 'gD', function()
+      --   lspicker { scope = 'definition' }
+      -- end)
       map('n', 'gd', function()
-        lspicker { scope = 'definition' }
+        vim.lsp.buf.definition()
       end)
       map('n', 'gI', function()
         lspicker { scope = 'implementation' }
@@ -96,13 +100,13 @@ return {
       map('n', 'gs', function()
         lspicker { scope = 'document_symbol' }
       end)
-      map('n', 'gS', function()
-        lspicker { scope = 'workspace_symbol' }
-      end)
+      -- map('n', 'gS', function()
+      --   lspicker { scope = 'workspace_symbol' ,symbol_query =nil}
+      -- end)
 
-      map('n', '<F1>', '<cmd>Pick help<cr>')
-      map('n', '<F2>', '<cmd>Pick keymaps<cr>')
-      map('n', '<F3>', '<cmd>Pick colorschemes<cr>')
+      -- map('n', '<F1>', '<cmd>Pick help<cr>')
+      -- map('n', '<F2>', '<cmd>Pick keymaps<cr>')
+      -- map('n', '<F3>', '<cmd>Pick colorschemes<cr>')
 
       vim.ui.select = MiniPick.ui_select
     end,

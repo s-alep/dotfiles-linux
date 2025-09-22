@@ -49,22 +49,13 @@ return {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
-      ruff = {},
+      pyright = {},
       ts_ls = {},
       elixirls = {},
-      gopls = {},
       jinja_lsp = {},
       phpactor = {},
       jsonls = {},
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-          },
-        },
-      },
+      lua_ls = {},
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})
@@ -75,7 +66,6 @@ return {
       'php-debug-adapter',
       'pretty-php',
       'curlylint',
-      'delve',
       'twiggy_language_server',
       'xmlformatter',
     })
