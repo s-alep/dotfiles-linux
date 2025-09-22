@@ -1,5 +1,5 @@
 {
-  "format_on_save": null,
+  "format_on_save": "off",
   "auto_install_extensions": {
     "html": true,
     "php": true,
@@ -66,8 +66,8 @@
   },
   "always_treat_brackets_as_autoclosed": true,
   // Fonts
-  "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
-  "ui_font_family": "CaskaydiaCove Nerd Font Mono",
+  "buffer_font_family": "Iosevka Nerd Font Mono",
+  "ui_font_family": "Iosevka Nerd Font Mono",
   "ui_font_fallbacks": ["CaskaydiaCove Nerd Font Mono"],
   "relative_line_numbers": true,
   "vim_mode": true,
