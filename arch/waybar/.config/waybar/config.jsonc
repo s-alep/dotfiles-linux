@@ -16,7 +16,7 @@
     "bluetooth",
     "network",
     "pulseaudio",
-    "backlight",
+    "custom/brightness",
     "battery"
   ],
   "hyprland/workspaces": {
@@ -69,10 +69,10 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "ghostty -e nmtui"
+    "on-click": "ghostty -e impala"
   },
   "backlight": {
-    "device": "intel_backlight",
+    "device": "auto",
     "format": "{icon}",
     "on-click": "hyprctl hyprsunset temperature 3800",
     "on-click-right": "hyprctl hyprsunset identity",
@@ -81,6 +81,14 @@
     "format-icons": [
       ""
     ]
+  },
+  "custom/brightness": {
+    "format": "",
+    "on-click": "hyprctl hyprsunset temperature 3800",
+    "on-click-right": "hyprctl hyprsunset identity",
+    "on-scroll-up": "hyprctl hyprsunset gamma +10",
+    "on-scroll-down": "hyprctl hyprsunset gamma -10",
+    "tooltip" :false
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -127,7 +135,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "ghostty -e '/home/salepakos/.config/waybar/lua/bluetooth.lua 1'",
+    "on-click": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
     "on-click-right": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
   },
   "pulseaudio": {
