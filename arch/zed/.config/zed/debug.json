@@ -1,8 +1,12 @@
-// Some example tasks for common languages.
-//
-// For more documentation on how to configure debug tasks,
-// see: https://zed.dev/docs/debugger
 [
+  {
+    "label": "ddev listen",
+    "adapter": "PHP",
+    "request": "launch",
+    "pathMappings": {
+      "/var/www/html/web/": "$ZED_WORKTREE_ROOT/web/"
+    }
+  },
   {
     "request": "attach",
     "adapter": "Debugpy",
@@ -11,21 +15,6 @@
     "cwd": "$ZED_WORKTREE_ROOT",
     "port": 5678,
     "log": true,
-    "pathMappings": [
-      {
-        "localRoot": "${ZED_WORKTREE_ROOT}",
-        "remoteRoot": "/workspace"
-      }
-    ]
-  },
-  {
-    "label": "Attach",
-    "adapter": "Debugpy",
-    "request": "attach",
-    // "debugAdapterPath": "/usr/bin/debugpy",
-    "connect": {
-      "port": 5678
-    },
     "pathMappings": [
       {
         "localRoot": "${ZED_WORKTREE_ROOT}",

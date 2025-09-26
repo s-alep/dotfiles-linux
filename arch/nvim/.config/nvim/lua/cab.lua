@@ -1,6 +1,8 @@
 vim.cmd [[cab dr !drush cr<cr>]]
 vim.cmd [[cab cr !ddev drush cr<cr>]]
 vim.cmd [[cab xd !xdebug toggle<cr>]]
+vim.cmd [[cab light set background=light]]
+vim.cmd [[cab dark set background=dark]]
 vim.cmd [[cab ovh Oil oil-ssh://salepakos@162.19.223.177:5522//home/salepakos]]
 vim.cmd [[cab sl2 Oil oil-ssh://gsport@168.119.175.108:5522//home/sl2]]
 vim.cmd [[cab v2 Oil oil-ssh://arbitrage@allweb.gr:2234//var/www/vhosts/arbitrage-re.allweb.gr/v2.arbitrage-re.allweb.gr]]

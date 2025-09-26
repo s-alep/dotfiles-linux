@@ -42,6 +42,7 @@
       "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
       "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
       "space p": "file_finder::Toggle",
+      "space s g" : "workspace::NewSearch",
       "space space": "tab_switcher::ToggleAll",
       "space a": "workspace::ToggleRightDock",
       "space x": "project_panel::ToggleFocus",

@@ -1,14 +1,22 @@
 local project_name = string.match(vim.fn.getcwd(), '[^/]+$')
 local opaque = project_name == 'AngularApp'
 
-local colors = {
-  background = '#14161B',
-  foreground = '#C4C6CD',
-  n_hues = 6,
-  accent = 'cyan'
-}
+local function GetSeason()
+  local now = os.date("*t")
+  local month = now.month
+  if month == 12 or month == 1 or month == 2 then
+    return 'winter'
+  elseif month == 3 or month == 4 or month == 5 then
+    return 'spring'
+  elseif month == 6 or month == 7 or month == 8 then
+    return 'summer'
+  elseif month == 9 or month == 10 or month == 11 then
+    return 'autumn'
+  end
+end
 
-require('mini.hues').setup(colors)
+-- vim.cmd.colorscheme(Color[GetSeason()])
+
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}
@@ -17,7 +25,7 @@ local function toggle_opacity()
   local normal = vim.fn.execute 'hi Normal'
   local current_color = vim.api.nvim_exec2('colorscheme', { output = true }).output
   if not string.find(normal, 'guibg') then
-    require('mini.hues').setup(colors)
+    vim.cmd.colorscheme(current_color)
     vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
     vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
     require('lualine').setup {}
@@ -34,18 +42,8 @@ local function toggle_opacity()
   end
 end
 
-local function toggle_dark_light()
-  local background = vim.o.background
-  if background == 'light' then
-    vim.o.background = 'dark'
-  else
-    vim.o.background = 'light'
-  end
-end
+vim.keymap.set('n', '<leader>tg', toggle_opacity, { desc = '[T]oggle back[G]round opacity' })
 
-vim.keymap.set('n', '<leader>tg', toggle_opacity)
-vim.keymap.set('n', '<leader>tl', toggle_dark_light )
 if opaque then
   toggle_opacity()
 end
-

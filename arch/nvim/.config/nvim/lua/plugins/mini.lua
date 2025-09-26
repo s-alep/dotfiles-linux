@@ -1,15 +1,26 @@
 return {
+  { 'nvim-mini/mini.hues', version = false ,
+    config = function ()
+      require("mini.hues").setup{
+        background = '#212121',
+        foreground = '#B0BEC5'
+      }
+    end
+  },
   {
     'nvim-mini/mini.ai',
     version = '*',
     config = function()
       local treesitter = require('mini.ai').gen_spec.treesitter
+      local ai = require('mini.extra').gen_ai_spec
       require('mini.ai').setup {
         n_lines = 500,
         custom_textobjects = {
           f = treesitter { a = '@function.outer', i = '@function.inner' },
           c = treesitter { a = '@class.outer', i = '@class.inner' },
-          i = treesitter { a = '@block.outer', i = '@block.inner' },
+          i = ai.indent(),
+          B = ai.buffer(),
+          g = ai.line(),
         },
       }
     end,

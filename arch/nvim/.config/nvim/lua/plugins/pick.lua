@@ -54,7 +54,7 @@ return {
       local map = vim.keymap.set
       map('n', '<leader><leader>', '<cmd>Pick buffers<cr>')
       map('n', '<leader>p', '<cmd>Pick files<cr>')
-      map('n', '<leader>sg', '<cmd>Pick grep_live<cr>')
+      map('n', 'g/', '<cmd>Pick grep_live<cr>')
       map('n', '<leader>/', function ()
         require('mini.extra').pickers.buf_lines({
           scope = 'current'

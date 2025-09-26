@@ -1,7 +1,7 @@
 require 'opts'
 
 Color = vim.g.neovide and 'habamax' or {
-  autumn = 'tokyonight-storm',
+  autumn = 'catppuccin-macchiato',
   summer = 'monokai-pro-ristretto',
   spring = 'bamboo',
   winter = 'material-oceanic'

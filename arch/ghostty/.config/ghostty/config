@@ -1,12 +1,12 @@
-font-family="Iosevka Nerd Font Mono"
-font-size=13
+font-family="JetBrainsMono Nerd Font"
+font-size=12
 background-opacity = 0.98
 window-padding-y = 0,0
 window-padding-balance=true
-theme=dark:TokyoNight Storm, light:TokyoNight Day
-#theme=TokyoNight Day
 confirm-close-surface = false
 gtk-custom-css=custom.css
+theme=dark:Nvim Dark, light:Nvim Light
+#background = #14161B
 
 keybind = ctrl+q>v=new_split:right
 keybind = ctrl+q>s=new_split:down 
