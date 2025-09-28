@@ -1,0 +1,14 @@
+show=drun
+width=20%
+height=20%
+terminal=ghostty
+gtk_dark=true
+insensitive=true
+hide_scroll=true
+prompt=
+close_on_focus_loss=true
+
+key_forward=Ctrl-n
+key_backward=Ctrl-p
+key_expand=Ctrl-o
+
