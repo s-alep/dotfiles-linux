@@ -1,4 +1,4 @@
-show=drun
+show=drun,run
 width=20%
 height=20%
 terminal=ghostty

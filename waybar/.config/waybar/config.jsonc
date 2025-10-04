@@ -40,15 +40,14 @@
       "1": [],
       "2": [],
       "3": [],
-      "4": [],
-      "5": []
+      "4": []
     }
   },
   "hyprland/language": {
     "format": "{short}"
   },
   "clock": {
-    "format": "{:%A %H:%M}",
+    "format": "{:%A %d %H:%M}",
     "format-alt": "{:%d %B W%V %Y}",
     "tooltip": false
   },

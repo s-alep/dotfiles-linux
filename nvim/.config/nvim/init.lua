@@ -1,12 +1,5 @@
 require 'opts'
 
-Color = vim.g.neovide and 'habamax' or {
-  autumn = 'catppuccin-macchiato',
-  summer = 'monokai-pro-ristretto',
-  spring = 'bamboo',
-  winter = 'material-oceanic'
-}
-
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
@@ -38,9 +31,12 @@ require('lazy').setup({
   },
   { import = 'plugins' },
 }, {
-  ui = {
-    icons = {},
-  },
+    rocks={
+      enabled = false,
+    },
+    ui = {
+      icons = {},
+    },
 })
 
 require 'keymap'

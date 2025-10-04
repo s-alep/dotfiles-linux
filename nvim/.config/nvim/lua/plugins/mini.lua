@@ -7,6 +7,7 @@ return {
       }
     end
   },
+  {'Shatur/neovim-ayu', lazy=false , priority = 1000},
   {
     'nvim-mini/mini.ai',
     version = '*',

@@ -17,7 +17,11 @@ local function toggle_opacity()
   local normal = vim.fn.execute 'hi Normal'
   local current_color = vim.api.nvim_exec2('colorscheme', { output = true }).output
   if not string.find(normal, 'guibg') then
-    require('mini.hues').setup(colors)
+    if current_color == 'default' then
+      require('mini.hues').setup(colors)
+    else
+      vim.cmd.colorscheme(current_color)
+    end
     vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
     vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
     require('lualine').setup {}

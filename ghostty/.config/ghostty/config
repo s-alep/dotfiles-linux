@@ -7,6 +7,7 @@ confirm-close-surface = false
 gtk-custom-css=custom.css
 theme=dark:Nvim Dark, light:Nvim Light
 command=tmux
+window-decoration=none
 window-height=50
 window-height=140
 

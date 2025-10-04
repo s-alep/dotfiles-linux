@@ -1,14 +1,26 @@
 {
+  "ssh_connections": [
+    {
+      "host": "sl2flask.devpod",
+      "projects": [
+        {
+          "paths": [
+            "/workspace"
+          ]
+        }
+      ]
+    }
+  ],
   "format_on_save": "off",
   "auto_install_extensions": {
     "html": true,
     "php": true,
     "dockerfile": true,
     "tokyo-night": true,
-    "pylsp": true,
     "kanagawa-themes": true,
     "iceberg": true,
-    "rust-rover-dark-theme": true
+    "rust-rover-dark-theme": true,
+    "basedpyright" : true
   },
   "cursor_blink": false,
   "collaboration_panel": {
@@ -23,7 +35,37 @@
   "project_panel": {
     "dock": "right"
   },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright"]
+    }
+  },
   "lsp": {
+    "ruff": {
+      "initialization_options" : {
+        "settings": {
+          "organiseImports" : false,
+          "lint" : {
+            "ignore" : [ "F403" , "F405", "E712" ]
+          }
+        }
+      }
+    },
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "diagnosticSeverityOverrides": {
+            "reportUnknownMemberType": "none",
+            "reportUnknownArgumentType": "none",
+            "reportUnknownLambdaType": "none",
+            "reportUnknownVariableType": "none",
+            "reportMissingParameterType": "none",
+            "reportUnknownParameterType": "none",
+            "reportUnusedCallResult" : "none"
+          }
+        }
+      }
+    },
     "rust-analyzer": {
       "binary": {
         "path": "/usr/lib/rustup/bin/rust-analyzer"
@@ -66,8 +108,8 @@
   },
   "always_treat_brackets_as_autoclosed": true,
   // Fonts
-  "buffer_font_family": "Iosevka Nerd Font Mono",
-  "ui_font_family": "Iosevka Nerd Font Mono",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_fallbacks": ["CaskaydiaCove Nerd Font Mono"],
   "relative_line_numbers": true,
   "vim_mode": true,
@@ -75,12 +117,12 @@
     "highlight_on_yank_duration": 100
   },
   "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "buffer_font_size": 15,
   "show_whitespaces": "all",
   "icon_theme": "Zed (Default)",
   "theme": {
     "mode": "dark",
     "light": "Tokyo Night Light",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "Kanagawa Dragon - No Italics"
   }
 }
