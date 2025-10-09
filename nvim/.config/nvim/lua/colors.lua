@@ -1,5 +1,6 @@
 local project_name = string.match(vim.fn.getcwd(), '[^/]+$')
-local opaque = project_name == 'AngularApp'
+-- local opaque = project_name == 'AngularApp'
+local opaque = 0
 
 local colors = {
   background = '#14161B',
@@ -8,7 +9,9 @@ local colors = {
   accent = 'cyan'
 }
 
-require('mini.hues').setup(colors)
+-- require('mini.hues').setup(colors)
+vim.cmd.colorscheme("retrobox")
+
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}

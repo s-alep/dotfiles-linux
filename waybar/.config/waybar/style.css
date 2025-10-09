@@ -1,11 +1,11 @@
 * {
-    background-color: #14161B;
-    color: #8a8a8d;
+    background-color: #282828;
+    color: #d5c4a1;
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 14;
+    font-family: Adwaita Mono;
+    font-size: 16;
 }
 
 .modules-left {

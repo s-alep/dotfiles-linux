@@ -61,6 +61,7 @@ local opts = { noremap = true, silent = true }
 map.set('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 
 -- Cockblock
+map.set('n', ';;', 'A;<esc>')
 map.set('i', '<left>', '<cmd>echo "Use the Insert Mode!"<CR>')
 map.set('i', '<left>', '<cmd>echo "Use the Insert Mode!"<CR>')
 map.set('i', '<right>', '<cmd>echo "Use the Insert Mode!"<CR>')
@@ -123,11 +124,11 @@ map.set({ 'v', 'n' }, '<leader>wi', "<Cmd>lua require('vscode').call('inlineChat
 -- Debugging
 map.set('n', '<leader>b', "<Cmd>lua require('vscode').call('editor.debug.action.toggleBreakpoint')<CR>", opts)
 map.set('n', '<leader>B', "<Cmd>lua require('vscode').call('debug.editBreakpoint')<CR>", opts)
-map.set('n', '<leader>dd', "<Cmd>lua require('vscode').call('workbench.action.debug.start')<CR>", opts)
+map.set('n', 'd/', "<Cmd>lua require('vscode').call('workbench.action.debug.start')<CR>", opts)
 map.set('n', '<leader>dt', "<Cmd>lua require('vscode').call('workbench.action.debug.stop')<CR>", opts)
-map.set('n', '<leader>dn', "<Cmd>lua require('vscode').call('workbench.action.debug.continue')<CR>", opts)
+map.set('n', 'd.', "<Cmd>lua require('vscode').call('workbench.action.debug.continue')<CR>", opts)
 map.set('n', '<leader>dr', "<Cmd>lua require('vscode').call('workbench.action.debug.restart')<CR>", opts)
-map.set('n', '<leader>dh', "<Cmd>lua require('vscode').call('editor.debug.action.showDebugHover')<CR>", opts)
+map.set('n', 'dh', "<Cmd>lua require('vscode').call('editor.debug.action.showDebugHover')<CR>", opts)
 map.set('n', '<leader>dv', "<Cmd>lua require('vscode').call('multiCommand.debugVariables')<CR>", opts)
 map.set('n', '<leader>db', "<cmd>lua require('vscode').call('workbench.debug.viewlet.action.removeAllBreakpoints')<cr>")
 

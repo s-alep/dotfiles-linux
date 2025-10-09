@@ -9,3 +9,4 @@ vim.cmd [[cab v2 Oil oil-ssh://arbitrage@allweb.gr:2234//var/www/vhosts/arbitrag
 vim.cmd [[cab mod Oil oil-ssh://arbitrage@allweb.gr:2234//var/www/vhosts/arbitrage-re.allweb.gr/v2.arbitrage-re.allweb.gr/web/modules/custom]]
 vim.cmd [[cab nd Oil oil-ssh://arbitrage@allweb.gr:2234//var/www/vhosts/arbitrage-re.allweb.gr/v2.arbitrage-re.allweb.gr/web/themes/custom/gavias_enzio/templates/node]]
 vim.cmd [[cab css Oil oil-ssh://arbitrage@allweb.gr:2234//var/www/vhosts/arbitrage-re.allweb.gr/v2.arbitrage-re.allweb.gr/web/themes/custom/gavias_enzio/css/custom.css]]
+vim.cmd [[cab dev cd ~/Documents/dev]]

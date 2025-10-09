@@ -1,11 +1,12 @@
-font-family="Adwaita Mono"
+font-family="Iosevka Nerd Font Mono"
 font-size=12
-background-opacity = 0.98
+#background-opacity = 0.98
 window-padding-y = 0,0
 window-padding-balance=true
 confirm-close-surface = false
 gtk-custom-css=custom.css
-theme=dark:Nvim Dark, light:Nvim Light
+#theme=dark:Nvim Dark, light:Nvim Light
+theme=dark:Ayu, light: Ayu Light
 command=tmux
 window-decoration=none
 window-height=50

@@ -1,12 +1,5 @@
 return {
   {
-    'nvim-mini/mini.extra',
-    version = false,
-    config = function()
-      require('mini.extra').setup()
-    end,
-  },
-  {
     'nvim-mini/mini.pick',
     dependecies = {
       'nvim-mini/mini.extra',
@@ -31,12 +24,14 @@ return {
               starts = 1
               ends = win_height
             else
-              width = math.floor(win_width * 0.37) -- 50%
-              height = math.floor(win_height * 0.3) -- 30%
+              -- width = math.floor(win_width * 0.37) -- 50%
+              height = math.floor(win_height * 0.5) -- 30%
+              width = win_width
+              -- height = win_height
               starts = math.floor((win_width - width) / 2)
               -- center prompt: height * (50% + 30%)
               -- center window: height * [50% + (30% / 2)]
-              ends = math.floor(win_height * 0.5)
+              ends = math.floor(win_height )
             end
 
             return {
@@ -82,9 +77,6 @@ return {
       map('n', '<leader>gh', '<cmd>Pick git_hunks<cr>')
 
       local lspicker = require('mini.extra').pickers.lsp
-      -- map('n', 'gD', function()
-      --   lspicker { scope = 'definition' }
-      -- end)
       map('n', 'gd', function()
         vim.lsp.buf.definition()
       end)
@@ -100,14 +92,6 @@ return {
       map('n', 'gs', function()
         lspicker { scope = 'document_symbol' }
       end)
-      -- map('n', 'gS', function()
-      --   lspicker { scope = 'workspace_symbol' ,symbol_query =nil}
-      -- end)
-
-      -- map('n', '<F1>', '<cmd>Pick help<cr>')
-      -- map('n', '<F2>', '<cmd>Pick keymaps<cr>')
-      -- map('n', '<F3>', '<cmd>Pick colorschemes<cr>')
-
       vim.ui.select = MiniPick.ui_select
     end,
     version = false,

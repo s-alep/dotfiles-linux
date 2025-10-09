@@ -9,6 +9,8 @@ return {
           change = { text = '▒' },
           delete = { text = '_' },
         },
+        signcolumn = false,
+        numhl = true
       }
       local function map(mode, l, r, opts)
         opts = opts or {}

@@ -1,13 +1,17 @@
 return {
-  { 'nvim-mini/mini.hues', version = false ,
-    config = function ()
-      require("mini.hues").setup{
+  {'nvim-mini/mini.extra', version = false, config = function() require('mini.extra').setup() end,},
+  {
+    'nvim-mini/mini.hues',
+    version = false,
+    config = function()
+      require('mini.hues').setup {
         background = '#212121',
-        foreground = '#B0BEC5'
+        foreground = '#B0BEC5',
       }
-    end
+    end,
   },
-  {'Shatur/neovim-ayu', lazy=false , priority = 1000},
+  { 'Shatur/neovim-ayu', lazy = false, priority = 1000 },
+  { 'marko-cerovac/material.nvim' },
   {
     'nvim-mini/mini.ai',
     version = '*',
@@ -31,13 +35,12 @@ return {
     'nvim-mini/mini.indentscope',
     version = false,
     config = function()
-      require('mini.indentscope').setup {draw = { delay = 0, animation = require('mini.indentscope').gen_animation.none() }, options = { try_as_border = true }, symbol = '│',}
+      require('mini.indentscope').setup {
+        draw = { delay = 0, animation = require('mini.indentscope').gen_animation.none() },
+        options = { try_as_border = true },
+        symbol = '│',
+      }
     end,
-  },
-  {
-    'nvim-mini/mini.hipatterns',
-    version = '*',
-    config = function() local hipatterns = require 'mini.hipatterns' hipatterns.setup { highlighters = { hex_color = hipatterns.gen_highlighter.hex_color() } } end,
   },
   {
     'nvim-mini/mini.splitjoin',
