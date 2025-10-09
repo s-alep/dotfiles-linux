@@ -21,3 +21,5 @@ vim.keymap.set({ 'n', 'v' }, '<leader>tf', vim.lsp.buf.format, { desc = '[T]ap [
 vim.keymap.set('n', 'gD', '<cmd>vsplit | wincmd l | lua vim.lsp.buf.definition()<cr>')
 vim.keymap.set('n', 'gh', '<cmd>lua vim.diagnostic.open_float()<cr>' )
 vim.keymap.set('n', 'g.', '<cmd>tabnew<cr><cmd>te<cr>itmux a<cr>')
+vim.keymap.set('n', 'gb', '<cmd>bnext<cr>')
+vim.keymap.set('n', 'gB', '<cmd>bprev<cr>')
