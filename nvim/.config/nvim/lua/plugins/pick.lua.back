@@ -47,7 +47,7 @@ return {
         },
       }
       local map = vim.keymap.set
-      map('n', '<leader><leader>', '<cmd>Pick buffers<cr>')
+      -- map('n', '<leader><leader>', '<cmd>Pick buffers<cr>')
       map('n', '<leader>p', '<cmd>Pick files<cr>')
       map('n', 'g/', '<cmd>Pick grep_live<cr>')
       map('n', '<leader>/', function ()
