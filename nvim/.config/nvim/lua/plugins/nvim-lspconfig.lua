@@ -56,6 +56,7 @@ return {
       phpactor = {},
       jsonls = {},
       lua_ls = {},
+      marksman = {},
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})

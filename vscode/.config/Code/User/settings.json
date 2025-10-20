@@ -82,9 +82,9 @@
     "workbench.editor.showTabs": "single",
     "errorLens.enabled": true,
     "workbench.startupEditor": "none",
-    "terminal.integrated.fontFamily": "Iosevka Nerd Font Mono",
-    "editor.fontFamily": "Iosevka Nerd Font Mono",
-    "editor.fontSize": 16,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontSize": 15,
     "terminal.integrated.letterSpacing": 1,
     "editor.minimap.sectionHeaderLetterSpacing": 0,
     "explorer.confirmDelete": false,
@@ -137,5 +137,5 @@
     "jdk.telemetry.enabled": false,
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "hard",
-    "workbench.colorTheme": "Gruvbox Dark Hard"
+    "workbench.colorTheme": "Tokyo Night"
 }

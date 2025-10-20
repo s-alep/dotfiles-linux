@@ -1,21 +1,19 @@
-font-family="Iosevka Nerd Font Mono"
+font-family="JetBrainsMono Nerd Font"
 font-size=12
-#background-opacity = 0.98
+background-opacity = 0.95
 window-padding-y = 0,0
 window-padding-balance=true
-confirm-close-surface = false
-gtk-custom-css=custom.css
-#theme=dark:Nvim Dark, light:Nvim Light
-theme=0x96f
-command=tmux
+confirm-close-surface=false
+gtk-tabs-location=bottom
+bell-features=no-title
+
+theme=Cursor Dark
 window-decoration=none
 window-height=50
 window-height=140
 
-quick-terminal-position = bottom
+quick-terminal-position=center
 quick-terminal-size = 60%, 70%
-keybind = ctrl+q>t=toggle_quick_terminal
 
-keybind = ctrl+q>;=toggle_command_palette
-keybind = ctrl+q>r=reload_config
-
+gtk-custom-css=custom.css
+config-file=keymaps

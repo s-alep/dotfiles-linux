@@ -6,10 +6,10 @@ return {
     mc.setup()
 
     local set = vim.keymap.set
-    set({ 'n', 'x' }, '<M-k>', function()
+    set({ 'n', 'x' }, '<C-PageUp>', function()
       mc.lineAddCursor(-1)
     end)
-    set({ 'n', 'x' }, '<M-j>', function()
+    set({ 'n', 'x' }, '<C-PageDown>', function()
       mc.lineAddCursor(1)
     end)
     set({ 'n', 'x' }, 'tk', function()
@@ -19,16 +19,16 @@ return {
       mc.lineSkipCursor(1)
     end)
 
-    set({ 'n', 'x' }, '<M-f>', function()
+    set({ 'n', 'x' }, '<C-f>', function()
       mc.matchAddCursor(1)
     end)
-    set({ 'n', 'x' }, '<M-s>', function()
+    set({ 'n', 'x' }, '<leader>s', function()
       mc.matchSkipCursor(1)
     end)
-    set({ 'n', 'x' }, '<M-F>', function()
+    set({ 'n', 'x' }, '<C-b>', function()
       mc.matchAddCursor(-1)
     end)
-    set({ 'n', 'x' }, '<M-S>', function()
+    set({ 'n', 'x' }, '<leader>S', function()
       mc.matchSkipCursor(-1)
     end)
 

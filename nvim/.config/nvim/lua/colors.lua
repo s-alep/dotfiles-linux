@@ -1,5 +1,3 @@
-local project_name = string.match(vim.fn.getcwd(), '[^/]+$')
--- local opaque = project_name == 'AngularApp'
 local opaque = 0
 
 local colors = {
@@ -9,9 +7,7 @@ local colors = {
   accent = 'cyan'
 }
 
--- require('mini.hues').setup(colors)
-vim.cmd.colorscheme("retrobox")
-
+vim.cmd.colorscheme("evergarden-winter")
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}
@@ -27,6 +23,13 @@ local function toggle_opacity()
     end
     vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
     vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
+    vim.api.nvim_set_hl(0, 'EndOfBuffer', {link='Normal'})
+    vim.api.nvim_set_hl(0, 'NormalNC', { link = 'Normal' })
+    vim.api.nvim_set_hl(0, 'FloatBorder', { link ='NormalFloat' })
+    vim.api.nvim_set_hl(0, 'SnacksPickerDir', { link ='SnacksPickerFile' })
+    vim.api.nvim_set_hl(0, 'Tabline', { link ='Normal' })
+    vim.api.nvim_set_hl(0, 'TablineFill', { link ='Normal' })
+    vim.api.nvim_set_hl(0, 'TablineSel', { link ='lualine_a_visual' })
     require('lualine').setup {}
   else
     local normal_bg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg
@@ -38,6 +41,12 @@ local function toggle_opacity()
     vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'NONE' })
     vim.api.nvim_set_hl(0, 'NormalNC', { link = 'Normal' })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
+    vim.api.nvim_set_hl(0, 'FloatBorder', { link ='NormalFloat' })
+    vim.api.nvim_set_hl(0, 'SnacksPickerDir', { link ='SnacksPickerFile' })
+    vim.api.nvim_set_hl(0, 'Tabline', { link ='Normal' })
+    vim.api.nvim_set_hl(0, 'TablineFill', { link ='Normal' })
+    vim.api.nvim_set_hl(0, 'TablineSel', { link ='lualine_a_visual' })
   end
 end
 
@@ -52,7 +61,7 @@ end
 
 vim.keymap.set('n', '<leader>tg', toggle_opacity)
 vim.keymap.set('n', '<leader>tl', toggle_dark_light )
-if opaque then
+if opaque == 1 then
   toggle_opacity()
 end
 

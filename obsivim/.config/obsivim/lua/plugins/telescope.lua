@@ -17,12 +17,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 	config = function()
 		require("telescope").setup({
 			pickers = {
-				colorscheme = { theme = "dropdown", previewer = false },
 				buffers = { theme = "dropdown", previewer = false },
 				find_files = { theme = "dropdown", previewer = true },
-				keymaps = { theme = "dropdown", previewer = true },
-				help_tags = { theme = "dropdown", previewer = false },
-				grep_string = { theme = "dropdown", previewer = true },
 				live_grep = { theme = "dropdown", previewer = true },
 			},
 			extensions = {
@@ -35,9 +31,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<F1>", builtin.help_tags, { desc = "[S]earch [H]elp" })
-		vim.keymap.set("n", "<leader>p", builtin.find_files, { desc = "Search Project" })
-		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "g/", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 		vim.keymap.set("n", "<leader>/", function()

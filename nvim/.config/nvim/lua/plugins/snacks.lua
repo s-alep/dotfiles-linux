@@ -24,7 +24,7 @@ local options = {
 local live_preview = {
   finder = 'vim_colorschemes',
   format = 'text',
-  preview = 'colorscheme',
+  -- preview = 'colorscheme',
   preset = 'vertical',
   confirm = function(picker, item)
     picker:close()
@@ -40,6 +40,17 @@ local ivy = { preset = 'ivy', layout = { position = 'bottom' } }
 return {
   'folke/snacks.nvim',
   opts = {
+    styles = {
+      float = {
+        backdrop = 100,
+        border = "rounded",
+      },
+    },
+    terminal = {
+      win ={ style = "float"},
+      ui = {border = "rounded"}
+    },
+    statuscolumn = {},
     picker = {
       prompt = "> ",
       win = {
@@ -76,7 +87,8 @@ return {
     {'<leader>gs', function() Snacks.picker.git_status() end, desc = 'Git Status',},
     {'<leader>gS', function() Snacks.picker.git_stash() end, desc = 'Git Stash',},
     {'<leader>gg', function() Snacks.picker.git_files() end, desc = 'Find Git Files',},
-    {'<leader>sp', function() Snacks.picker.projects {layout = options, dev = { '~/Documents/dev' } } end, desc = 'Projects',},
+    {'<leader>sp', function() Snacks.picker.projects {layout = options, dev = { '~/Documents/dev' } , recent = false } end, desc = 'Projects',},
+    {'<leader>st', function() Snacks.picker.projects {layout = options, dev = { '~/Documents/notes' }, patterns = {'*/'}, recent = false } end, desc = 'Projects',},
     {'<leader> ', function() Snacks.picker.buffers { current = false, sort_lastused = true, layout = options, } end, desc = 'Buffers',},
     { "g/", function() Snacks.picker.grep({layout = options}) end, desc = "Grep" },
     { "<leader>x", function() Snacks.explorer() end, desc = "File Explorer" },
@@ -91,5 +103,26 @@ return {
     { "gR", function() Snacks.picker.lsp_references({layout = options}) end, nowait = true, desc = "References" },
     { "gI", function() Snacks.picker.lsp_implementations({layout = options}) end, desc = "Goto Implementation" },
     { "gy", function() Snacks.picker.lsp_type_definitions({layout = options}) end, desc = "Goto T[y]pe Definition" },
+    { "<C-w>w", function() Snacks.terminal.toggle() end, mode={ "n", "t"}, desc = "Goto T[y]pe Definition" },
+    {
+      "<leader>nn",
+      function() 
+        local root = "~/Documents/notes"  -- change this to your projects root
+        local dirs = vim.fn.glob(vim.fn.expand(root) .. "/*/", false, true)
+        Snacks.picker.select({
+          prompt = "Pick a project:",
+          items = dirs,
+          layout = options,
+          format_item = function(item)
+            return vim.fn.fnamemodify(item, ":t")
+          end,
+          on_choice = function(dir)
+            vim.cmd("tcd " .. vim.fn.fnameescape(dir))
+            vim.notify("Changed directory to " .. dir, vim.log.levels.INFO)
+          end,
+        })
+      end
+    },
+
   },
 }

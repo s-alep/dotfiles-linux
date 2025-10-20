@@ -11,6 +11,10 @@ headerbar {
   margin: 0;
 }
 
+.quick-terminal {
+  border: 1px solid white;
+}
+
 tabbar tabbox {
   margin: 0;
   padding: 0;
@@ -23,7 +27,7 @@ tabbar tabbox tab {
   margin: 0;
   padding: 0;
   color: #9ca3af;
-  border-right: 1px solid #374151;
+  /* border-right: 1px solid #374151; */
 }
 
 tabbar tabbox tab:selected {

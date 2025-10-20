@@ -34,3 +34,28 @@ vim.opt.swapfile = false
 vim.o.winborder = 'rounded'
 -- vim.o.statusline = "%f [%{%v:lua.require'nvim-navic'.get_location()%}]"
 vim.cmd [[se path+=**]]
+
+function _G.custom_tabline()
+  local s = ''
+  for i = 1, vim.fn.tabpagenr('$') do
+    local winnr = vim.fn.tabpagewinnr(i)
+    local bufnr = vim.fn.tabpagebuflist(i)[winnr]
+    local bufname = vim.fn.bufname(bufnr)
+    local filename = vim.fn.fnamemodify(bufname, ':t')
+    if filename == '' then
+      filename = '[No Name]'
+    end
+    if i == vim.fn.tabpagenr() then
+      s = s .. '%#TabLineSel#'
+    else
+      s = s .. '%#TabLine#'
+    end
+    s = s .. '%' .. i .. 'T'
+    s = s .. ' • ' .. filename .. ' '
+  end
+  s = s .. '%#TabLineFill#%T'
+  return s
+end
+
+vim.o.tabline = '%!v:lua.custom_tabline()'
+

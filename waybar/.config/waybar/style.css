@@ -22,7 +22,9 @@
     margin: 0 1.5px;
     min-width: 9px;
 }
-
+#window {
+    padding-left : 30px;
+}
 #tray,
 #cpu,
 #battery,
@@ -35,7 +37,7 @@
 #custom-brightness,
 #custom-power-menu {
     min-width: 12px;
-    margin: 0 7.5px;
+    margin: 0 10.5px;
 }
 
 #custom-expand-icon {

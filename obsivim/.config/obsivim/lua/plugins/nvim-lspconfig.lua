@@ -16,14 +16,8 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-				map("gR", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-				map("<leader>q", require("telescope.builtin").diagnostics, "Type [D]efinition")
 				map("gs", require("telescope.builtin").lsp_document_symbols, "[G]o to Document [S]ymbols")
 				map("gS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[G]o to Workspace [S]ymbols")
-				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -63,26 +57,14 @@ return {
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		local servers = {
-			pyright = {},
-			jinja_lsp = {},
-			jsonls = {},
 			marksman = {},
-			ts_ls = {},
-
-			lua_ls = {
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-					},
-				},
-			},
+			lua_ls = {},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua",
+			"prettier",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

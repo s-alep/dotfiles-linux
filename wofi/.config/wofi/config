@@ -1,6 +1,6 @@
 show=drun,run
-width=20%
-height=20%
+width=500
+height=250
 terminal=ghostty
 gtk_dark=true
 insensitive=true

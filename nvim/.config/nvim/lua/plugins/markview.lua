@@ -4,7 +4,7 @@ return {
   priority = 49,
   opts = {
     preview = {
-      filetypes = { 'markdown', 'codecompanion' },
+      filetypes = { 'codecompanion' },
       ignore_buftypes = {},
     },
     experimental = {

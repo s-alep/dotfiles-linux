@@ -11,7 +11,5 @@ if selected == "" then
 	return
 end
 
--- os.execute("tmux new-window -d -n " .. selected .. " ssh " .. selected)
--- os.execute("tmux new-window -n aaa ping google.com")
 local tmux_command = string.format("tmux new-window -n \"%s\" 'ssh %s' ; tmux select-window -t \"%s\"", selected, selected, selected)
 os.execute(tmux_command)

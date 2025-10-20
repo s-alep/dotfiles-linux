@@ -47,12 +47,12 @@ wezterm.on(
     local title = tab_title(tab)
     if tab.is_active then
       return {
-        { Text = ' ' .. title .. ' ' },
+	{ Text = ' ' .. title .. ' ' },
       }
-	else 
+    else 
       return {
-		{Background = {Color='none'}},
-        { Text = ' ' .. title .. ' ' },
+	{Background = {Color='none'}},
+	{ Text = ' ' .. title .. ' ' },
       }
     end
   end
@@ -61,7 +61,7 @@ wezterm.on(
 config.colors = {
 	tab_bar = { background = 'none'}
 }
-config.leader = { key = "s", mods = "CTRL" }
+config.leader = { key = "q", mods = "CTRL" }
 config.keys = {
 	{ key = "p",     mods = "LEADER",     action = wezterm.action_callback(muxer.toggle) },
 	{ key = "o",     mods = "LEADER",     action = wezterm.action_callback(muxer.switch_2_last) },

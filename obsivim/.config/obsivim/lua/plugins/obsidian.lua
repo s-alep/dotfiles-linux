@@ -8,15 +8,15 @@ return {
 		"bullets-vim/bullets.vim",
 	},
 	keys = {
-		{ "bp", ":ObsidianQuickSwitch<CR>", desc = "[S]earch [O]bsidian Files" },
-		{ "bg", ":ObsidianSearch<CR>", desc = "[S]earch [O]bsidian Headers" },
-		{ "bt", ":ObsidianTags<CR>", desc = "[S]earch Obsidian [T]ags" },
-		{ "bw", ":ObsidianWorkspace<CR>", desc = "[O]bsidian [W]orkspaces" },
+		{ "<leader>p", ":ObsidianQuickSwitch<CR>", desc = "[S]earch [O]bsidian Files" },
+		{ "<leader>bh", ":ObsidianSearch<CR>", desc = "[S]earch [O]bsidian Headers" },
+		{ "<leader>bt", ":ObsidianTags<CR>", desc = "[S]earch Obsidian [T]ags" },
+		{ "<leader>bw", ":ObsidianWorkspace<CR>", desc = "[O]bsidian [W]orkspaces" },
 		{ "bs", ":ObsidianFollowLink hsplit<CR>", desc = "[O]bsidian Open Definition in [S]plit" },
+		{ "gd", ":ObsidianFollowLink", desc = "[O]bsidian Open Definition in [S]plit" },
+		{ "gR", ":ObsidianBacklinks<CR>", desc = "[O]bsidian [N]ew" },
 		{ "br", ":ObsidianRename<CR>", desc = "[O]bsidian [R]ename" },
 		{ "bn", ":ObsidianNew<CR><CR>", desc = "[O]bsidian [N]ew" },
-		{ "bdt", ":ObsidianToday<CR>", desc = "[D]aily [T]oday" },
-		{ "bdw", ":ObsidianDailies -6 6<CR>", desc = "[D]aily all [W]eek" },
 		{
 			"bl",
 			function()
@@ -54,15 +54,8 @@ return {
 		ui = {
 			checkboxes = {
 				[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-				[">"] = { char = "", hl_group = "ObsidianRightArrow" },
 				["x"] = { char = "", hl_group = "ObsidianDone" },
 			},
-		},
-		templates = {
-			folder = "templates",
-			date_format = "%Y-%m-%d",
-			time_format = "%H:%M",
-			substitutions = {},
 		},
 		workspaces = {
 			{
@@ -76,10 +69,6 @@ return {
 			{
 				name = "chill",
 				path = "~/Documents/notes/chill",
-			},
-			{
-				name = "journal",
-				path = "~/Documents/notes/journal",
 			},
 		},
 	},
