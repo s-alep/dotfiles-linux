@@ -37,3 +37,6 @@ vim.keymap.set('n', '<leader>3', '<cmd>3tabn<cr>')
 vim.keymap.set('n', '<leader>4', '<cmd>4tabn<cr>')
 vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
+
+
+vim.keymap.set('n', '<leader>tr', '<cmd>colorscheme randomhue<cr>')

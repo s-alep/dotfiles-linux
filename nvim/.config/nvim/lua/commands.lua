@@ -6,7 +6,7 @@ function sl2dev()
   vim.fn.chansend(term1_id, {"cd sl2_flask\r\n"})
   vim.fn.chansend(term1_id, {"sl2_flask_setup\r\n"})
   vim.fn.chansend(term2_id, {"cd AngularApp\r\n"})
-  vim.fn.chansend(term2_id, {"sudo bun run start\r\n"})
+  vim.fn.chansend(term2_id, {"echo 1beer | sudo -S bun run start\r\n"})
 end
 
 function first_tab() 

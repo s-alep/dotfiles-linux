@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-
 local M = {}
 
 local fd = "/usr/bin/fd"
@@ -19,6 +18,7 @@ M.switch_2_last = function(window,pane)
   )
   last_session_id = placeholder
 end
+
 M.all_sessions = function(window, pane)
   local all_windows = wezterm.mux.all_windows()
   local windows = {}

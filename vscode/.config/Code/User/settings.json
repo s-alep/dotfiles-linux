@@ -137,5 +137,5 @@
     "jdk.telemetry.enabled": false,
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "hard",
-    "workbench.colorTheme": "Tokyo Night"
+    "workbench.colorTheme": "Default Dark+"
 }
