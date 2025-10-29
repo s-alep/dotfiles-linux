@@ -1,6 +1,6 @@
 font-family="JetBrainsMono Nerd Font"
-font-size=12
-background-opacity = 0.95
+font-size=11
+background-opacity = 0.96
 window-padding-y = 0,0
 window-padding-balance=true
 confirm-close-surface=false
@@ -16,4 +16,4 @@ quick-terminal-position=center
 quick-terminal-size = 60%, 70%
 
 gtk-custom-css=custom.css
-config-file=keymaps
+#config-file=keymaps

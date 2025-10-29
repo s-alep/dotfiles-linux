@@ -5,8 +5,10 @@ return {
     version = false,
     config = function()
       require('mini.hues').setup {
-        background = '#212121',
-        foreground = '#B0BEC5',
+        background = '#14161B',
+        foreground = '#C4C6CD',
+        n_hues = 4,
+        saturation = 'mediumhigh'
       }
     end,
   },
@@ -52,6 +54,4 @@ return {
   {'nvim-mini/mini.surround', version = '*', config = function()   require('mini.surround').setup {}end,},
   {'nvim-mini/mini-git', version = '*', config = function()   require('mini.git').setup {}end,},
   {'nvim-mini/mini.pairs', version = '*', config = function()   require('mini.pairs').setup()end,},
-  {"folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {},},
-  { 'everviolet/nvim', name = 'evergarden',priority = 1000,}
 }

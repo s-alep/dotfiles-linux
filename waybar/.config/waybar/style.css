@@ -1,6 +1,7 @@
 * {
-    background-color: #282828;
-    color: #d5c4a1;
+    /* background-color: #282828; */
+    background-color:transparent;
+    color: #FFFDF7;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -22,9 +23,24 @@
     margin: 0 1.5px;
     min-width: 9px;
 }
-#window {
-    padding-left : 30px;
+
+#windowcount{
+    padding-left:30px;
 }
+#submap{
+    background: #b16286;
+    color: #fbf1c7;
+    margin-left: 20px;
+    font-weight: 700;
+    padding-right:10px;
+    padding-left:10px;
+}
+
+#window {
+    padding-left : 5px;
+}
+
+
 #tray,
 #cpu,
 #battery,
@@ -33,11 +49,25 @@
 #pulseaudio,
 #clock,
 #language,
-#backlight,
+#brightness,
 #custom-brightness,
 #custom-power-menu {
-    min-width: 12px;
     margin: 0 10.5px;
+}
+
+#battery.critical,
+#network.disabled,
+#network.disconnected,
+#pulseaudio.muted,
+#bluetooth.disabled,
+#bluetooth.off,
+#bluetooth.no-controller
+{
+    color: #fb4934;
+}
+
+#battery.warning{
+    color: #fabd2f;
 }
 
 #custom-expand-icon {

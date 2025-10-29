@@ -1,13 +1,14 @@
-local opaque = 0
+local opaque = 1
 
 local colors = {
   background = '#14161B',
   foreground = '#C4C6CD',
-  n_hues = 6,
-  accent = 'cyan'
+  n_hues = 8,
+  saturation = 'mediumhigh'
 }
 
-vim.cmd.colorscheme("evergarden-winter")
+vim.api.nvim_set_hl(0, 'SnacksPickerDir', { link ='SnacksPickerFile' })
+vim.cmd.colorscheme('darkplus')
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}
