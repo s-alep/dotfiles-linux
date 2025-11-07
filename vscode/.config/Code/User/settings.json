@@ -90,7 +90,7 @@
     "explorer.confirmDelete": false,
     "workbench.layoutControl.enabled": false,
     "chat.commandCenter.enabled": false,
-    "window.menuBarVisibility": "compact",
+    "window.menuBarVisibility": "hidden",
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -137,5 +137,8 @@
     "jdk.telemetry.enabled": false,
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "hard",
-    "workbench.colorTheme": "Default Dark+"
+    "workbench.colorTheme": "Default Dark+",
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native",
+    "window.customMenuBarAltFocus": false
 }

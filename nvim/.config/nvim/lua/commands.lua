@@ -1,7 +1,6 @@
 local term1_id = 0
 local term2_id = 0
 
-
 function sl2dev()
   vim.fn.chansend(term1_id, {"cd sl2_flask\r\n"})
   vim.fn.chansend(term1_id, {"sl2_flask_setup\r\n"})

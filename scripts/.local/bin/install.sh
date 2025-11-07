@@ -1,12 +1,13 @@
 #!/bin/bash
 
-sudo pacman -Syu --noconfirm needed-devel neovim lsd chromium waybar dunst wofi \
-discord ghostty libreoffice-still btop zathura lazygit docker docker-compose\
+sudo pacman -Syu --noconfirm needed-devel neovim chromium waybar dunst wofi \
+discord libreoffice-still btop lazygit docker docker-compose\
 curl wget lua hyprpaper hyprlock slurp grim git viewnior bluetui wiremix\
-pamixer zip unzip wl-clipboard xdebug php vlc wget typst\
-nerd-fonts tmux stow ripgrep fd postgresql python-debug\
-npm noto-fonts-emoji networkmanager luarocks less git-delta\
-fzf fastfetch bluez chafa nwg-look jq yq yazi hyprsunset iwd
+pamixer zip unzip gzip wl-clipboard xdebug php vlc wget typst\
+nerd-fonts stow ripgrep fd postgresql python-debug\
+npm noto-fonts-emoji  luarocks less git-delta\
+fzf fastfetch bluez chafa nwg-look jq yq yazi hyprsunset iwd\
+7zip gzip zed helix impala wezterm
 
 sudo usermod -aG docker $USER
 newgrp docker

@@ -56,7 +56,7 @@ return { -- Autocompletion
           end
         end),
         ['<C-y>'] = cmp.mapping.confirm { select = true },
-        ['<C-Space>'] = cmp.mapping.complete {},
+        ['<C-X><C-O>'] = cmp.mapping.complete {},
         ['<C-H>'] = cmp.mapping(function()
           if luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()

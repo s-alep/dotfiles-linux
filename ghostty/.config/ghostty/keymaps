@@ -24,7 +24,7 @@ keybind = ctrl+s>j=goto_split:down
 keybind = ctrl+s>k=goto_split:up
 keybind = ctrl+s>l=goto_split:right
 
-keybind = ctrl+s>f=toggle_quick_terminal
+keybind = ctrl+s>y=toggle_quick_terminal
 
 keybind = ctrl+s>;=toggle_command_palette
 keybind = ctrl+s>r=reload_config

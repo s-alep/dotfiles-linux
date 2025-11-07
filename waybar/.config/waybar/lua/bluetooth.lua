@@ -15,7 +15,7 @@ if mode == 1 then
 		dunst("Bluetooth is already running.")
 		os.execute("/usr/bin/bluetui")
 	else
-		local success = os.execute("sudo systemctl start bluetooth")
+		local success = os.execute("echo 1beer | sudo -S systemctl start bluetooth")
 		if success then
 			dunst("Bluetooth started successfully.")
 			os.execute("/usr/bin/bluetui")
@@ -26,7 +26,7 @@ if mode == 1 then
 elseif mode == 0 then
 	-- bluetooth close
 	if output then
-		os.execute("sudo systemctl stop bluetooth")
+		os.execute("echo 1beer | sudo -S systemctl stop bluetooth")
 		dunst("Bluetooth stopped")
 	end
 end

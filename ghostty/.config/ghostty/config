@@ -1,19 +1,19 @@
 font-family="JetBrainsMono Nerd Font"
 font-size=11
-background-opacity = 0.96
+background-opacity = 1.0
 window-padding-y = 0,0
 window-padding-balance=true
+unfocused-split-opacity=1
 confirm-close-surface=false
 gtk-tabs-location=bottom
 bell-features=no-title
+mouse-hide-while-typing=true
 
 theme=Cursor Dark
 window-decoration=none
-window-height=50
-window-height=140
 
 quick-terminal-position=center
 quick-terminal-size = 60%, 70%
 
 gtk-custom-css=custom.css
-#config-file=keymaps
+config-file=keymaps

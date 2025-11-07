@@ -99,7 +99,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "wezterm start impala"
+    "on-click": "ghostty -e impala"
   },
   "backlight": {
     "device": "auto",
@@ -165,12 +165,12 @@
     "format-no-controller": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "wezterm start /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
-    "on-click-right": "wezterm start /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
+    "on-click": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
+    "on-click-right": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "wezterm start wiremix",
+    "on-click": "ghostty -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,

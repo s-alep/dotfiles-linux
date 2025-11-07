@@ -1,17 +1,23 @@
 return {
-  {'nvim-mini/mini.extra', version = false, config = function()  require('mini.extra').setup()end,},
-  {
-    'nvim-mini/mini.hues',
-    version = false,
-    config = function()
-      require('mini.hues').setup {
-        background = '#14161B',
-        foreground = '#C4C6CD',
-        n_hues = 4,
-        saturation = 'mediumhigh'
-      }
-    end,
+{
+  "folke/flash.nvim",
+  event = "VeryLazy",
+  ---@type Flash.Config
+  opts = {},
+  keys = {
+    { "S", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    -- { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    -- { "<c-a>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
+},
+  {
+    "XXiaoA/atone.nvim",
+    cmd = "Atone",
+    opts = {}
+  },
+  {'nvim-mini/mini.extra', version = false, config = function()  require('mini.extra').setup()end,},
   {
     'nvim-mini/mini.ai',
     version = '*',
@@ -47,11 +53,10 @@ return {
     version = '*',
     config = function() 
       require('mini.splitjoin').setup {
-        mappings = { toggle = '<C-m>', split = '', join = '' }
+        mappings = { toggle = 'grs', split = '', join = '' }
       } 
     end,
   },
   {'nvim-mini/mini.surround', version = '*', config = function()   require('mini.surround').setup {}end,},
-  {'nvim-mini/mini-git', version = '*', config = function()   require('mini.git').setup {}end,},
   {'nvim-mini/mini.pairs', version = '*', config = function()   require('mini.pairs').setup()end,},
 }

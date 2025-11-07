@@ -53,7 +53,14 @@ return {
       }
     end,
   },
-  { 'nvim-treesitter/nvim-treesitter-context' },
+  { 'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require 'treesitter-context'.setup {
+        enable = false
+      }
+      vim.keymap.set('n', '<leader>c', '<cmd>TSContext toggle<cr>')
+    end
+  },
   {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
@@ -66,6 +73,8 @@ return {
         'c',
         'diff',
         'html',
+        'python',
+        'php',
         'lua',
         'luadoc',
         'markdown',

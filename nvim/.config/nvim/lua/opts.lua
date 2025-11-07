@@ -32,7 +32,10 @@ vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'
 vim.opt.swapfile = false
 vim.o.winborder = 'rounded'
--- vim.o.statusline = "%f [%{%v:lua.require'nvim-navic'.get_location()%}]"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 20
 vim.cmd [[se path+=**]]
 
 function _G.custom_tabline()
@@ -58,4 +61,3 @@ function _G.custom_tabline()
 end
 
 vim.o.tabline = '%!v:lua.custom_tabline()'
-
