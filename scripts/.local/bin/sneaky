@@ -1,0 +1,4 @@
+#!/bin/bash
+docker run -d  -p 4000:4000 -v /home/salepakos/Documents/dev/sneaky/:/workspaces/sneaky vsc-sneaky-cdf70:devpod-af8eceddd285320d111ec97e8771c0b7 bash -c "cd /workspaces/sneaky  && mix local.hex --force  &&  mix phx.server"
+
+brave --new-window http://localhost:4000

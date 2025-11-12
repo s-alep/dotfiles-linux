@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$(docker ps -q)" ]; then
+    docker kill $(docker ps -q)
+else
+    echo "No active containers to kill."
+fi
+
+devpod up --devcontainer-path .devpod/devcontainer.json .
+
+docker exec -it sl2_flask python -m debugpy --listen 0.0.0.0:5678 -m flask run

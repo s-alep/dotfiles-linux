@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+SESSION="logs"
+WORKDIR="/home/salepakos/Documents/dev/super-league-2"
+
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  echo "Attaching to existing tmux session: $SESSION"
+  tmux attach-session -t "$SESSION"
+else
+  echo "Creating new tmux session: $SESSION"
+
+  # Start a detached session in the given directory
+  tmux new-session -d -s "$SESSION" -c "$WORKDIR" -n main
+
+  # Wait a bit for tmux to initialize
+  sleep 0.3
+
+  # Split the window vertically (one on top of the other)
+  tmux split-window -v -t "$SESSION:main" -c "$WORKDIR"
+
+  # Wait for the split to complete
+  sleep 0.3
+
+  # Select the top pane and run sl2_flask_dev
+  tmux select-pane -t "$SESSION:main".0
+  tmux send-keys "cd AngularApp" C-m
+  sleep 0.1
+  tmux send-keys "echo 1beer | sudo -S bun run start" C-m
+
+  # Select the bottom pane and run bun
+  tmux select-pane -t "$SESSION:main".1
+  tmux send-keys "cd sl2_flask && sl2_flask_setup" C-m
+
+  # Finally, attach to the session
+  tmux attach-session -t "$SESSION"
+fi
