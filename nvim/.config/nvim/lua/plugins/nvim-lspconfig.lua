@@ -50,6 +50,7 @@ return {
 
     local servers = {
       pyright = {},
+      -- basedpyright = {},
       ts_ls = {},
       elixirls = {},
       jinja_lsp = {},

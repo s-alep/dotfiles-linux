@@ -15,5 +15,5 @@ window-decoration=none
 quick-terminal-position=center
 quick-terminal-size = 60%, 70%
 
-gtk-custom-css=custom.css
+#gtk-custom-css=custom.css
 config-file=keymaps

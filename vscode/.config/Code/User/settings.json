@@ -133,12 +133,18 @@
         "asvetliakov.vscode-neovim": 1
     },
     "extensions.ignoreRecommendations": true,
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "rose-pine-icons",
     "jdk.telemetry.enabled": false,
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "hard",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Kanagawa",
     "window.customTitleBarVisibility": "never",
     "window.titleBarStyle": "native",
-    "window.customMenuBarAltFocus": false
+    "window.customMenuBarAltFocus": false,
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "4139529B-D588-47DD-84A0-03463015BE63"
+        }
+    ]
 }

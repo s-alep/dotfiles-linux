@@ -1,6 +1,6 @@
 local opaque = 0
 
-vim.cmd.colorscheme('anysphere')
+vim.cmd.colorscheme('kanagawa-paper')
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}

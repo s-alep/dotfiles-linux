@@ -50,12 +50,7 @@
   "auto_install_extensions": {
     "html": true,
     "php": true,
-    "dockerfile": true,
-    "tokyo-night": true,
-    "kanagawa-themes": true,
-    "iceberg": true,
-    "rust-rover-dark-theme": true,
-    "basedpyright" : true
+    "dockerfile": true
   },
   "cursor_blink": false,
   "collaboration_panel": {
@@ -114,6 +109,11 @@
     }
   },
   "agent": {
+    "play_sound_when_agent_done": true,
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
     "button": false,
     "single_file_review": true,
     "always_allow_tool_actions": true,
@@ -166,6 +166,6 @@
   "theme": {
     "mode": "dark",
     "light": "Tokyo Night Light",
-    "dark": "Catppuccin Mocha - No Italics"
+    "dark": "Zedwaita Dark"
   }
 }

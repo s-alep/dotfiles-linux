@@ -37,3 +37,8 @@ vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 
 -- vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
 vim.keymap.set('n', '<leader>u', '<cmd>Atone toggle<cr>')
+vim.keymap.set("n", '<leader>i',
+  function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
+  end
+)

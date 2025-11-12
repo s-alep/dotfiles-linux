@@ -1,12 +1,6 @@
 require 'opts'
+require 'aucmds'
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -45,5 +39,6 @@ require 'cab'
 require 'colors'
 require 'commands'
 
+vim.lsp.enable('copilot')
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
