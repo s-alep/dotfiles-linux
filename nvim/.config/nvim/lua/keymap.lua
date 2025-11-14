@@ -27,6 +27,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- window mappings
+
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+
 -- tabs
 
 vim.keymap.set('n', '<leader>1', '<cmd>1tabn<cr>')
@@ -35,7 +42,6 @@ vim.keymap.set('n', '<leader>3', '<cmd>3tabn<cr>')
 vim.keymap.set('n', '<leader>4', '<cmd>4tabn<cr>')
 vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 
--- vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
 vim.keymap.set('n', '<leader>u', '<cmd>Atone toggle<cr>')
 vim.keymap.set("n", '<leader>i',
   function()

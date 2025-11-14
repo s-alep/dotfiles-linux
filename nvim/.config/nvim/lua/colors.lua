@@ -1,6 +1,7 @@
-local opaque = 0
+local opaque = 1
 
-vim.cmd.colorscheme('kanagawa-paper')
+vim.cmd.colorscheme('gruvbox-material')
+vim.g.gruvbox_material_background = "hard"
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}

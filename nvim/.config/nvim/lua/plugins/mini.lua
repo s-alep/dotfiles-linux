@@ -1,4 +1,5 @@
 return {
+{'sainnhe/gruvbox-material'},
   {
     "folke/flash.nvim",
     event = "VeryLazy",

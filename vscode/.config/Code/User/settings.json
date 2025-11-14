@@ -146,5 +146,7 @@
             "name": "ROOT",
             "id": "4139529B-D588-47DD-84A0-03463015BE63"
         }
-    ]
+    ],
+    "breadcrumbs.enabled": false,
+    "editor.stickyScroll.enabled": false
 }

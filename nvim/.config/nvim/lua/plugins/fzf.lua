@@ -34,6 +34,7 @@ return{
     vim.keymap.set('n', 'g/', '<cmd>lua FzfLua.live_grep()<cr>')
     vim.keymap.set('n', '<leader>*', '<cmd>lua FzfLua.cWORD()<cr>')
     -- Git
+    vim.keymap.set('n', '<leader>gg' ,'<cmd>lua FzfLua.git_files()<cr>')
     vim.keymap.set('n', '<leader>gs' ,'<cmd>lua FzfLua.git_status()<cr>')
     vim.keymap.set('n', '<leader>gS' ,'<cmd>lua FzfLua.git_stash()<cr>')
     vim.keymap.set('n', '<leader>gc' ,'<cmd>lua FzfLua.git_commits()<cr>')

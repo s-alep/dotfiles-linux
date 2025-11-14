@@ -16,7 +16,7 @@ SELECTED_WALLPAPER=$(
         --preview 'chafa -c 256 --size $(tput cols)x$(tput lines) {}' \
         --preview-window=right:70% \
         --layout=reverse \
-        --bind "ctrl-p:toggle-preview" \
+        --bind "ctrl-o:toggle-preview" \
         --prompt="Select a wallpaper: " \
         --height=100% \
         --reverse \

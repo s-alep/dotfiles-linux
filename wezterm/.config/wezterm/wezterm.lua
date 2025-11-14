@@ -20,7 +20,7 @@ config.enable_wayland = true
 config.disable_default_key_bindings = true
 config.hide_mouse_cursor_when_typing = true
 config.warn_about_missing_glyphs = false
-config.window_background_opacity = 0.96
+config.window_background_opacity = 1.0
 -- config.color_scheme = "MaterialDarker"
 config.color_scheme = 'Kanagawa Dragon (Gogh)'
 
@@ -63,7 +63,8 @@ config.colors = {
 }
 config.leader = { key = "s", mods = "CTRL" }
 config.keys = {
-	{ key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.toggle) },
+	{ key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.just_cd) },
+	{ key = "p", mods = "LEADER|CTRL", action = wezterm.action_callback(muxer.toggle) },
 	{ key = "o", mods = "LEADER", action = wezterm.action_callback(muxer.switch_2_last) },
 	{ key = "s", mods = "LEADER", action = wezterm.action_callback(muxer.all_sessions) },
 	{ key = "V", mods = "LEADER", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
@@ -97,6 +98,17 @@ config.keys = {
 
 	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = ";", mods = "LEADER", action = act.ActivateCommandPalette },
+	{ key = ",", mods = "LEADER",
+		action = act.PromptInputLine {
+			description = 'Enter new name for tab',
+			initial_value = '',
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end)
+		}
+	},
 	{ key = "Enter", mods = "CTRL", action = "ToggleFullScreen" },
 	{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
 	{ key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
@@ -108,7 +120,7 @@ config.keys = {
 	-- spawn commands
 	{ key = "g", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazygit" } }) },
 	{ key = "d", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazydocker" } }) },
-	{key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim" }, set_environment_variables = { NVIM_APPNAME = "obsivim", }, }),},
+	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim" }, set_environment_variables = { NVIM_APPNAME = "obsivim", }, }),},
 	{ key = "t", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "tjournal" } }),},
 }
 
