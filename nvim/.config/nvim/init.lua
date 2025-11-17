@@ -34,11 +34,10 @@ require('lazy').setup({
 })
 
 require 'keymap'
-require 'terminal'
-require 'cab'
 require 'colors'
-require 'commands'
 
 vim.lsp.enable('copilot')
+vim.lsp.enable('basedpyright')
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

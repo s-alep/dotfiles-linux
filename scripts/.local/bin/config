@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+fd -d 1 -td -L . ~/.config | fzf --height=30% --border=rounded | xargs -r nvim

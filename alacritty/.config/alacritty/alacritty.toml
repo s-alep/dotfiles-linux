@@ -4,33 +4,9 @@
 dynamic_padding=true
 dynamic_title=false
 decorations_theme_variant='Dark'
+opacity=0.95
 [font]
-normal={ family='JetBrainsMono Nerd Font'}
+normal={ family='Iosevka Nerd Font'}
 size=13
 [mouse]
 hide_when_typing=true
-
-[[keyboard.bindings]]
-key = "Key1"
-mods = "Control"
-chars = "\u001b[1;5Q"
-
-[[keyboard.bindings]]
-key = "Key2"
-mods = "Control"
-chars = "\u001b[1;5W"
-
-[[keyboard.bindings]]
-key = "Key3"
-mods = "Control"
-chars = "\u001b[1;5E"
-
-[[keyboard.bindings]]
-key = "Key4"
-mods = "Control"
-chars = "\u001b[1;5R"
-
-[[keyboard.bindings]]
-key = "Key5"
-mods = "Control"
-chars = "\u001b[1;5T"

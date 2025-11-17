@@ -1,5 +1,12 @@
-workspace "browser"
-workspace "coding"
+workspace "browser"{
+    open-on-output "DP-1"
+}
+workspace "mail"{
+    open-on-output "DP-1"
+}
+workspace "term"{
+    open-on-output "eDP-1"
+}
 
 input {
     keyboard {
@@ -45,12 +52,12 @@ input {
     // warp-mouse-to-focus
 }
 
-/-output "eDP-1" {
-    // off
-    mode "1920x1080@120.030"
-    scale 2
-    transform "normal"
-    position x=1280 y=0
+output "eDP-1" {
+    position x=400 y=1440
+}
+
+output "DP-1" {
+    position x=0 y=0
 }
 
 gestures{
@@ -68,7 +75,7 @@ environment{
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 output "DP-1"{
-    off
+    // off
 }
 layout {
     gaps 10  
@@ -79,7 +86,6 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-        proportion 0.88888
     }
 
     background-color "transparent"
@@ -137,9 +143,9 @@ layout {
 }
 
 
-spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+// spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/neogeo.webp --mode fill"
+spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/palmtrees.jpg"
 spawn-sh-at-startup "chromium --no-startup-window"
 
 
@@ -152,7 +158,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
     // off
-    slowdown 0.2
+    slowdown 0.35
 }
 
 window-rule {
@@ -164,23 +170,29 @@ layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width { proportion 0.66667; }
+}
 
 binds {
-    Mod+Ctrl+w { spawn-sh "wezterm -e impala";}
-    Mod+Ctrl+b { spawn-sh "wezterm -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
-    Mod+Shift+l hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+Ctrl+s { spawn-sh "wezterm -e wiremix";}
+    Mod+Ctrl+w { spawn-sh "alacritty -e impala";}
+    Mod+Ctrl+b { spawn-sh "alacritty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
+    Mod+Shift+l  { spawn "swaylock"; }
+    Mod+Ctrl+s { spawn-sh "alacritty -e wiremix";}
+    Mod+Ctrl+m { spawn-sh "/home/salepakos/.local/bin/toggle_screen.py";}
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "wezterm"; }
-    Mod+Space hotkey-overlay-title="Run an Application: wofi" { spawn "wofi"; }
-    Mod+e hotkey-overlay-title="Open Files Explorer" { spawn "nautilus"; }
-    Mod+Alt+e hotkey-overlay-title="Open Files Explorer" { spawn-sh "wezterm -e yazi"; }
-    Mod+p hotkey-overlay-title="Open Spotify" { spawn-sh "chromium --new-window --app=https://spotify.com"; }
-    Mod+a hotkey-overlay-title="Open Chat" { spawn-sh "chromium --new-window --app=https://chatgpt.com"; }
-    Mod+n hotkey-overlay-title="Open Messenger" { spawn-sh "chromium --new-window --app=https://messenger.com"; }
-    Mod+s hotkey-overlay-title="Open Discord" { spawn-sh "chromium --new-window --app=https://discord.com/app"; }
-    Mod+m hotkey-overlay-title="Open Discord" { spawn-sh "chromium --new-window --app=https://teams.microsoft.com/v2/ && chromium --new-window --app=https://outlook.office.com/mail/"; }
-    Super+b hotkey-overlay-title="Toggle Waybar" { spawn-sh "killall waybar || waybar "; }
+    Mod+Return  { spawn-sh "alacritty -e tmux a"; }
+    Mod+Space  { spawn "wofi"; }
+    Mod+e  { spawn "nautilus"; }
+    Mod+Alt+e  { spawn-sh "alacritty -e yazi"; }
+    Mod+p  { spawn-sh "chromium --new-window --app=https://spotify.com"; }
+    Mod+a  { spawn-sh "chromium --new-window --app=https://chatgpt.com"; }
+    Mod+n  { spawn-sh "chromium --new-window --app=https://messenger.com"; }
+    Mod+s  { spawn-sh "chromium --new-window --app=https://discord.com/app"; }
+    Mod+m  { spawn-sh "chromium --new-window --app=https://teams.microsoft.com/v2/ && chromium --new-window --app=https://outlook.office.com/mail/"; }
+    Mod+b  { spawn-sh "killall waybar || waybar "; }
+    Mod+Ctrl+n  { spawn-sh "pkill wlsunset || wlsunset -t 3500 "; }
     Mod+d { spawn-sh "hyprpicker -a";}
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
@@ -229,15 +241,17 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
+    Mod+1 { focus-workspace "browser"; }
+    Mod+2 { focus-workspace "term"; }
+    Mod+3 { focus-workspace "mail"; }
     Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
 
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+1 { move-column-to-workspace "browser"; }
+    Mod+Ctrl+2 { move-column-to-workspace "term"; }
+    Mod+Ctrl+3 { move-column-to-workspace "mail"; }
     Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }

@@ -15,14 +15,13 @@ config.tab_bar_at_bottom = true
 config.window_close_confirmation = "NeverPrompt"
 config.audible_bell = "Disabled"
 config.font=font('JetBrainsMono Nerd Font')
-config.font_size = 12
+config.font_size = 10.5
 config.enable_wayland = true
 config.disable_default_key_bindings = true
 config.hide_mouse_cursor_when_typing = true
 config.warn_about_missing_glyphs = false
-config.window_background_opacity = 1.0
--- config.color_scheme = "MaterialDarker"
-config.color_scheme = 'Kanagawa Dragon (Gogh)'
+config.window_background_opacity = 0.94
+config.color_scheme = 'Molokai'
 
 config.inactive_pane_hsb = {
 	saturation = 0.9,
@@ -65,7 +64,6 @@ config.leader = { key = "s", mods = "CTRL" }
 config.keys = {
 	{ key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.just_cd) },
 	{ key = "p", mods = "LEADER|CTRL", action = wezterm.action_callback(muxer.toggle) },
-	{ key = "o", mods = "LEADER", action = wezterm.action_callback(muxer.switch_2_last) },
 	{ key = "s", mods = "LEADER", action = wezterm.action_callback(muxer.all_sessions) },
 	{ key = "V", mods = "LEADER", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 	{ key = "v", mods = "LEADER", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
@@ -122,6 +120,7 @@ config.keys = {
 	{ key = "d", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazydocker" } }) },
 	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim" }, set_environment_variables = { NVIM_APPNAME = "obsivim", }, }),},
 	{ key = "t", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "tjournal" } }),},
+	{ key = ".", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "/home/salepakos/.local/bin/config" } }) },
 }
 
 wezterm.on('augment-command-palette', function(window, pane)

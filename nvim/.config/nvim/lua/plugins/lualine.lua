@@ -1,8 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-mini/mini.icons', 'Smitesh/nvim-navic' },
+  dependencies = { 'nvim-mini/mini.icons'},
   config = function()
-    local navic = require 'nvim-navic'
     require('lualine').setup {
       options = {
         icons_enabled = true,
@@ -38,16 +37,7 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = {
-          {
-            function()
-              return navic.get_location()
-            end,
-            cond = function()
-              return navic.is_available()
-            end,
-          },
-        },
+        lualine_b = {},
         lualine_c = {
           'filename',
         },

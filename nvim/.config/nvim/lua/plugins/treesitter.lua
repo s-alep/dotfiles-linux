@@ -5,60 +5,29 @@ return {
     requires = 'nvim-treesitter/nvim-treesitter',
   },
   {
-    'SmiteshP/nvim-navic',
+    'windwp/nvim-ts-autotag',
     config = function()
-      require('nvim-navic').setup {
-        icons = {
-          File = '󰈙 ',
-          Module = ' ',
-          Namespace = '󰌗 ',
-          Package = ' ',
-          Class = '󰌗 ',
-          Method = '󰆧 ',
-          Property = ' ',
-          Field = ' ',
-          Constructor = ' ',
-          Enum = '󰕘',
-          Interface = '󰕘',
-          Function = '󰊕 ',
-          Variable = '󰆧 ',
-          Constant = '󰏿 ',
-          String = '󰀬 ',
-          Number = '󰎠 ',
-          Boolean = '◩ ',
-          Array = '󰅪 ',
-          Object = '󰅩 ',
-          Key = '󰌋 ',
-          Null = '󰟢 ',
-          EnumMember = ' ',
-          Struct = '󰌗 ',
-          Event = ' ',
-          Operator = '󰆕 ',
-          TypeParameter = '󰊄 ',
+      require('nvim-ts-autotag').setup({
+        opts = {
+          -- Defaults
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = false -- Auto close on trailing </
         },
-        lsp = {
-          auto_attach = true,
-          preference = nil,
-        },
-        highlight = false,
-        separator = ' > ',
-        depth_limit = 0,
-        depth_limit_indicator = '..',
-        safe_output = true,
-        lazy_update_context = false,
-        click = false,
-        format_text = function(text)
-          return text
-        end,
-      }
-    end,
+        per_filetype = {
+          ["html"] = {
+            enable_close = false
+          }
+        }
+      })
+    end
   },
   { 'nvim-treesitter/nvim-treesitter-context',
     config = function()
       require 'treesitter-context'.setup {
         enable = false
       }
-      vim.keymap.set('n', '<leader>c', '<cmd>TSContext toggle<cr>')
+      vim.keymap.set('n', '<leader>tc', '<cmd>TSContext toggle<cr>')
     end
   },
   {
@@ -66,7 +35,6 @@ return {
     lazy = false,
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
-    dependencies = { 'OXY2DEV/markview.nvim' },
     opts = {
       ensure_installed = {
         'bash',

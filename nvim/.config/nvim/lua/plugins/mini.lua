@@ -1,5 +1,6 @@
 return {
-{'sainnhe/gruvbox-material'},
+  {'folke/tokyonight.nvim'},
+  {'LunarVim/darkplus.nvim'},
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -33,6 +34,13 @@ return {
       }
     end,
   },
+  {
+    'nvim-mini/mini.files',
+    version = false,
+    config = function()
+      require('mini.files').setup()
+    end
+  },
   {'nvim-mini/mini.icons', version = '*', config = function()   require('mini.icons').setup {}end,},
   {
     'nvim-mini/mini.indentscope',
@@ -55,5 +63,5 @@ return {
     end,
   },
   {'nvim-mini/mini.surround', version = '*', config = function()   require('mini.surround').setup {}end,},
-  {'nvim-mini/mini.pairs', version = '*', config = function()   require('mini.pairs').setup()end,},
+  {'nvim-mini/mini.pairs', version = '*', config = function()   require('mini.pairs').setup()end }
 }

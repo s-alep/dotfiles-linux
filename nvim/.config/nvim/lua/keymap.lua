@@ -20,12 +20,6 @@ vim.keymap.set('n', 'gh', '<cmd>lua vim.diagnostic.open_float()<cr>' )
 vim.keymap.set('n', 'g-', '<cmd>tabnew<cr><cmd>te<cr>itmux a<cr>')
 vim.keymap.set('n', 'gb', '<cmd>bnext<cr>')
 vim.keymap.set('n', 'gB', '<cmd>bprev<cr>')
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.keymap.set('n', '<CR>', '<CR>', { buffer = true, noremap = true, silent = false })
-  end,
-})
 
 -- window mappings
 
@@ -43,8 +37,26 @@ vim.keymap.set('n', '<leader>4', '<cmd>4tabn<cr>')
 vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 
 vim.keymap.set('n', '<leader>u', '<cmd>Atone toggle<cr>')
-vim.keymap.set("n", '<leader>i',
+vim.keymap.set('n', '<leader>o', '<cmd>Sex!<cr>')
+vim.keymap.set('n', '<leader>o', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>')
+
+vim.keymap.set('t', '<C-w>q', '<c-\\><c-n><c-w>q')
+vim.keymap.set('t', '<C-[>', '<c-\\><c-n>')
+
+vim.keymap.set("n", '<leader>ti',
   function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
   end
 )
+local vt_enabled = false
+
+vim.keymap.set("n", "<leader>tv", function()
+  vt_enabled = not vt_enabled
+  vim.diagnostic.config({
+    virtual_text = vt_enabled,
+  })
+  print("Virtual text: " .. (vt_enabled and "ON" or "OFF"))
+end)
+vim.keymap.set('n', '<leader>tw',function() 
+  vim.o.wrap = not vim.o.wrap
+end)

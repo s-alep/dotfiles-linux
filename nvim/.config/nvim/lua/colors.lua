@@ -1,7 +1,6 @@
 local opaque = 1
 
-vim.cmd.colorscheme('gruvbox-material')
-vim.g.gruvbox_material_background = "hard"
+vim.cmd.colorscheme('retrobox')
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}
