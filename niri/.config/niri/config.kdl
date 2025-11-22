@@ -1,7 +1,7 @@
-workspace "browser"{
+workspace "browser" {
     open-on-output "DP-1"
 }
-workspace "mail"{
+workspace "mail" {
     open-on-output "DP-1"
 }
 workspace "term"{
@@ -71,14 +71,13 @@ overview{
     }
     zoom 0.55555
 }
+
 environment{
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
-output "DP-1"{
-    // off
-}
+
 layout {
-    gaps 10  
+    gaps 10
     center-focused-column "never"
     always-center-single-column 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
@@ -98,24 +97,21 @@ layout {
 
     // You can change how the focus ring looks.
     focus-ring {
-        // off
+        off
         width 4
         active-color "#7fc8ff"
         inactive-color "#505050"
-
         // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
-        off
+        // off
         width 4
-        active-color "#ffc87f"
+        active-color "#7fc8ff"
         inactive-color "#505050"
-
         urgent-color "#9b0000"
-
         // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
@@ -142,10 +138,9 @@ layout {
     }
 }
 
-
 // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/palmtrees.jpg"
+spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/amnesiac.jpg"
 spawn-sh-at-startup "chromium --no-startup-window"
 
 
@@ -175,17 +170,23 @@ window-rule {
     default-column-width { proportion 0.66667; }
 }
 
+window-rule {
+    match app-id="clock-rs.wez"
+    open-floating true
+}
+
 binds {
-    Mod+Ctrl+w { spawn-sh "alacritty -e impala";}
-    Mod+Ctrl+b { spawn-sh "alacritty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
+    Mod+Ctrl+w { spawn-sh "wezterm  -e impala";}
+    Mod+Ctrl+t { spawn-sh "wezterm -e --class=clock-rs.wez $HOME/.cargo/bin/clock-rs";}
+    Mod+Ctrl+b { spawn-sh "wezterm -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
     Mod+Shift+l  { spawn "swaylock"; }
-    Mod+Ctrl+s { spawn-sh "alacritty -e wiremix";}
+    Mod+Ctrl+s { spawn-sh "wezterm -e wiremix";}
     Mod+Ctrl+m { spawn-sh "/home/salepakos/.local/bin/toggle_screen.py";}
 
-    Mod+Return  { spawn-sh "alacritty -e tmux a"; }
+    Mod+Return  { spawn-sh "wezterm"; }
     Mod+Space  { spawn "wofi"; }
     Mod+e  { spawn "nautilus"; }
-    Mod+Alt+e  { spawn-sh "alacritty -e yazi"; }
+    Mod+Alt+e  { spawn-sh "wezterm -e yazi"; }
     Mod+p  { spawn-sh "chromium --new-window --app=https://spotify.com"; }
     Mod+a  { spawn-sh "chromium --new-window --app=https://chatgpt.com"; }
     Mod+n  { spawn-sh "chromium --new-window --app=https://messenger.com"; }

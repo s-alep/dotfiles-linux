@@ -21,6 +21,8 @@ vim.keymap.set('n', 'g-', '<cmd>tabnew<cr><cmd>te<cr>itmux a<cr>')
 vim.keymap.set('n', 'gb', '<cmd>bnext<cr>')
 vim.keymap.set('n', 'gB', '<cmd>bprev<cr>')
 
+vim.keymap.set({'n', 'v'}, '<', '<<')
+vim.keymap.set({'n', 'v'}, '>', '>>')
 -- window mappings
 
 vim.keymap.set('n', '<C-l>', '<C-w>l')
@@ -37,8 +39,7 @@ vim.keymap.set('n', '<leader>4', '<cmd>4tabn<cr>')
 vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 
 vim.keymap.set('n', '<leader>u', '<cmd>Atone toggle<cr>')
-vim.keymap.set('n', '<leader>o', '<cmd>Sex!<cr>')
-vim.keymap.set('n', '<leader>o', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>')
+-- vim.keymap.set('n', '<leader>o', '<cmd>Fyler kind=float<cr>')
 
 vim.keymap.set('t', '<C-w>q', '<c-\\><c-n><c-w>q')
 vim.keymap.set('t', '<C-[>', '<c-\\><c-n>')

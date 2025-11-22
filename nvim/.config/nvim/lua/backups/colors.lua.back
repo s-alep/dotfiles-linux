@@ -1,6 +1,6 @@
-local opaque = 1
+local opaque = 0
 
-vim.cmd.colorscheme('retrobox')
+vim.cmd.colorscheme('kanagawa')
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 require('lualine').setup {}
@@ -52,4 +52,3 @@ vim.keymap.set('n', '<leader>tl', toggle_dark_light )
 if opaque == 1 then
   toggle_opacity()
 end
-

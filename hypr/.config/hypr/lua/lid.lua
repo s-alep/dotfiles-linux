@@ -12,7 +12,7 @@ if mode == 0 then
 		os.execute('hyprctl keyword monitor "eDP-1, disable"')
 	end
 	if monitor_count == 1 then
-		os.execute(" systemctl suspend && hyprlock")
+		os.execute(" systemctl suspend && swaylock")
 	end
 elseif mode == 1 then
 	-- Open the lid

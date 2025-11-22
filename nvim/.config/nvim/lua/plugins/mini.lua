@@ -1,20 +1,4 @@
 return {
-  {'folke/tokyonight.nvim'},
-  {'LunarVim/darkplus.nvim'},
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    ---@type Flash.Config
-    opts = {},
-    keys = {
-      { "S", mode = { "n", "x", "o" }, function()   require('flash').jump()end, desc = "Flash" },
-    },
-  },
-  {
-    "XXiaoA/atone.nvim",
-    cmd = "Atone",
-    opts = {}
-  },
   {'nvim-mini/mini.extra', version = false, config = function()  require('mini.extra').setup()end,},
   {
     'nvim-mini/mini.ai',
@@ -34,13 +18,6 @@ return {
       }
     end,
   },
-  {
-    'nvim-mini/mini.files',
-    version = false,
-    config = function()
-      require('mini.files').setup()
-    end
-  },
   {'nvim-mini/mini.icons', version = '*', config = function()   require('mini.icons').setup {}end,},
   {
     'nvim-mini/mini.indentscope',
@@ -56,10 +33,10 @@ return {
   {
     'nvim-mini/mini.splitjoin',
     version = '*',
-    config = function() 
+    config = function()
       require('mini.splitjoin').setup {
         mappings = { toggle = 'grs', split = '', join = '' }
-      } 
+      }
     end,
   },
   {'nvim-mini/mini.surround', version = '*', config = function()   require('mini.surround').setup {}end,},

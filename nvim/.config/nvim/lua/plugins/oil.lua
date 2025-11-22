@@ -38,7 +38,7 @@ return {
         ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
         ['<C-t>'] = { 'actions.select', opts = { tab = true } },
         ['<C-p>'] = 'actions.preview',
-        ['<C-c>'] = { 'actions.close', mode = 'n' },
+        ['q'] = { 'actions.close', mode = 'n' },
         ['<C-r>'] = 'actions.refresh',
         ['-'] = { 'actions.parent', mode = 'n' },
         ['_'] = { 'actions.open_cwd', mode = 'n' },
@@ -129,6 +129,10 @@ return {
           winblend = 0,
         },
       },
+      float = {
+        max_width = 0.5,
+        max_height = 0.5,
+      },
       ssh = {
         border = 'rounded',
       },
@@ -137,5 +141,5 @@ return {
       },
     }
   end,
-  vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', { desc = '[O]il' }),
+  vim.keymap.set('n', '<leader>o', '<CMD>lua require("oil").toggle_float()<CR>', { desc = '[O]il' }),
 }

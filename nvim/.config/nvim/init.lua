@@ -13,7 +13,11 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-sleuth',
+  {
+    "XXiaoA/atone.nvim",
+    cmd = "Atone",
+    opts = {}
+  },
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -34,10 +38,11 @@ require('lazy').setup({
 })
 
 require 'keymap'
-require 'colors'
 
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
 
+vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -3,8 +3,7 @@
   "layer": "top",
   "position": "bottom",
   "spacing": 0,
-  "height": 26,
-  "output" : ["DP-1"],
+  "height": 28,
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/windowcount",
@@ -99,25 +98,13 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "ghostty -e impala"
-  },
-  "backlight": {
-    "device": "auto",
-    "format": "{icon}",
-    "on-click": "hyprctl hyprsunset temperature 3800",
-    "on-click-right": "hyprctl hyprsunset identity",
-    "on-scroll-up": "hyprctl hyprsunset gamma +10",
-    "on-scroll-down": "hyprctl hyprsunset gamma -10",
-    "format-icons": [
-      ""
-    ]
+    "on-click": "wezterm -e impala"
   },
   "custom/brightness": {
     "format": "",
-    "on-click": "hyprctl hyprsunset temperature 3800",
-    "on-click-right": "hyprctl hyprsunset identity",
-    "on-scroll-up": "hyprctl hyprsunset gamma +10",
-    "on-scroll-down": "hyprctl hyprsunset gamma -10",
+    "on-click": "pkill wlsunset || wlsunset -t 3500",
+    "on-scroll-up": "brightnessctl --class=backlight set +10%",
+    "on-scroll-down": "brightnessctl --class=backlight set 10%-",
     "tooltip" :false
   },
   "battery": {
@@ -165,12 +152,12 @@
     "format-no-controller": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
-    "on-click-right": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
+    "on-click": "wezterm -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
+    "on-click-right": "wezterm -e /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "ghostty -e wiremix",
+    "on-click": "wezterm -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
