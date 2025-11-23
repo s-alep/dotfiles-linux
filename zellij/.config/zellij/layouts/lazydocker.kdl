@@ -1,6 +1,6 @@
 layout{
-    pane command="lazydocker" close_on_exit=true
     pane size=1 borderless=true {
         plugin location="zellij:compact-bar"
     }
+    pane command="lazydocker" close_on_exit=true
 }

@@ -86,7 +86,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "ghostty -e impala"
+    "on-click": "alacritty -e impala"
   },
   "custom/brightness": {
     "format": "",
@@ -140,12 +140,12 @@
     "format-no-controller": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
-    "on-click-right": "ghostty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
+    "on-click": "alacritty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1",
+    "on-click-right": "alacritty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 0"
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "ghostty -e wiremix",
+    "on-click": "alacritty -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,

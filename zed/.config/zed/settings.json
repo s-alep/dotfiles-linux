@@ -154,7 +154,7 @@
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_fallbacks": ["CaskaydiaCove Nerd Font Mono"],
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "vim_mode": true,
   "vim": {
     "highlight_on_yank_duration": 100
@@ -163,9 +163,5 @@
   "buffer_font_size": 15,
   "show_whitespaces": "all",
   "icon_theme": "Zed (Default)",
-  "theme": {
-    "mode": "dark",
-    "light": "Tokyo Night Light",
-    "dark": "Zedwaita Dark"
-  }
+  "theme": "Nordic Syntax"
 }

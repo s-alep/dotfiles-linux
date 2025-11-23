@@ -1,12 +1,7 @@
-[general]
-[env]
-[window]
-dynamic_padding=true
-dynamic_title=false
-decorations_theme_variant='Dark'
-opacity=0.95
 [font]
 normal={ family='JetBrainsMono Nerd Font'}
 size=12
 [mouse]
 hide_when_typing=true
+[terminal]
+shell = "nu"
