@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+require 'opts'
+require 'aucmds'
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -17,9 +20,10 @@ require('lazy').setup({
     cmd = "Atone",
     opts = {}
   },
-    'AlexvZyl/nordic.nvim',
+  'AlexvZyl/nordic.nvim',
   "folke/tokyonight.nvim",
- 'Everblush/nvim' ,
+  'Everblush/nvim' ,
+  "Shatur/neovim-ayu",
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -40,12 +44,10 @@ require('lazy').setup({
 })
 
 require 'keymap'
-require 'opts'
-require 'aucmds'
 
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
 
-vim.cmd.colorscheme('everblush')
+-- vim.cmd.colorscheme('ayu-mirage')
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

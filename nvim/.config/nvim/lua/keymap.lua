@@ -1,3 +1,7 @@
+vim.keymap.set({'n',"v"}, '<leader>y', '"+y', { desc = 'No Highligh' })
+vim.keymap.set({'n'}, '<leader>Y', '"+yy', { desc = 'No Highligh' })
+vim.keymap.set({'n', "v"}, '<leader>p', '"+p', { desc = 'No Highligh' })
+vim.keymap.set({'n', "v"}, '<leader>P', '"+P', { desc = 'No Highligh' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'No Highligh' })
 vim.keymap.set('n', 'ciu', 'T_ct_', { desc = 'Change Inside underscore' })
 vim.keymap.set('n', 'cu', 'ct_', { desc = 'Change to underscore' })
@@ -23,15 +27,6 @@ vim.keymap.set('n', 'gB', '<cmd>bprev<cr>')
 
 vim.keymap.set({'n', 'v'}, '<', '<<')
 vim.keymap.set({'n', 'v'}, '>', '>>')
--- window mappings
-
--- vim.keymap.set('n', '<C-l>', '<C-w>l')
--- vim.keymap.set('n', '<C-k>', '<C-w>k')
--- vim.keymap.set('n', '<C-j>', '<C-w>j')
--- vim.keymap.set('n', '<C-h>', '<C-w>h')
-
--- tabs
-
 vim.keymap.set('n', '<leader>1', '<cmd>1tabn<cr>')
 vim.keymap.set('n', '<leader>2', '<cmd>2tabn<cr>')
 vim.keymap.set('n', '<leader>3', '<cmd>3tabn<cr>')
@@ -67,8 +62,10 @@ vim.keymap.set('n', '<leader>o', function()
   local zellij = os.getenv('ZELLIJ')
   if pane_id ~= nil then
     local cwd = vim.fn.expand('%:p:h')
+    print(123)
     os.execute("wezterm cli spawn --cwd " .. cwd .." /home/salepakos/.config/wezterm/wezpicker " .. pane_id)
   elseif zellij ~=nil then
-    os.execute("zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/zelpicker e %{buffer_name}")
+    print(234)
+    os.execute("zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/zellij/zelpicker e %{buffer_name}")
   end
 end)

@@ -27,7 +27,7 @@ return{
 
     -- Find
     vim.keymap.set('n', '<leader><leader>', '<cmd>lua FzfLua.buffers()<cr>')
-    vim.keymap.set('n', '<leader>p', '<cmd>lua FzfLua.files()<cr>')
+    vim.keymap.set('n', '<leader>f', '<cmd>lua FzfLua.files()<cr>')
     vim.keymap.set('n', '<leader>sn', "<cmd>lua FzfLua.files({cwd = '~/.config/nvim'})<cr>")
     -- Grep
     vim.keymap.set('n', '<leader>/', '<cmd>lua FzfLua.blines()<cr>')

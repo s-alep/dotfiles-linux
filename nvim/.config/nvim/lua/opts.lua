@@ -10,9 +10,9 @@ vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 vim.opt.breakindent = true
 vim.opt.termguicolors = false
 vim.opt.undofile = true
