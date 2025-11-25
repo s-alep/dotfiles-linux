@@ -1,0 +1,12 @@
+layout{
+    tab name="logs"  cwd="/home/salepakos/Documents/dev/snow/snow"{
+            pane {
+                cwd "sl2_flask"
+                command "bash"
+                args "-c" "docker kill $(docker ps -q ) && devpod up . && ddap snow_flask"
+            }
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env nu
+
+def main [pane_id: int] {
+    let file = (yazi --chooser-file=/dev/stdout)
+    wezterm cli activate-pane --pane-id $pane_id
+    wezterm cli send-text --no-paste --pane-id ($pane_id) $":e ($file)\r"
+}

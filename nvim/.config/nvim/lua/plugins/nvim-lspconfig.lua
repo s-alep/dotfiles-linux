@@ -17,8 +17,9 @@ return {
     end
 
     local servers = {
-      basedpyright = {},
+      -- basedpyright = {},
       ts_ls = {},
+      pyrefly = {},
       phpactor = {},
       lua_ls = {},
       emmet_language_server = {},

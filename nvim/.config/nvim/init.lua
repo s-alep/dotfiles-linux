@@ -1,6 +1,5 @@
-require 'opts'
-require 'aucmds'
-
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -18,6 +17,9 @@ require('lazy').setup({
     cmd = "Atone",
     opts = {}
   },
+    'AlexvZyl/nordic.nvim',
+  "folke/tokyonight.nvim",
+ 'Everblush/nvim' ,
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -38,11 +40,12 @@ require('lazy').setup({
 })
 
 require 'keymap'
+require 'opts'
+require 'aucmds'
 
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
 
-vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
+vim.cmd.colorscheme('everblush')
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

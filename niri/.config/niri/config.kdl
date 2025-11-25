@@ -148,7 +148,7 @@ hotkey-overlay {
     skip-at-startup
 }
 
-prefer-no-csd
+// prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
@@ -187,10 +187,12 @@ binds {
     Mod+Space  { spawn "wofi"; }
     Mod+e  { spawn "nautilus"; }
     Mod+Alt+e  { spawn-sh "alacritty -e yazi"; }
-    Mod+p  { spawn-sh "chromium --new-window --app=https://spotify.com"; }
+    Mod+p  { spawn-sh "spotify"; }
+    // Mod+p  { spawn-sh "chromium --new-window --app=https://spotify.com"; }
     Mod+a  { spawn-sh "chromium --new-window --app=https://chatgpt.com"; }
     Mod+n  { spawn-sh "chromium --new-window --app=https://messenger.com"; }
-    Mod+s  { spawn-sh "chromium --new-window --app=https://discord.com/app"; }
+    Mod+s  { spawn-sh "discord"; }
+    // Mod+s  { spawn-sh "chromium --new-window --app=https://discord.com/app"; }
     Mod+m  { spawn-sh "chromium --new-window --app=https://teams.microsoft.com/v2/ && chromium --new-window --app=https://outlook.office.com/mail/"; }
     Mod+b  { spawn-sh "killall waybar || waybar "; }
     Mod+Ctrl+n  { spawn-sh "pkill wlsunset || wlsunset -t 3500 "; }

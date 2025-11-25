@@ -9,7 +9,7 @@ layout{
             pane {
                 cwd "AngularApp"
                 command "bash"
-                args "-c" "bun run start"
+                args "-c" "echo 1beer | sudo -S bun run start"
             }
         }
         pane size=1 borderless=true {

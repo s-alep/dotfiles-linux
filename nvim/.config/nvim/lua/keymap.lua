@@ -25,10 +25,10 @@ vim.keymap.set({'n', 'v'}, '<', '<<')
 vim.keymap.set({'n', 'v'}, '>', '>>')
 -- window mappings
 
-vim.keymap.set('n', '<C-l>', '<C-w>l')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-h>', '<C-w>h')
+-- vim.keymap.set('n', '<C-l>', '<C-w>l')
+-- vim.keymap.set('n', '<C-k>', '<C-w>k')
+-- vim.keymap.set('n', '<C-j>', '<C-w>j')
+-- vim.keymap.set('n', '<C-h>', '<C-w>h')
 
 -- tabs
 
@@ -60,4 +60,15 @@ vim.keymap.set("n", "<leader>tv", function()
 end)
 vim.keymap.set('n', '<leader>tw',function() 
   vim.o.wrap = not vim.o.wrap
+end)
+
+vim.keymap.set('n', '<leader>o', function()
+  local pane_id = os.getenv('WEZTERM_PANE')
+  local zellij = os.getenv('ZELLIJ')
+  if pane_id ~= nil then
+    local cwd = vim.fn.expand('%:p:h')
+    os.execute("wezterm cli spawn --cwd " .. cwd .." /home/salepakos/.config/wezterm/wezpicker " .. pane_id)
+  elseif zellij ~=nil then
+    os.execute("zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/zelpicker e %{buffer_name}")
+  end
 end)

@@ -11,17 +11,17 @@ local keys = {
 	{ key = "c", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = false } }) },
 
-	--move between panes
-	{ key = "h", mods = "LEADER", action = act({ ActivatePaneDirection = "Left" }) },
-	{ key = "j", mods = "LEADER", action = act({ ActivatePaneDirection = "Down" }) },
-	{ key = "k", mods = "LEADER", action = act({ ActivatePaneDirection = "Up" }) },
-	{ key = "l", mods = "LEADER", action = act({ ActivatePaneDirection = "Right" }) },
+	-- move between panes
+	-- { key = "h", mods = "LEADER", action = act({ ActivatePaneDirection = "Left" }) },
+	-- { key = "j", mods = "LEADER", action = act({ ActivatePaneDirection = "Down" }) },
+	-- { key = "k", mods = "LEADER", action = act({ ActivatePaneDirection = "Up" }) },
+	-- { key = "l", mods = "LEADER", action = act({ ActivatePaneDirection = "Right" }) },
 
-	--resize panes
-	{ key = "h", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Left", 5 } }) },
-	{ key = "j", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Down", 5 } }) },
-	{ key = "k", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Up", 5 } }) },
-	{ key = "l", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Right", 5 } }) },
+	-- resize panes
+	-- { key = "h", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Left", 5 } }) },
+	-- { key = "j", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Down", 5 } }) },
+	-- { key = "k", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Up", 5 } }) },
+	-- { key = "l", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Right", 5 } }) },
 
 	--Move tabs
 	{ key = "1", mods = "CTRL", action = act({ ActivateTab = 0 }) },

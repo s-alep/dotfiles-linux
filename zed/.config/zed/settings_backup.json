@@ -1,0 +1,167 @@
+{
+  "notification_panel": {
+    "button": false
+  },
+  "file_finder": {
+    "git_status": true
+  },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_menus": false,
+    "show_sign_in": false,
+    "show_user_picture": false,
+    "show_onboarding_banner": false,
+    "show_project_items": false,
+    "show_branch_name": false
+  },
+  "status_bar": {
+    "active_language_button": true,
+    "cursor_position_button": false
+  },
+  "terminal": {
+    "button": false
+  },
+  "diagnostics": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "debugger": {
+    "button": false
+  },
+  "soft_wrap": "editor_width",
+  "tabs": {
+    "git_status": false
+  },
+  "ssh_connections": [
+    {
+      "host": "sl2flask.devpod",
+      "projects": [
+        {
+          "paths": [
+            "/workspace"
+          ]
+        }
+      ]
+    }
+  ],
+  "format_on_save": "off",
+  "auto_install_extensions": {
+    "html": true,
+    "php": true,
+    "dockerfile": true
+  },
+  "cursor_blink": false,
+  "collaboration_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "outline_panel": {
+    "git_status": true,
+    "button": false,
+    "dock": "right"
+  },
+  "git_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "project_panel": {
+    "git_status": true,
+    "button": false,
+    "dock": "right"
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright"]
+    }
+  },
+  "lsp": {
+    "ruff": {
+      "initialization_options" : {
+        "settings": {
+          "organiseImports" : false,
+          "lint" : {
+            "ignore" : [ "F403" , "F405", "E712" ]
+          }
+        }
+      }
+    },
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "diagnosticSeverityOverrides": {
+            "reportUnknownMemberType": "none",
+            "reportUnknownArgumentType": "none",
+            "reportUnknownLambdaType": "none",
+            "reportUnknownVariableType": "none",
+            "reportMissingParameterType": "none",
+            "reportUnknownParameterType": "none",
+            "reportUnusedCallResult" : "none"
+          }
+        }
+      }
+    },
+    "rust-analyzer": {
+      "binary": {
+        "path": "/usr/lib/rustup/bin/rust-analyzer"
+      }
+    }
+  },
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "button": false,
+    "single_file_review": true,
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "model_parameters": [],
+    "default_profile": "write"
+  },
+  "base_keymap": "VSCode",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "restore_on_startup": "none",
+  "hide_mouse": "on_typing",
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "tab_bar": {
+    "show": false,
+    "show_nav_history_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false
+  },
+  "always_treat_brackets_as_autoclosed": true,
+  // Fonts
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_fallbacks": ["CaskaydiaCove Nerd Font Mono"],
+  "relative_line_numbers": true,
+  "vim_mode": true,
+  "vim": {
+    "highlight_on_yank_duration": 100
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "show_whitespaces": "all",
+  "icon_theme": "Zed (Default)",
+  "theme": "Nordic Syntax"
+}

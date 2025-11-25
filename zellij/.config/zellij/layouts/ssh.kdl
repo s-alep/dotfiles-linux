@@ -1,3 +1,0 @@
-layout{
-    pane command="/home/salepakos/.local/bin/ssh" close_on_exit=true
-}

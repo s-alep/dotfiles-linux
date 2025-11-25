@@ -12,6 +12,16 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" "scroll" "search" "tmux" {
         bind "Ctrl s" { SwitchToMode "tmux"; }
+        bind "Ctrl 1" { GoToTab 1; SwitchToMode "Normal"; }
+        bind "Ctrl 2" { GoToTab 2; SwitchToMode "Normal"; }
+        bind "Ctrl 3" { GoToTab 3; SwitchToMode "Normal"; }
+        bind "Ctrl 4" { GoToTab 4; SwitchToMode "Normal"; }
+        bind "Ctrl 5" { GoToTab 5; SwitchToMode "Normal"; }
+        bind "Ctrl 6" { GoToTab 6; SwitchToMode "Normal"; }
+        bind "Ctrl 7" { GoToTab 7; SwitchToMode "Normal"; }
+        bind "Ctrl 8" { GoToTab 8; SwitchToMode "Normal"; }
+        bind "Ctrl 9" { GoToTab 9; SwitchToMode "Normal"; }
+ 
     }
     shared_except "normal" "locked" "entersearch" {
         bind "enter" { SwitchToMode "normal"; }
@@ -75,25 +85,41 @@ keybinds clear-defaults=true {
             };
             SwitchToMode "Normal";
         }
-        bind "P" { 
-            Run "/home/salepakos/.local/bin/zellij_ssh" {
-                close_on_exit true
-                floating true
-            };
-            SwitchToMode "Normal";
+
+        bind "g" {
+          Run "lazygit" {
+            close_on_exit true
+            floating true
+            x "10%"
+            y "15%"
+            width "80%"
+            height "70%"
+          };
+          SwitchToMode "Normal";
         }
-        // bind "g" { NewTab{ name "lazygit"; layout "/home/salepakos/.config/zellij/layouts/lazygit.kdl";}; SwitchToMode "Normal";}
-        bind "g" { ToggleFloatingPanes; NewPane "stacked"; SwitchToMode "Normal";}
-        bind "D" { NewTab{ name "lazydocker"; layout "/home/salepakos/.config/zellij/layouts/lazydocker.kdl";}; SwitchToMode "Normal";}
-        bind "1" { GoToTab 1; SwitchToMode "Normal"; }
-        bind "2" { GoToTab 2; SwitchToMode "Normal"; }
-        bind "3" { GoToTab 3; SwitchToMode "Normal"; }
-        bind "4" { GoToTab 4; SwitchToMode "Normal"; }
-        bind "5" { GoToTab 5; SwitchToMode "Normal"; }
-        bind "6" { GoToTab 6; SwitchToMode "Normal"; }
-        bind "7" { GoToTab 7; SwitchToMode "Normal"; }
-        bind "8" { GoToTab 8; SwitchToMode "Normal"; }
-        bind "9" { GoToTab 9; SwitchToMode "Normal"; }
+        bind "t"{
+          Run "clock-rs" {
+            close_on_exit true
+            floating true
+            x "10%"
+            y "15%"
+            width "80%"
+            height "70%"
+          };
+          SwitchToMode "Normal";
+        }
+
+        bind "G" {
+          Run "lazydocker" {
+            close_on_exit true
+            floating true
+            x "10%"
+            y "15%"
+            width "80%"
+            height "70%"
+          };
+          SwitchToMode "Normal";
+        }
     }
 }
 
@@ -111,7 +137,7 @@ load_plugins {
 }
  
 simplified_ui true
-default_layout "compact"
+default_layout "default"
 pane_frames false
 theme "vesper"
 default_mode "normal"

@@ -1,5 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.g.netrw_banner = 0
 vim.opt.number = true
@@ -85,6 +83,9 @@ local highlights = {
   ["@comment"]      = { ctermfg = 8, italic = true }, -- dim/gray
   ["@punctuation"]  = { ctermfg = 7 },                -- bright white
 }
+
+vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
 
 for group, opts in pairs(highlights) do
     vim.api.nvim_set_hl(0, group, opts)
