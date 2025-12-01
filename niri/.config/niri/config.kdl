@@ -54,6 +54,13 @@ input {
 
 output "eDP-1" {
     position x=400 y=1440
+    layout{
+        gaps 0
+        border {
+            off
+        }
+        default-column-width { proportion 1.00000; }
+    }
 }
 
 output "DP-1" {
@@ -95,20 +102,13 @@ layout {
     // default-column-width {}
     // `draw-border-with-background`.
 
-    // You can change how the focus ring looks.
     focus-ring {
         off
-        width 4
-        active-color "#7fc8ff"
-        inactive-color "#505050"
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
-    // You can also add a border. It's similar to the focus ring, but always visible.
     border {
         // off
-        width 4
+        width 3
         active-color "#7fc8ff"
         inactive-color "#505050"
         urgent-color "#9b0000"
@@ -140,7 +140,7 @@ layout {
 
 // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/amnesiac.jpg"
+spawn-sh-at-startup "swaybg -i ~/Pictures/IMG_20220201_083719.jpg"
 spawn-sh-at-startup "chromium --no-startup-window"
 
 
@@ -148,55 +148,74 @@ hotkey-overlay {
     skip-at-startup
 }
 
-// prefer-no-csd
+prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // off
     slowdown 0.35
 }
 
-window-rule {
-    geometry-corner-radius 4
-    clip-to-geometry true
-}
+// window-rule {
+//     geometry-corner-radius 4
+//     clip-to-geometry true
+// }
+recent-windows {
+    // off
+    debounce-ms 750
+    open-delay-ms 150
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 5
+        corner-radius 10
+    }
+    previews {
+        max-height 200
+        max-scale 0.1
+    }
 
+    binds {
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
 layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width { proportion 0.66667; }
-}
+
+// window-rule {
+//     match app-id=r#"^org\.wezfurlong\.wezterm$"#
+//     default-column-width { proportion 0.66667; }
+// }
 
 window-rule {
-    match app-id="clock-rs.wez"
+    match app-id=r#".*\.wez$"#
     open-floating true
 }
 
 binds {
-    Mod+Ctrl+w { spawn-sh "alacritty  -e impala";}
-    Mod+Ctrl+t { spawn-sh "alacritty -e --class=clock-rs.wez $HOME/.cargo/bin/clock-rs";}
-    Mod+Ctrl+b { spawn-sh "alacritty -e /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
-    Mod+Shift+l  { spawn "swaylock"; }
-    Mod+Ctrl+s { spawn-sh "alacritty -e wiremix";}
+    Mod+Ctrl+w { spawn-sh "wezterm -e --class=impala.wez impala";}
+    Mod+Ctrl+t { spawn-sh "wezterm -e --class=clock-rs.wez $HOME/.cargo/bin/clock-rs";}
+    Mod+Ctrl+b { spawn-sh "wezterm -e --class=bt.wez /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
+    Mod+Ctrl+s { spawn-sh "wezterm -e --class=wiremix.wez wiremix";}
+    Mod+Alt+l  { spawn "swaylock"; }
     Mod+Ctrl+m { spawn-sh "/home/salepakos/.local/bin/toggle_screen.py";}
 
-    Mod+Return  { spawn-sh "alacritty"; }
-    Mod+Space  { spawn "wofi"; }
+    Mod+Return  { spawn-sh "wezterm start --always-new-process"; }
+    Mod+Space  { spawn "fuzzel"; }
     Mod+e  { spawn "nautilus"; }
-    Mod+Alt+e  { spawn-sh "alacritty -e yazi"; }
     Mod+p  { spawn-sh "spotify"; }
-    // Mod+p  { spawn-sh "chromium --new-window --app=https://spotify.com"; }
     Mod+a  { spawn-sh "chromium --new-window --app=https://chatgpt.com"; }
     Mod+n  { spawn-sh "chromium --new-window --app=https://messenger.com"; }
     Mod+s  { spawn-sh "discord"; }
-    // Mod+s  { spawn-sh "chromium --new-window --app=https://discord.com/app"; }
     Mod+m  { spawn-sh "chromium --new-window --app=https://teams.microsoft.com/v2/ && chromium --new-window --app=https://outlook.office.com/mail/"; }
     Mod+b  { spawn-sh "killall waybar || waybar "; }
     Mod+Ctrl+n  { spawn-sh "pkill wlsunset || wlsunset -t 3500 "; }
     Mod+d { spawn-sh "hyprpicker -a";}
+    Mod+z { maximize-window-to-edges; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

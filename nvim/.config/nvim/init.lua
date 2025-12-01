@@ -20,10 +20,8 @@ require('lazy').setup({
     cmd = "Atone",
     opts = {}
   },
-  'AlexvZyl/nordic.nvim',
+  "rebelot/kanagawa.nvim",
   "folke/tokyonight.nvim",
-  'Everblush/nvim' ,
-  "Shatur/neovim-ayu",
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -48,6 +46,21 @@ require 'keymap'
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
 
--- vim.cmd.colorscheme('ayu-mirage')
+require('kanagawa').setup{
+  transparent = true,
+  colors ={
+    theme ={
+      all = {
+        ui = {
+          bg_gutter = "none"
+        }
+      }
+    }
+  }
+}
+vim.cmd.colorscheme('kanagawa')
+vim.api.nvim_set_hl(0, 'StatusLine', { link = 'none' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'none' })
+require("lualine").setup{}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

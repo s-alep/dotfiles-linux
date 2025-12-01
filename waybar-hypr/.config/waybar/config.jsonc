@@ -10,16 +10,16 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "clock",
-    "hyprland/submap"
   ],
   "modules-right": [
+    "hyprland/submap",
     "group/tray-expander",
     "hyprland/language",
-    "bluetooth",
-    "network",
-    "pulseaudio",
-    "custom/brightness",
+    // "bluetooth",
+    // "network",
+    // "pulseaudio",
+    // "custom/brightness",
+    "clock",
     "battery"
   ],
   "hyprland/window":{

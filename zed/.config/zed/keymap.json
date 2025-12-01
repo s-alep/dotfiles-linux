@@ -1,0 +1,63 @@
+ [
+   {
+     "context": "Editor && showing_completions",
+     "bindings": {
+       "ctrl-y": "editor::ConfirmCompletion"
+     }
+   },
+   {
+     "context": "vim_mode == visual",
+     "bindings": {
+       "shift-s": ["vim::PushAddSurrounds", {}]
+     }
+   },
+   {
+     "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+     "bindings": {
+       "q": "vim::MiniQuotes",
+       "b": "vim::MiniBrackets"
+     }
+   },
+   {
+     "context": "Dock",
+     "bindings": {
+       "ctrl-h": "workspace::ActivatePaneLeft",
+       "ctrl-l": "workspace::ActivatePaneRight",
+       "ctrl-k": "workspace::ActivatePaneUp"
+     }
+   },
+   {
+     "context": "vim_mode == visual && !menu",
+     "bindings": {
+       "space w i": "assistant::InlineAssist"
+     }
+   },
+   {
+     "context": "vim_mode == normal && !menu",
+     "bindings": {
+       "ctrl-shift-u": "vim::ScrollUp",
+       "ctrl-shift-d": "vim::ScrollDown",
+       "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
+       "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
+       "space f": "file_finder::Toggle",
+       "ctrl-s p" : "projects::OpenRecent",
+       "space space": "tab_switcher::ToggleAll",
+       "space a": "workspace::ToggleRightDock",
+       "space x": "project_panel::ToggleFocus",
+       "space X": "zed::Extensions",
+       "space w e": "agent::ToggleFocus",
+       "space w w": "workspace::ToggleBottomDock",
+       "space b": "editor::ToggleBreakpoint",
+       "space d b": "debugger::ClearAllBreakpoints",
+       "space d v": "debugger::FocusVariables",
+       "space d ?": "debugger::Stop",
+       "space d .": "debugger::Continue",
+       "space d /": "debugger::Start",
+       "ctrl-h": "workspace::ActivatePaneLeft",
+       "ctrl-l": "workspace::ActivatePaneRight",
+       "ctrl-k": "workspace::ActivatePaneUp",
+       "ctrl-j": "workspace::ActivatePaneDown",
+       "F3": "theme_selector::Toggle"
+     }
+   }
+ ]

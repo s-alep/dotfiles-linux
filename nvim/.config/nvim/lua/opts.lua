@@ -14,7 +14,7 @@ vim.opt.showmode = false
 --   vim.opt.clipboard = 'unnamedplus'
 -- end)
 vim.opt.breakindent = true
-vim.opt.termguicolors = false
+-- vim.opt.termguicolors = false
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -37,7 +37,8 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 20
 vim.opt.langmap="ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
-
+vim.o.shell="/usr/sbin/nu"
+vim.o.shcf = "--config ~/.config/nushell/config.nu -c"
 function _G.custom_tabline()
   local s = ''
   for i = 1, vim.fn.tabpagenr('$') do

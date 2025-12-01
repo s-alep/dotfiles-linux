@@ -3,7 +3,25 @@ keybinds clear-defaults=true {
         bind "e" { EditScrollback; SwitchToMode "normal"; }
         bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
     }
-    shared_except "locked" {
+    search {
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "n" { Search "down"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+        bind "N" { Search "up"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+    }
+    shared_except "locked" "scroll" "search" "tmux" {
+        bind "Ctrl s" { SwitchToMode "tmux"; }
+        bind "Ctrl 1" { GoToTab 1; SwitchToMode "Normal"; }
+        bind "Ctrl 2" { GoToTab 2; SwitchToMode "Normal"; }
+        bind "Ctrl 3" { GoToTab 3; SwitchToMode "Normal"; }
+        bind "Ctrl 4" { GoToTab 4; SwitchToMode "Normal"; }
+        bind "Ctrl 5" { GoToTab 5; SwitchToMode "Normal"; }
+        bind "Ctrl 6" { GoToTab 6; SwitchToMode "Normal"; }
+        bind "Ctrl 7" { GoToTab 7; SwitchToMode "Normal"; }
+        bind "Ctrl 8" { GoToTab 8; SwitchToMode "Normal"; }
+        bind "Ctrl 9" { GoToTab 9; SwitchToMode "Normal"; }
+ 
         bind "Ctrl h" {
             MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
                 name "move_focus";
@@ -52,26 +70,6 @@ keybinds clear-defaults=true {
                 payload "right";
             };
         }
-      }
-    search {
-        bind "c" { SearchToggleOption "CaseSensitivity"; }
-        bind "n" { Search "down"; }
-        bind "o" { SearchToggleOption "WholeWord"; }
-        bind "N" { Search "up"; }
-        bind "w" { SearchToggleOption "Wrap"; }
-    }
-    shared_except "locked" "scroll" "search" "tmux" {
-        bind "Ctrl s" { SwitchToMode "tmux"; }
-        bind "Ctrl 1" { GoToTab 1; SwitchToMode "Normal"; }
-        bind "Ctrl 2" { GoToTab 2; SwitchToMode "Normal"; }
-        bind "Ctrl 3" { GoToTab 3; SwitchToMode "Normal"; }
-        bind "Ctrl 4" { GoToTab 4; SwitchToMode "Normal"; }
-        bind "Ctrl 5" { GoToTab 5; SwitchToMode "Normal"; }
-        bind "Ctrl 6" { GoToTab 6; SwitchToMode "Normal"; }
-        bind "Ctrl 7" { GoToTab 7; SwitchToMode "Normal"; }
-        bind "Ctrl 8" { GoToTab 8; SwitchToMode "Normal"; }
-        bind "Ctrl 9" { GoToTab 9; SwitchToMode "Normal"; }
- 
     }
     shared_except "normal" "locked" "entersearch" {
         bind "enter" { SwitchToMode "normal"; }

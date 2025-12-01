@@ -26,7 +26,7 @@ return{
     require('fzf-lua').register_ui_select()
 
     -- Find
-    vim.keymap.set('n', '<leader><leader>', '<cmd>lua FzfLua.buffers()<cr>')
+    vim.keymap.set('n', '<leader>w', '<cmd>lua FzfLua.buffers()<cr>')
     vim.keymap.set('n', '<leader>f', '<cmd>lua FzfLua.files()<cr>')
     vim.keymap.set('n', '<leader>sn', "<cmd>lua FzfLua.files({cwd = '~/.config/nvim'})<cr>")
     -- Grep

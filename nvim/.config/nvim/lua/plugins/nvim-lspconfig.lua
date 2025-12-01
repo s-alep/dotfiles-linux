@@ -8,7 +8,7 @@ return {
   },
   config = function()
     if vim.g.have_nerd_font then
-      local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
+      local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
       local diagnostic_signs = {}
       for type, icon in pairs(signs) do
         diagnostic_signs[vim.diagnostic.severity[type]] = icon
@@ -19,7 +19,7 @@ return {
     local servers = {
       -- basedpyright = {},
       ts_ls = {},
-      pyrefly = {},
+      -- pyrefly = {},
       phpactor = {},
       lua_ls = {},
       emmet_language_server = {},

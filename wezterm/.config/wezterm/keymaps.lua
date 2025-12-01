@@ -2,26 +2,37 @@ local wezterm = require("wezterm")
 local muxer = require("sessionizer")
 local act = wezterm.action
 local keys = {
-	{ key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.just_cd) },
-	-- { key = "p", mods = "LEADER|CTRL", action = wezterm.action_callback(muxer.toggle) },
-	{ key = "s", mods = "LEADER", action = wezterm.action_callback(muxer.all_sessions) },
+	-- { key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.just_cd) },
+	{ key = "t", mods = "LEADER", action = wezterm.action_callback(muxer.new_tab) },
+	{ key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.toggle) },
+    { key = 's', mods = 'LEADER', action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },},
+    { key = 'u', mods = 'LEADER', action = act.SwitchWorkspaceRelative(1) },
+    { key = 'i', mods = 'LEADER', action = act.SwitchWorkspaceRelative(-1) },
 	{ key = "V", mods = "LEADER", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 	{ key = "v", mods = "LEADER", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
-
+    {
+        key = 'w',
+        mods = 'LEADER',
+        action = act.PromptInputLine {
+            description = wezterm.format {
+                { Attribute = { Intensity = 'Bold' } },
+                { Foreground = { AnsiColor = 'Fuchsia' } },
+                { Text = 'Enter name for new workspace' },
+            },
+            action = wezterm.action_callback(function(window, pane, line)
+                if line then
+                    window:perform_action(
+                        act.SwitchToWorkspace {
+                            name = line,
+                        },
+                        pane
+                    )
+                end
+            end),
+        },
+    },
 	{ key = "c", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = false } }) },
-
-	-- move between panes
-	-- { key = "h", mods = "LEADER", action = act({ ActivatePaneDirection = "Left" }) },
-	-- { key = "j", mods = "LEADER", action = act({ ActivatePaneDirection = "Down" }) },
-	-- { key = "k", mods = "LEADER", action = act({ ActivatePaneDirection = "Up" }) },
-	-- { key = "l", mods = "LEADER", action = act({ ActivatePaneDirection = "Right" }) },
-
-	-- resize panes
-	-- { key = "h", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Left", 5 } }) },
-	-- { key = "j", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Down", 5 } }) },
-	-- { key = "k", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Up", 5 } }) },
-	-- { key = "l", mods = "CTRL|SHIFT", action = act({ AdjustPaneSize = { "Right", 5 } }) },
 
 	--Move tabs
 	{ key = "1", mods = "CTRL", action = act({ ActivateTab = 0 }) },
@@ -58,8 +69,7 @@ local keys = {
 	-- spawn commands
 	{ key = "g", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazygit" } }) },
 	{ key = "d", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazydocker" } }) },
-	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim" }, set_environment_variables = { NVIM_APPNAME = "obsivim", }, }),},
-	{ key = "t", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "tjournal" } }),},
+	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim", "/home/salepakos/Documents/notes/" }  }),},
 	{ key = ".", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "/home/salepakos/.local/bin/config" } }) },
 }
 return keys

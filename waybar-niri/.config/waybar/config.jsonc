@@ -5,19 +5,19 @@
   "spacing": 0,
   "height": 30,
   "modules-left": [
-    "niri/workspaces",
+    // "niri/workspaces",
     "niri/window"
   ],
   "modules-center": [
-    "clock"
   ],
   "modules-right": [
     "group/tray-expander",
     "niri/language",
-    "bluetooth",
-    "network",
-    "pulseaudio",
-    "custom/brightness",
+    // "bluetooth",
+    // "network",
+    // "pulseaudio",
+    // "custom/brightness",
+    "clock",
     "battery"
   ],
   "niri/window":{
