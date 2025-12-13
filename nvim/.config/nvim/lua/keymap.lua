@@ -23,14 +23,13 @@ vim.keymap.set('n', 'gB', '<cmd>bprev<cr>')
 vim.keymap.set('n', 'gh', '^')
 vim.keymap.set('n', 'gl', '%')
 vim.keymap.set('n', '%', 'ggVG')
--- vim.keymap.set('n', '<leader><leader>', '<cmd>ls<cr>:b<space>')
 vim.keymap.set('n', '<leader>1', '<cmd>1tabn<cr>')
 vim.keymap.set('n', '<leader>2', '<cmd>2tabn<cr>')
 vim.keymap.set('n', '<leader>3', '<cmd>3tabn<cr>')
 vim.keymap.set('n', '<leader>4', '<cmd>4tabn<cr>')
 vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 
-vim.keymap.set('n', '<leader>u', '<cmd>Atone toggle<cr>')
+vim.keymap.set('n', '<C-Tab>', '<cmd>b#<cr>')
 
 vim.keymap.set('t', '<C-w>q', '<c-\\><c-n><c-w>q')
 vim.keymap.set('t', '<C-[>', '<c-\\><c-n>')
@@ -40,14 +39,22 @@ vim.keymap.set("n", '<leader>ti',
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
   end
 )
+vim.keymap.set("n", '<leader>tl', '<cmd>se bg=light<cr>')
+
 local vt_enabled = false
 
 vim.keymap.set("n", "<leader>tv", function()
-  vt_enabled = not vt_enabled
-  vim.diagnostic.config({
-    virtual_text = vt_enabled,
-  })
-  print("Virtual text: " .. (vt_enabled and "ON" or "OFF"))
+    vt_enabled = not vt_enabled
+    local diag_conf = {}
+    if vt_enabled then
+        diag_conf = {current_line = true}
+    else
+        diag_conf = false
+    end
+    vim.diagnostic.config({
+        virtual_lines = diag_conf
+    })
+    print("Virtual text: " .. (vt_enabled and "ON" or "OFF"))
 end)
 vim.keymap.set('n', '<leader>tw',function() 
   vim.o.wrap = not vim.o.wrap

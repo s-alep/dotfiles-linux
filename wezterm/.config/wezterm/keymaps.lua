@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 local muxer = require("sessionizer")
 local act = wezterm.action
-local keys = {
-	-- { key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.just_cd) },
+
+return {
 	{ key = "t", mods = "LEADER", action = wezterm.action_callback(muxer.new_tab) },
 	{ key = "p", mods = "LEADER", action = wezterm.action_callback(muxer.toggle) },
     { key = 's', mods = 'LEADER', action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },},
@@ -46,6 +46,7 @@ local keys = {
 	{ key = "9", mods = "CTRL", action = act({ ActivateTab = 8 }) },
 
 	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = "]", mods = "LEADER", action = act.QuickSelect },
 	{ key = ";", mods = "LEADER", action = act.ActivateCommandPalette },
 	{ key = ",", mods = "LEADER",
 		action = act.PromptInputLine {
@@ -72,4 +73,3 @@ local keys = {
 	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim", "/home/salepakos/Documents/notes/" }  }),},
 	{ key = ".", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "/home/salepakos/.local/bin/config" } }) },
 }
-return keys

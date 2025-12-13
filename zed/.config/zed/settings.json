@@ -1,4 +1,6 @@
 {
+  "buffer_line_height": "standard",
+  "buffer_font_weight": 300.0,
   "notification_panel": {
     "button": false
   },
@@ -19,6 +21,9 @@
     "cursor_position_button": false
   },
   "terminal": {
+    "shell": {
+      "program": "nu"
+    },
     "button": false
   },
   "diagnostics": {
@@ -37,13 +42,24 @@
   "ssh_connections": [
     {
       "host": "sl2flask.devpod",
+      "args": [],
       "projects": [
         {
           "paths": [
             "/workspace"
           ]
+        },
+        {
+          "paths": [
+            "/workspace/./"
+          ]
         }
       ]
+    },
+    {
+      "host": "snow.devpod",
+      "args": [],
+      "projects": []
     }
   ],
   "format_on_save": "off",
@@ -151,8 +167,8 @@
   },
   "always_treat_brackets_as_autoclosed": true,
   // Fonts
-  "buffer_font_family": "ZedMono Nerd Font Mono",
-  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "Iosevka Nerd Font Mono",
+  "ui_font_family": ".SystemUIFont",
   "ui_font_fallbacks": ["CaskaydiaCove Nerd Font Mono"],
   "relative_line_numbers": "enabled",
   "vim_mode": true,
@@ -163,5 +179,5 @@
   "buffer_font_size": 16.0,
   "show_whitespaces": "all",
   "icon_theme": "Zed (Default)",
-  "theme": "Kanagawa Wave - No Italics"
+  "theme": "Kanagawa Dragon"
 }

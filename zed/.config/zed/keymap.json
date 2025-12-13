@@ -19,11 +19,9 @@
      }
    },
    {
-     "context": "Dock",
+     "context": "Dock || Terminal",
      "bindings": {
-       "ctrl-h": "workspace::ActivatePaneLeft",
-       "ctrl-l": "workspace::ActivatePaneRight",
-       "ctrl-k": "workspace::ActivatePaneUp"
+       "ctrl-h": "workspace::ActivatePaneLeft", "ctrl-l": "workspace::ActivatePaneRight", "ctrl-k": "workspace::ActivatePaneUp"
      }
    },
    {
@@ -57,7 +55,21 @@
        "ctrl-l": "workspace::ActivatePaneRight",
        "ctrl-k": "workspace::ActivatePaneUp",
        "ctrl-j": "workspace::ActivatePaneDown",
-       "F3": "theme_selector::Toggle"
+       "F3": "theme_selector::Toggle",
+       "ctrl-s V": [
+         "action::Sequence",
+         [
+           "pane::SplitDown",
+           "workspace::NewCenterTerminal"
+         ]
+       ],
+       "ctrl-s v": [
+         "action::Sequence",
+         [
+           "pane::SplitRight",
+           "workspace::NewCenterTerminal"
+         ]
+       ]
      }
    }
  ]

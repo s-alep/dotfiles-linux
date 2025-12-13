@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 local font = wezterm.font
 local smart_splits = wezterm.plugin.require('https://github.com/mrjones2014/smart-splits.nvim')
 -- config.use_fancy_tab_bar = false
--- config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = true
 -- config.tab_bar_at_bottom = true
 config.color_scheme = 'zenwritten_dark'
 config.default_prog = {'nu'}
@@ -15,8 +15,9 @@ config.show_close_tab_button_in_tabs = false
 config.show_tab_index_in_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.audible_bell = "Disabled"
-config.font=font('D2Coding Ligature Nerd Font Mono')
-config.font_size = 13
+config.font=font('Iosevka Nerd Font Mono')
+-- config.font=font('D2Coding Ligature Nerd Font Mono')
+config.font_size = 15
 config.enable_wayland = true
 config.disable_default_key_bindings = true
 config.hide_mouse_cursor_when_typing = true
@@ -51,13 +52,20 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 end)
 
-
 wezterm.on('augment-command-palette', function(window, pane)
 	return require('command_palette')
 end)
+
 wezterm.on('update-right-status', function(window, pane)
-  window:set_right_status(window:active_workspace())
+  window:set_right_status(window:active_workspace() .. "   ")
 end)
+
+config.quick_select_patterns = {
+  "─\\[(.*\\:\\d+\\:\\d+)\\]",
+  "(?<=─|╭|┬)([a-zA-Z0-9 _%.-]+?)(?=─|╮|┬)", -- Headers
+  "(?<=│ )([a-zA-Z0-9 _.-]+?)(?= │)", -- Column values
+  "/[^/\\s│~]+(?:/[^/\\s│~]+)*(?:\\.(?!\\s)[a-zA-Z0-9]+)?",
+}
 
 smart_splits.apply_to_config(config)
 return config

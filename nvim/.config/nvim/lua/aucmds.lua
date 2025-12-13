@@ -6,6 +6,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"*.html"},
+  callback = function()
+    vim.bo.filetype = "html"
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	command = "wincmd L",

@@ -6,15 +6,23 @@ $git_branch\
 $git_state\
 $git_status\
 $python\
-$character"""
+$character
+"""
+
+right_format ="""
+"""
+add_newline = false
 
 [directory]
 style = "blue"
 
+[fill]
+symbol = ' '
+
 [character]
-success_symbol = " [❯](green)"
-error_symbol = " [❯](red)"
-vimcmd_symbol = " [❮](blue)"
+success_symbol = "[%](white)"
+error_symbol = "[%](red)"
+vimcmd_symbol = "[%](blue)"
 
 [git_branch]
 format = "[ $branch]($style)"
@@ -42,3 +50,10 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[git_metrics]
+format = '([+$added]($added_style))([-$deleted]($deleted_style)) '
+added_style = 'dimmed green'
+deleted_style = 'dimmed red'
+ignore_submodules = true
+disabled = false

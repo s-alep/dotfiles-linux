@@ -39,55 +39,32 @@ vim.opt.foldlevel = 20
 vim.opt.langmap="ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
 vim.o.shell="/usr/sbin/nu"
 vim.o.shcf = "--config ~/.config/nushell/config.nu -c"
-function _G.custom_tabline()
-  local s = ''
-  for i = 1, vim.fn.tabpagenr('$') do
-    local winnr = vim.fn.tabpagewinnr(i)
-    local bufnr = vim.fn.tabpagebuflist(i)[winnr]
-    local bufname = vim.fn.bufname(bufnr)
-    local filename = vim.fn.fnamemodify(bufname, ':t')
-    if filename == '' then
-      filename = '[No Name]'
-    end
-    if i == vim.fn.tabpagenr() then
-      s = s .. '%#TabLineSel#'
-    else
-      s = s .. '%#TabLine#'
-    end
-    s = s .. '%' .. i .. 'T'
-    s = s .. ' • ' .. filename .. ' '
-  end
-  s = s .. '%#TabLineFill#%T'
-  return s
-end
 
-vim.o.tabline = '%!v:lua.custom_tabline()'
-
-local highlights = {
-  ["@keyword"]      = { ctermfg = 5,  bold = true  }, -- magenta
-  ["@function"]     = { ctermfg = 4,  bold = true  }, -- blue
-  ["@function.call"]= { ctermfg = 4 },
-  ["@method"]       = { ctermfg = 4 },
-  ["@variable"]     = { ctermfg = 7 },                -- bright white
-  ["@variable.builtin"] = { ctermfg = 6 },            -- cyan
-  ["@parameter"]    = { ctermfg = 3 },                -- yellow
-  ["@field"]        = { ctermfg = 6 },                -- cyan
-  ["@property"]     = { ctermfg = 6 },
-  ["@constant"]     = { ctermfg = 3 },                -- yellow
-  ["@constant.builtin"] = { ctermfg = 1 },            -- red
-  ["@type"]         = { ctermfg = 2, bold = true },   -- green
-  ["@type.builtin"] = { ctermfg = 2 },
-  ["@string"]       = { ctermfg = 2 },                -- green
-  ["@number"]       = { ctermfg = 3 },                -- yellow
-  ["@boolean"]      = { ctermfg = 1 },                -- red
-  ["@operator"]     = { ctermfg = 3 },                -- yellow
-  ["@comment"]      = { ctermfg = 8, italic = true }, -- dim/gray
-  ["@punctuation"]  = { ctermfg = 7 },                -- bright white
-}
-
-vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
-
-for group, opts in pairs(highlights) do
-    vim.api.nvim_set_hl(0, group, opts)
-end
+-- local highlights = {
+--   ["@keyword"]      = { ctermfg = 5,  bold = true  }, -- magenta
+--   ["@function"]     = { ctermfg = 4,  bold = true  }, -- blue
+--   ["@function.call"]= { ctermfg = 4 },
+--   ["@method"]       = { ctermfg = 4 },
+--   ["@variable"]     = { ctermfg = 7 },                -- bright white
+--   ["@variable.builtin"] = { ctermfg = 6 },            -- cyan
+--   ["@parameter"]    = { ctermfg = 3 },                -- yellow
+--   ["@field"]        = { ctermfg = 6 },                -- cyan
+--   ["@property"]     = { ctermfg = 6 },
+--   ["@constant"]     = { ctermfg = 3 },                -- yellow
+--   ["@constant.builtin"] = { ctermfg = 1 },            -- red
+--   ["@type"]         = { ctermfg = 2, bold = true },   -- green
+--   ["@type.builtin"] = { ctermfg = 2 },
+--   ["@string"]       = { ctermfg = 2 },                -- green
+--   ["@number"]       = { ctermfg = 3 },                -- yellow
+--   ["@boolean"]      = { ctermfg = 1 },                -- red
+--   ["@operator"]     = { ctermfg = 3 },                -- yellow
+--   ["@comment"]      = { ctermfg = 8, italic = true }, -- dim/gray
+--   ["@punctuation"]  = { ctermfg = 7 },                -- bright white
+-- }
+--
+-- vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
+-- vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Normal' })
+--
+-- for group, opts in pairs(highlights) do
+--     vim.api.nvim_set_hl(0, group, opts)
+-- end

@@ -27,6 +27,7 @@ return{
 
     -- Find
     vim.keymap.set('n', '<leader>w', '<cmd>lua FzfLua.buffers()<cr>')
+    vim.keymap.set('n', '<leader>]', '<cmd>lua FzfLua.buffers()<cr><cr>')
     vim.keymap.set('n', '<leader>f', '<cmd>lua FzfLua.files()<cr>')
     vim.keymap.set('n', '<leader>sn', "<cmd>lua FzfLua.files({cwd = '~/.config/nvim'})<cr>")
     -- Grep
@@ -55,5 +56,6 @@ return{
     vim.keymap.set('n', '<F2>' ,'<cmd>lua FzfLua.manpages()<cr>')
     vim.keymap.set('n', '<F3>' ,'<cmd>lua FzfLua.colorschemes()<cr>')
     vim.keymap.set('n', '<F4>' ,'<cmd>lua FzfLua.keymaps()<cr>')
+    vim.keymap.set('n', '<leader>u' ,'<cmd>FzfLua undotree<cr>')
   end
 }

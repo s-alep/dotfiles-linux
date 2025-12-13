@@ -15,13 +15,8 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  {
-    "XXiaoA/atone.nvim",
-    cmd = "Atone",
-    opts = {}
-  },
-  "rebelot/kanagawa.nvim",
-  "folke/tokyonight.nvim",
+  'projekt0n/github-nvim-theme',
+  'saran13raj/wheat-fox.nvim',
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -45,22 +40,10 @@ require 'keymap'
 
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
+vim.cmd.colorscheme('miniwinter')
 
-require('kanagawa').setup{
-  transparent = true,
-  colors ={
-    theme ={
-      all = {
-        ui = {
-          bg_gutter = "none"
-        }
-      }
-    }
-  }
-}
-vim.cmd.colorscheme('kanagawa')
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'none' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'none' })
-require("lualine").setup{}
+-- require("lualine").setup{}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

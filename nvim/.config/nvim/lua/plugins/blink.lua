@@ -28,7 +28,8 @@ return  {
   opts = {
     keymap = {
       preset = 'default',
-
+      ['<C-space>'] = false,
+      ['<C-x>'] = { function(cmp) cmp.show() end }
     },
 
     appearance = {
