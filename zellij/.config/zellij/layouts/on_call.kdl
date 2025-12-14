@@ -1,5 +1,8 @@
 layout{
     tab name="logs" {
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
         pane split_direction="vertical"{
             pane{
                 command "bash"
@@ -10,18 +13,6 @@ layout{
                 command "bash"
                 args "-c" "ssh ovh 'docker logs sl2_app -f'"
             }
-        }
-        pane size=1 borderless=true {
-            plugin location="zellij:compact-bar"
-        }
-    }
-    tab name="ld" {
-        pane {
-            command "bash"
-            args "-c" "ssh ovh lazydocker"
-        }
-        pane size=1 borderless=true {
-            plugin location="zellij:compact-bar"
         }
     }
 }

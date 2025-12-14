@@ -1,5 +1,8 @@
 layout{
     tab name="logs"  cwd="/home/salepakos/Documents/dev/super-league-2"{
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
         pane split_direction="vertical"{
             pane {
                 cwd "sl2_flask"
@@ -12,28 +15,25 @@ layout{
                 args "-c" "echo 1beer | sudo -S bun run start"
             }
         }
+    }
+    tab name="flask" cwd="/home/salepakos/Documents/dev/super-league-2"{
         pane size=1 borderless=true {
             plugin location="zellij:compact-bar"
         }
-    }
-    tab name="flask" cwd="/home/salepakos/Documents/dev/super-league-2"{
         pane {
             cwd "sl2_flask"
             command "nvim"
             args "."
         }
+    }
+    tab name="ng" cwd="/home/salepakos/Documents/dev/super-league-2"{
         pane size=1 borderless=true {
             plugin location="zellij:compact-bar"
         }
-    }
-    tab name="ng" cwd="/home/salepakos/Documents/dev/super-league-2"{
         pane {
             cwd "AngularApp"
             command "nvim"
             args "."
-        }
-        pane size=1 borderless=true {
-            plugin location="zellij:compact-bar"
         }
     }
 }

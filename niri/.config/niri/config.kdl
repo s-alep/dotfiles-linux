@@ -237,11 +237,8 @@ binds {
     Mod+d { spawn-sh "hyprpicker -a";}
     Mod+z { maximize-window-to-edges; }
 
-    // Mod+apostrophe { spawn-sh "ghostty --title=session.manager -e bash -c ~/nisttell/nisttell";}
-    // Mod+semicolon { spawn-sh "ghostty --title=session.manager -e bash -c ~/nisttell/nisttell-switcher";}
-
-    Mod+apostrophe { spawn "~/.local/bin/gs";}
-    Mod+semicolon { spawn "~/.local/bin/gss";}
+    // Mod+apostrophe { spawn "~/.local/bin/gs";}
+    // Mod+semicolon { spawn "~/.local/bin/gss";}
 
     // Mod+apostrophe { spawn "~/nisttell/nisttell";}
     // Mod+semicolon { spawn "~/nisttell/nisttell-switcher";}

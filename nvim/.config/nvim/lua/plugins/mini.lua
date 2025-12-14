@@ -59,9 +59,9 @@ return {
     },
     {'nvim-mini/mini.surround', version = '*', config = function()   require('mini.surround').setup {}end,},
     {'nvim-mini/mini.pairs', version = '*', config = function()   require('mini.pairs').setup()end },
-    {'nvim-mini/mini.hues', version = false, config = function() 
-        require('mini.hues').setup({ background = '#002734', foreground = '#c0c8cc' }) -- azure
-    end },
+    -- {'nvim-mini/mini.hues', version = false, config = function() 
+    --     require('mini.hues').setup({ background = '#002734', foreground = '#c0c8cc' }) -- azure
+    -- end },
     {'nvim-mini/mini.cmdline', version = '*', config = function()   require('mini.cmdline').setup({
         autocomplete ={
             enable = true,

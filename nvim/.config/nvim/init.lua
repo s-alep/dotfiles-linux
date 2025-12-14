@@ -15,9 +15,8 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'projekt0n/github-nvim-theme',
-  'saran13raj/wheat-fox.nvim',
   {
+    {'rebelot/kanagawa.nvim',},
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -34,13 +33,33 @@ require('lazy').setup({
     ui = {
       icons = {},
     },
-})
+  })
 
 require 'keymap'
 
+require('kanagawa').setup({
+  overrides = function(colors)
+      local theme = colors.theme
+      return {
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },  -- add `blend = vim.o.pumblend` to enable transparency
+          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+          PmenuSbar = { bg = theme.ui.bg_m1 },
+          PmenuThumb = { bg = theme.ui.bg_p2 },
+      }
+  end,
+  colors = {
+    theme = {
+      all = {
+        ui = {
+          bg_gutter = "none"
+        }
+      }
+    }
+  },
+})
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
-vim.cmd.colorscheme('miniwinter')
+vim.cmd.colorscheme('kanagawa-dragon')
 
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'none' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'none' })
