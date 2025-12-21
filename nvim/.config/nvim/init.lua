@@ -16,8 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   {
-    {'rebelot/kanagawa.nvim',},
     'folke/lazydev.nvim',
+    'neanias/everforest-nvim',
     ft = 'lua',
     opts = {
       library = {
@@ -37,32 +37,14 @@ require('lazy').setup({
 
 require 'keymap'
 
-require('kanagawa').setup({
-  overrides = function(colors)
-      local theme = colors.theme
-      return {
-          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },  -- add `blend = vim.o.pumblend` to enable transparency
-          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-          PmenuSbar = { bg = theme.ui.bg_m1 },
-          PmenuThumb = { bg = theme.ui.bg_p2 },
-      }
-  end,
-  colors = {
-    theme = {
-      all = {
-        ui = {
-          bg_gutter = "none"
-        }
-      }
-    }
-  },
-})
 vim.lsp.enable('copilot')
 vim.lsp.enable('basedpyright')
-vim.cmd.colorscheme('kanagawa-dragon')
 
-vim.api.nvim_set_hl(0, 'StatusLine', { link = 'none' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'none' })
+local ef = require('everforest')
+ef.setup{
+  transparent_background_level = 2
+}
+vim.cmd.colorscheme('everforest')
 -- require("lualine").setup{}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

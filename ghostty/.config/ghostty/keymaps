@@ -1,7 +1,7 @@
-keybind = ctrl+s>ctrl+h=resize_split:left,10
-keybind = ctrl+s>ctrl+j=resize_split:down,10
-keybind = ctrl+s>ctrl+k=resize_split:up,10
-keybind = ctrl+s>ctrl+l=resize_split:right,10
+keybind = alt+h=resize_split:left,10
+keybind = alt+j=resize_split:down,10
+keybind = alt+k=resize_split:up,10
+keybind = alt+l=resize_split:right,10
 
 keybind = ctrl+s>v=new_split:right
 keybind = ctrl+s>s=new_split:down 
@@ -19,10 +19,10 @@ keybind = ctrl+s>p=previous_tab
 keybind = ctrl+s>w=close_tab
 keybind = ctrl+s>x=close_surface
 
-keybind = ctrl+s>h=goto_split:left
-keybind = ctrl+s>j=goto_split:down
-keybind = ctrl+s>k=goto_split:up
-keybind = ctrl+s>l=goto_split:right
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+l=goto_split:right
 
 keybind = ctrl+s>;=toggle_quick_terminal
 

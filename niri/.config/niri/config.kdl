@@ -23,11 +23,11 @@ workspace "mail" {
 workspace "term"{
     open-on-output "eDP-1"
     layout{
-        gaps 0
+        // gaps 0
         border {
             off
         }
-        default-column-width { proportion 1.0000; }
+        // default-column-width { proportion 1.0000; }
     }
 }
 
@@ -166,10 +166,10 @@ animations {
     slowdown 0.35
 }
 
-// window-rule {
-//     geometry-corner-radius 4
-//     clip-to-geometry true
-// }
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
 recent-windows {
     // off
     debounce-ms 750
@@ -237,11 +237,8 @@ binds {
     Mod+d { spawn-sh "hyprpicker -a";}
     Mod+z { maximize-window-to-edges; }
 
-    // Mod+apostrophe { spawn "~/.local/bin/gs";}
-    // Mod+semicolon { spawn "~/.local/bin/gss";}
-
-    // Mod+apostrophe { spawn "~/nisttell/nisttell";}
-    // Mod+semicolon { spawn "~/nisttell/nisttell-switcher";}
+    Mod+apostrophe { spawn "~/nisttell/nisttell";}
+    Mod+semicolon { spawn "~/nisttell/nisttell-switcher";}
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

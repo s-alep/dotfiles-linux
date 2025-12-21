@@ -9,6 +9,24 @@ return {
 		action = wezterm.action_callback(lo.sl2dev)
 	},
 	{
+		brief = 'Toggle Dark/Light',
+		icon = 'md_lightbulb',
+		action = wezterm.action_callback(
+		    function(window)
+                light_scheme = 'Gruvbox light, hard (base16)'
+                dark_scheme = 'Default Dark (base16)'
+                local overrides = window:get_config_overrides() or {}
+                if (overrides.color_scheme == light_scheme)
+                then
+                    overrides.color_scheme = dark_scheme
+                else
+                    overrides.color_scheme = light_scheme
+                end
+                window:set_config_overrides(overrides)
+            end
+		)
+	},
+	{
 		brief = 'Super League 2',
 		icon = 'md_soccer',
 		action = wezterm.action_callback(lo.sl2)

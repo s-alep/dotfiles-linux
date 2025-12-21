@@ -137,9 +137,8 @@
     "jdk.telemetry.enabled": false,
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "hard",
-    "workbench.colorTheme": "Kanagawa",
+    "workbench.colorTheme": "Base16 Dark Default",
     "window.customTitleBarVisibility": "never",
-    "window.titleBarStyle": "native",
     "window.customMenuBarAltFocus": false,
     "mssql.connectionGroups": [
         {
@@ -148,5 +147,6 @@
         }
     ],
     "breadcrumbs.enabled": false,
-    "editor.stickyScroll.enabled": false
+    "editor.stickyScroll.enabled": false,
+    "workbench.editor.titleScrollbarVisibility": "hidden"
 }

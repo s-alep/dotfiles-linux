@@ -12,18 +12,24 @@ return{
           hidden = true
         }
       },
+      actions = {
+          files = {
+              true,
+              ['ctrl-h'] = FzfLua.actions.file_split
+          }
+      },
       keymap = {
         builtin = {
           true,
           ["<Tab>"] = "toggle-preview",
           ["<C-u>"] = "preview-page-up",
-          ["<C-d>"] = "preview-page-down"
+          ["<C-d>"] = "preview-page-down",
         },
       }
 
     })
-    require('fzf-lua').register_ui_select()
-
+    local fzf = require('fzf-lua')
+    fzf.register_ui_select()
     -- Find
     vim.keymap.set('n', '<leader>w', '<cmd>lua FzfLua.buffers()<cr>')
     vim.keymap.set('n', '<leader>]', '<cmd>lua FzfLua.buffers()<cr><cr>')
@@ -35,13 +41,29 @@ return{
     vim.keymap.set('n', '<leader>*', '<cmd>lua FzfLua.cWORD()<cr>')
     -- Git
     vim.keymap.set('n', '<leader>gg' ,'<cmd>lua FzfLua.git_files()<cr>')
+    vim.keymap.set('n', '<leader>gb' ,'<cmd>lua FzfLua.git_blame()<cr>')
     vim.keymap.set('n', '<leader>gs' ,'<cmd>lua FzfLua.git_status()<cr>')
     vim.keymap.set('n', '<leader>gS' ,'<cmd>lua FzfLua.git_stash()<cr>')
-    vim.keymap.set('n', '<leader>gc' ,'<cmd>lua FzfLua.git_commits()<cr>')
-    vim.keymap.set('n', '<leader>gC' ,'<cmd>lua FzfLua.git_bcommits()<cr>')
+    -- vim.keymap.set('n', '<leader>gc' ,'<cmd>lua FzfLua.git_commits()<cr>')
+    vim.keymap.set('n', '<leader>gl', function()
+            -- git logs
+            fzf.git_commits({
+                winopts = { preview = { hidden = false} }
+            })
+    end)
+    vim.keymap.set('n', '<leader>gc', function()
+            -- git buffer commits
+            fzf.git_bcommits({
+                winopts = { preview = { hidden = false} }
+            })
+    end)
+    -- vim.keymap.set('n', '<leader>gC' ,'<cmd>lua FzfLua.git_bcommits()<cr>')
     -- Lsp
     vim.keymap.set('n', 'gd' ,'<cmd>lua FzfLua.lsp_definitions()<cr>')
-    vim.keymap.set('n', 'gD' ,'<cmd>lua FzfLua.lsp_declarations()<cr>')
+    vim.keymap.set('n', 'gD' , function()
+            vim.cmd("vsplit")
+            vim.lsp.buf.definition()
+        end)
     vim.keymap.set('n', 'gI' ,'<cmd>lua FzfLua.lsp_implementations()<cr>')
     vim.keymap.set('n', 'gs' ,'<cmd>lua FzfLua.lsp_document_symbols()<cr>')
     vim.keymap.set('n', 'gS' ,'<cmd>lua FzfLua.lsp_live_workspace_symbols()<cr>')
@@ -55,6 +77,10 @@ return{
     vim.keymap.set('n', '<F2>' ,'<cmd>lua FzfLua.manpages()<cr>')
     vim.keymap.set('n', '<F3>' ,'<cmd>lua FzfLua.colorschemes()<cr>')
     vim.keymap.set('n', '<F4>' ,'<cmd>lua FzfLua.keymaps()<cr>')
-    vim.keymap.set('n', '<leader>u' ,'<cmd>FzfLua undotree<cr>')
+    vim.keymap.set('n', '<leader>u' ,function() 
+            require('fzf-lua').undotree({
+                winopts = { preview = { hidden = false} }
+            })
+        end)
   end
 }

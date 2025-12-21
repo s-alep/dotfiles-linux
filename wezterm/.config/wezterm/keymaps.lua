@@ -32,6 +32,7 @@ return {
         },
     },
 	{ key = "c", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
+    { key = 'C', mods = 'LEADER', action = wezterm.action.CloseCurrentTab { confirm = true },},
 	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = false } }) },
 
 	--Move tabs
@@ -70,6 +71,8 @@ return {
 	-- spawn commands
 	{ key = "g", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazygit" } }) },
 	{ key = "d", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "lazydocker" } }) },
-	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim", "/home/salepakos/Documents/notes/" }  }),},
+	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab(
+	    { args = { "nvim", "index.md" } ,cwd = "/home/salepakos/Documents/notes"}
+	)},
 	{ key = ".", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "/home/salepakos/.local/bin/config" } }) },
 }

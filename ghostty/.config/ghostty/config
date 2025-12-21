@@ -1,27 +1,29 @@
-font-family="Iosevka Nerd Font Mono"
-font-size=14
+font-family="JetBrainsMono Nerd Font"
+font-size=13
 window-padding-y = 0,0
 window-padding-x = 0,0
 window-padding-balance=true
-unfocused-split-opacity=1
+unfocused-split-opacity=0.97
+background-opacity = 1.0
 confirm-close-surface=false
 gtk-tabs-location=top
 gtk-toolbar-style=flat
 bell-features=no-title
-command=zellij
+command=nu
 mouse-hide-while-typing=true
+theme=Ghostty Default Style Dark
 
 gtk-single-instance = false
+gtk-wide-tabs = false
 
-#theme=Nord Wave
 window-decoration=none
 
 quick-terminal-position=center
 quick-terminal-size = 60%, 70%
 
 #gtk-custom-css=custom.css
-#config-file=keymaps
+config-file=keymaps
 
-keybind = ctrl+q>;=toggle_quick_terminal
-keybind = ctrl+q>'=toggle_command_palette
-keybind = ctrl+q>r=reload_config
+keybind = ctrl+s>;=toggle_quick_terminal
+keybind = ctrl+s>'=toggle_command_palette
+keybind = ctrl+s>r=reload_config
