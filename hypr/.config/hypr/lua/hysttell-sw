@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""
+nisttell
+
+Lists all ghostty windows in niri and lets you pick one via fzf.
+After selection, the chosen window is focused.
+
+Requires:
+  - python3
+  - fzf or fuzzel
+  - niri (niri msg)
+"""
+
+import subprocess
+import json
+import sys
+import argparse
+
+
+def run(cmd):
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+
+def get_hypr_windows():
+    res = run(["hyprctl", "-j", "clients"])
+    if res.returncode != 0:
+        print("ERROR running niri msg:", res.stderr, file=sys.stderr)
+        sys.exit(1)
+    try:
+        return json.loads(res.stdout)
+    except Exception as e:
+        print("JSON parse error:", e, file=sys.stderr)
+        sys.exit(1)
+
+
+def focus_window(window_pid):
+    run(["hyprctl", "dispatch", "focuswindow", f"pid:{str(window_pid)}"])
+
+
+def main():
+    windows = get_hypr_windows()
+
+    parser = argparse.ArgumentParser(description='Your script description')
+    parser.add_argument('--fzf', action='store_true', help='Use the FZF mode (uses fuzzel by default)')
+    args = parser.parse_args()
+    ghosttys = []
+    for w in windows:
+        app_id = w.get("class", "")
+        if isinstance(app_id, str) and "ghostty" in app_id:
+            ghosttys.append(w)
+
+    if not ghosttys:
+        print("No ghostty windows found.")
+        sys.exit(0)
+
+    lines = "\n".join(f"{w['title']}\t{w['pid']}" for w in ghosttys)
+
+    command_array= ["fzf", "--with-nth=1", "--delimiter=\t"] \
+        if args.fzf else \
+        ["fuzzel", "-d"]
+
+
+    picker = subprocess.run(
+        command_array,
+        input=lines,
+        text=True,
+        capture_output=True,
+    )
+
+    if picker.returncode != 0 or not picker.stdout.strip():
+        print("No selection.")
+        sys.exit(0)
+
+    selected = picker.stdout.strip().split("\t")
+    window_id = selected[1]
+
+    focus_window(window_id)
+
+
+if __name__ == "__main__":
+    main()

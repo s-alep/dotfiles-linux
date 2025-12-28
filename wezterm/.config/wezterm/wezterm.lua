@@ -4,13 +4,20 @@ local font = wezterm.font
 local smart_splits = wezterm.plugin.require('https://github.com/mrjones2014/smart-splits.nvim')
 
 -- Options
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = false
 
-config.color_scheme = 'Hybrid (Gogh)'
+config.color_scheme = 'Default Dark (base16)'
 config.colors = {
-    background = "#161719",
+    background = "#282C34",
+    tab_bar = {
+        background = "#282C34",
+        active_tab = {
+           bg_color = "#3C3F47",
+           fg_color = "#C0C0C0"
+        }
+    }
 }
 config.default_prog = {'nu'}
 config.default_workspace = "nu"

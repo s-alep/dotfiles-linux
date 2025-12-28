@@ -1,0 +1,204 @@
+#!/usr/bin/env python3
+"""
+nistell
+
+Usage:
+  - Make executable: chmod +x nistell
+  - Run: ./nistel
+
+Behavior:
+  - Presents directories from $PROJECTS_DIR (default ~/projects) to fuzzel.
+  - Selected dir spawns a ghostty window with --class=ghostty.<project_name>
+    and --working-directory=<selected_path>. If a window with that class
+    already exists, focus it instead.
+  - If a new window is spawned and an existing ghostty window is focused,
+    the script consumes the new window into the focused column (so it stacks),
+    toggles the column display to tabbed, and focuses the new window.
+
+Requirements:
+  - python3, fzf or fuzzel, ghostty, niri (niri msg)
+"""
+
+import os
+import sys
+import json
+import subprocess
+import time
+import argparse
+from pathlib import Path
+
+# Config
+PROJECTS_DIR = Path(os.environ.get("PROJECTS_DIR", "~/dev")).expanduser()
+FZF_CMD = os.environ.get("FZF", "fzf")
+FUZZEL_CMD = os.environ.get("FZF", "fuzzel")
+GHOSTTY_CMD = os.environ.get("GHOSTTY", "ghostty")
+HYPR_CMD = os.environ.get("HYPR", "hyprctl")
+SPAWN_WAIT_SECONDS = 6.0
+POLL_INTERVAL = 0.12
+
+
+def die(msg: str, code: int = 1):
+    print("ERROR:", msg, file=sys.stderr)
+    sys.exit(code)
+
+
+def run(cmd, capture_output=True, text=True, check=False, **kwargs):
+    """Wrapper to run subprocess commands."""
+    return subprocess.run(cmd, capture_output=capture_output, text=text, check=check, **kwargs)
+
+
+def list_project_dirs(base: Path):
+    if not base.exists() or not base.is_dir():
+        return []
+    return sorted([p for p in base.iterdir() if p.is_dir()])
+
+
+def pick_project_with_fuzzel(paths):
+    if not paths:
+        die(f"No directories found in {PROJECTS_DIR}")
+    lines = "\n".join(f"{p.name}\t{str(p)}" for p in paths)
+    try:
+        p = subprocess.run([FUZZEL_CMD, "-d"], input=lines,
+                           text=True, capture_output=True, check=False)
+    except FileNotFoundError:
+        die(f"fzf not found at '{FZF_CMD}'. Install fzf or set FZF env var.")
+    if p.returncode != 0 or not p.stdout.strip():
+        print("No selection.", file=sys.stderr)
+        sys.exit(0)
+    picked = p.stdout.strip().split("\t", 1)[1]
+    return Path(picked)
+
+def pick_project_with_fzf(paths):
+    if not paths:
+        die(f"No directories found in {PROJECTS_DIR}")
+    lines = "\n".join(f"{p.name}\t{str(p)}" for p in paths)
+    try:
+        p = subprocess.run([FZF_CMD, "--with-nth=1,2", "--delimiter=\t"], input=lines,
+                           text=True, capture_output=True, check=False)
+    except FileNotFoundError:
+        die(f"fzf not found at '{FZF_CMD}'. Install fzf or set FZF env var.")
+    if p.returncode != 0 or not p.stdout.strip():
+        print("No selection.", file=sys.stderr)
+        sys.exit(0)
+    picked = p.stdout.strip().split("\t", 1)[1]
+    return Path(picked)
+
+def get_hypr_windows():
+    """Return parsed JSON array from `niri msg --json windows` or empty list on failure."""
+    try:
+        proc = run([HYPR_CMD, "-j", "clients"])
+    except FileNotFoundError:
+        die(f"hypr CLI not found at '{HYPR_CMD}'. Make sure niri is installed and in PATH.")
+    if proc.returncode != 0:
+        die(f"hypr msg failed: {proc.stderr.strip()}")
+    try:
+        data = json.loads(proc.stdout)
+    except Exception as e:
+        die(f"Failed to parse niri windows JSON: {e}")
+    if isinstance(data, dict):
+        return data
+    return data
+
+
+def find_window_by_title(title, windows):
+    """Return window dict or None matching app_id (exact)."""
+    for w in windows:
+        if w.get("title") == title:
+            return w
+    return None
+
+def focus_hypr_window(window_title):
+    rc = run([HYPR_CMD, "dispatch", "focuswindow", f"title:{window_title}"])
+    if rc.returncode != 0:
+        print("warning: failed to focus window:", rc.stderr.strip(), file=sys.stderr)
+
+
+def unlock_tab_group():
+    rc = run([HYPR_CMD, "dispatch", "lockactivegroup", "unlock"])
+    if rc.returncode != 0:
+        print("warning: failed to lock/unlock active group:", rc.stderr.strip(), file=sys.stderr)
+
+def lock_tab_group():
+    rc = run([HYPR_CMD, "dispatch", "lockactivegroup", "lock"])
+    if rc.returncode != 0:
+        print("warning: failed to lock/unlock active group:", rc.stderr.strip(), file=sys.stderr)
+
+def enable_tab_mode():
+    rc = run([HYPR_CMD, "dispatch", "togglegroup"])
+    if rc.returncode != 0:
+        print("warning: failed to toggle column tabbed display:", rc.stderr.strip(), file=sys.stderr)
+
+
+def spawn_ghostty(project_path: Path, class_name: str):
+    cmd = ["nohup", GHOSTTY_CMD, f"--working-directory={str(project_path)}", f"--title={class_name}"]
+    try:
+        subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except FileNotFoundError:
+        die(f"ghostty not found at '{GHOSTTY_CMD}'. Make sure ghostty is installed and in PATH.")
+
+
+def main():
+    projects = list_project_dirs(PROJECTS_DIR)
+
+    parser = argparse.ArgumentParser(description='Your script description')
+    parser.add_argument('--fzf', action='store_true', help='Use the FZF mode (uses fuzzel by default)')
+    args = parser.parse_args()
+
+    chosen = pick_projebct_with_fzf(projects) if args.fzf else pick_project_with_fuzzel(projects)
+    # chosen = Path("/home/salepakos/Pictures")
+    project_name = chosen.name
+    # project_name = 'test'
+    title = f"ghostty.{project_name}"
+
+    before_windows = get_hypr_windows()
+    existing = find_window_by_title(title, before_windows)
+    if existing:
+        focus_hypr_window(existing.get("title"))
+        return
+
+    any_ghostty = None
+    for w in before_windows:
+        wclass = w.get("class", "") or ""
+        if isinstance(wclass, str) and 'ghostty' in wclass:
+            any_ghostty = w
+            break
+
+    if any_ghostty:
+        focus_hypr_window(any_ghostty.get("title"))
+        if any_ghostty.get('grouped', []) == [] :
+            enable_tab_mode()
+        unlock_tab_group()
+        time.sleep(0.05)
+    
+    spawn_ghostty(chosen, title)
+
+    deadline = time.time() + SPAWN_WAIT_SECONDS
+    new_window = None
+
+    while time.time() < deadline:
+        windows = get_hypr_windows()
+        before_ids = {w.get("pid") for w in before_windows}
+        for w in windows:
+            if w.get("title") == title and w.get("pid") not in before_ids:
+                new_window = w
+                break
+        if new_window:
+            break
+
+    if not new_window:
+        windows = get_hypr_windows()
+        new_window = find_window_by_title(title, windows)
+        if not new_window:
+            die("Timed out waiting for new ghostty window to appear in niri. Try increasing SPAWN_WAIT_SECONDS.")
+
+    lock_tab_group()
+    new_pid = new_window.get("pid")
+
+    # consume_or_expel_left(window_pid=new_pid)
+
+
+    focus_hypr_window(new_pid)
+
+
+if __name__ == "__main__":
+    main()

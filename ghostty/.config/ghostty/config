@@ -3,18 +3,17 @@ font-size=13
 window-padding-y = 0,0
 window-padding-x = 0,0
 window-padding-balance=true
-unfocused-split-opacity=0.97
 background-opacity = 1.0
 confirm-close-surface=false
 gtk-tabs-location=top
 gtk-toolbar-style=flat
 bell-features=no-title
+resize-overlay=never
 command=nu
 mouse-hide-while-typing=true
 theme=Ghostty Default Style Dark
-theme=Hybrid
 
-gtk-single-instance = false
+# gtk-single-instance = false
 gtk-wide-tabs = false
 
 window-decoration=none
