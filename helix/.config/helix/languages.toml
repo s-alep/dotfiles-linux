@@ -1,6 +1,6 @@
 [[language]]
 name = "python"
-# language-servers = [ "basedpyright" ]
+language-servers = [ "basedpyright" ]
 
 [language.debugger]
 name = "debugpy"

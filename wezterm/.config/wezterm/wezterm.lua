@@ -8,10 +8,9 @@ config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = false
 
--- config.color_scheme = 'Default Dark (base16)'
-config.color_scheme = 'nordfox'
+config.color_scheme = 'Hybrid (Gogh)'
 config.colors = {
-    background = "#282C34",
+    background = "#161719",
 }
 config.default_prog = {'nu'}
 config.default_workspace = "nu"

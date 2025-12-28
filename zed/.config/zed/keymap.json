@@ -37,15 +37,15 @@
        "ctrl-shift-d": "vim::ScrollDown",
        "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
        "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
-       // "space f": "file_finder::Toggle",
-       "space f": [
-            "task::Spawn",
-            { "task_name": "Television File Finder", "reveal_target": "center" }
-        ],
-        // "space /": [
-        //      "task::Spawn",
-        //      { "task_name": "Television RG", "reveal_target": "center" }
-        //  ],
+       "space f": "file_finder::Toggle",
+       // "space f": [
+       //      "task::Spawn",
+       //      { "task_name": "Television File Finder", "reveal_target": "center" }
+       //  ],
+       //  "space /": [
+       //       "task::Spawn",
+       //       { "task_name": "Television RG", "reveal_target": "center" }
+       //   ],
        "ctrl-s p" : "projects::OpenRecent",
        "space space": "tab_switcher::ToggleAll",
        "space a": "workspace::ToggleRightDock",

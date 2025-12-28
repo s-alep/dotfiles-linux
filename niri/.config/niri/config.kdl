@@ -151,8 +151,9 @@ layout {
 
 // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "waybar"
-spawn-sh-at-startup "swaybg -i ~/Pictures/IMG_20220201_083719.jpg"
-spawn-sh-at-startup "chromium --no-startup-window"
+spawn-sh-at-startup "mako"
+spawn-sh-at-startup "swaybg  -m fill -i ~/Pictures/wallpapers/neogeo.webp"
+spawn-sh-at-startup "brave --no-startup-window"
 
 
 hotkey-overlay {
@@ -221,6 +222,7 @@ binds {
     Mod+Ctrl+t { spawn-sh "wezterm -e   --class=clock-rs.wez   $HOME/.cargo/bin/clock-rs";}
     Mod+Ctrl+b { spawn-sh "wezterm -e   --class=bt.wez         /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
     Mod+Ctrl+s { spawn-sh "wezterm -e   --class=wiremix.wez    wiremix";}
+    Mod+Ctrl+a { spawn-sh "wezterm -e   --class=opecode.wezz    opencode"; }
     Mod+Alt+l  { spawn "swaylock"; }
     Mod+Ctrl+m { spawn-sh "/home/salepakos/.local/bin/toggle_screen.py";}
 
@@ -228,10 +230,10 @@ binds {
     Mod+Space  { spawn "fuzzel"; }
     Mod+e  { spawn "nautilus"; }
     Mod+p  { spawn-sh "spotify"; }
-    Mod+a  { spawn-sh "chromium --new-window --app=https://chatgpt.com"; }
-    Mod+n  { spawn-sh "chromium --new-window --app=https://messenger.com"; }
+    Mod+a  { spawn-sh "brave --new-window --app=https://chatgpt.com"; }
+    Mod+n  { spawn-sh "brave --new-window --app=https://messenger.com"; }
     Mod+s  { spawn-sh "discord"; }
-    Mod+m  { spawn-sh "chromium --new-window --app=https://teams.microsoft.com/v2/ && chromium --new-window --app=https://outlook.office.com/mail/"; }
+    Mod+m  { spawn-sh "brave --new-window --app=https://teams.microsoft.com/v2/ && brave --new-window --app=https://outlook.office.com/mail/"; }
     Mod+b  { spawn-sh "killall waybar || waybar "; }
     Mod+Ctrl+n  { spawn-sh "pkill wlsunset || wlsunset -t 3500 "; }
     Mod+d { spawn-sh "hyprpicker -a";}
@@ -240,8 +242,8 @@ binds {
     Mod+apostrophe { spawn "~/nisttell/nisttell";}
     Mod+semicolon { spawn "~/nisttell/nisttell-switcher";}
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 

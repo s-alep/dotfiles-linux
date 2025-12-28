@@ -55,8 +55,8 @@ return {
                 'make',
                 'markdown',
                 'markdown_inline',
-                'norg',
                 'python',
+                'php',
                 'query',
                 'regex',
                 'scss',
@@ -69,6 +69,7 @@ return {
                 'vimdoc',
                 'vue',
                 'xml',
+                'kdl'
             })
 
             local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })

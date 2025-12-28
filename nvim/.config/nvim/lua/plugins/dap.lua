@@ -187,14 +187,87 @@ return {
       name = 'lldb',
     }
 
+    -- dap.adapters.llvm = {
+    --   type = 'executable',
+    --   command = 'codelldb', -- adjust as needed
+    --   args = {'--liblldb', } 
+    --   name = 'llvm',
+    -- }
+    dap.adapters.llvm = {
+        type = "server",
+        port = "${port}",
+        executable = {
+            command = "codelldb",
+            args = { "--port", "${port}" },
+        },
+    }
+    dap.adapters.codelldb = {
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+        args = { "--port", "${port}" },
+      },
+      name = 'lldb'
+    }
+
     local path = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
     dap.configurations.rust = {
       {
         name = 'rust',
-        type = 'lldb',
+        type = 'codelldb',
         request = 'launch',
         program = function()
           return vim.fn.getcwd() .. '/target/debug/' .. path
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+      },
+    }
+
+    dap.configurations.c = {
+      {
+        name = 'c',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.getcwd() .. '/a.out'
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = true,
+      },
+    }
+    dap.configurations.cpp = {
+      {
+        name = 'cpp',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.getcwd() .. '/a.out'
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = true,
+      },
+    }
+
+    dap.configurations.zig = {
+      {
+        name = 'Zig-Out',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.getcwd() .. '/zig-out/bin/' .. path
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+      },
+      {
+        name = 'Zig Build Exe',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.getcwd() .. '/' .. vim.fn.expand('%:t:r')
+
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
@@ -212,6 +285,7 @@ return {
         request = "launch",
         type = "java"
       },
+
     }
     dap.configurations.lua = {
       {

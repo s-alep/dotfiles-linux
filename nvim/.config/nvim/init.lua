@@ -17,7 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   {
     'folke/lazydev.nvim',
+    'folke/tokyonight.nvim',
     'neanias/everforest-nvim',
+    'rebelot/kanagawa.nvim',
+    "uhs-robert/sshfs.nvim",
+    "HoNamDuong/hybrid.nvim",
+    "EdenEast/nightfox.nvim",
     ft = 'lua',
     opts = {
       library = {
@@ -38,13 +43,11 @@ require('lazy').setup({
 require 'keymap'
 
 vim.lsp.enable('copilot')
+vim.lsp.enable('zls')
 vim.lsp.enable('basedpyright')
 
-local ef = require('everforest')
-ef.setup{
-  transparent_background_level = 2
-}
-vim.cmd.colorscheme('everforest')
+require('sshfs').setup{}
+require "themes"
 -- require("lualine").setup{}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

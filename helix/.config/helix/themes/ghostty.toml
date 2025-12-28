@@ -1,0 +1,5 @@
+inherits = "everforest_dark"
+"ui.background" = 'ghostterino'
+# Override colors in the palette:
+[palette]
+ghostterino = "#282C34"

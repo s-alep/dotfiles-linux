@@ -12,6 +12,7 @@ bell-features=no-title
 command=nu
 mouse-hide-while-typing=true
 theme=Ghostty Default Style Dark
+theme=Hybrid
 
 gtk-single-instance = false
 gtk-wide-tabs = false

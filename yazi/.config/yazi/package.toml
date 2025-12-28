@@ -3,5 +3,15 @@ use = "uhs-robert/sshfs"
 rev = "ea0b089"
 hash = "14c5b354b75e954a0b18a7e0706ac5f9"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "7ca66b4"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "7ca66b4"
+hash = "3e023d31f29201efdac2a6ae35fedb78"
+
 [flavor]
 deps = []

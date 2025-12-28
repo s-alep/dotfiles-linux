@@ -41,6 +41,10 @@ vim.keymap.set('n', '<leader>5', '<cmd>5tabn<cr>')
 vim.keymap.set('n', '<C-[>', '<C-w>w')
 
 vim.keymap.set('n', '<C-Tab>', '<cmd>b#<cr>')
+vim.keymap.set('n', '<leader>dr', function()
+    vim.cmd('!zig build-exe ' .. vim.fn.expand('%:t'))
+    vim.cmd('! ./' .. vim.fn.expand('%:t:r'))
+end)
 
 vim.keymap.set('t', '<C-w>q', '<c-\\><c-n><c-w>q')
 vim.keymap.set('t', '<C-[>', '<c-\\><c-n>')
@@ -51,7 +55,6 @@ vim.keymap.set("n", '<leader>ti',
   end
 )
 vim.keymap.set("n", '<leader>tl', '<cmd>se bg=light<cr>')
-
 local vt_enabled = false
 
 vim.keymap.set("n", "<leader>tv", function()

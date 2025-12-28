@@ -7,19 +7,17 @@ return {
     'saghen/blink.cmp',
   },
   config = function()
-    if vim.g.have_nerd_font then
-      local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
-      local diagnostic_signs = {}
-      for type, icon in pairs(signs) do
-        diagnostic_signs[vim.diagnostic.severity[type]] = icon
-      end
-      vim.diagnostic.config { signs = { text = diagnostic_signs } }
-    end
+    -- if vim.g.have_nerd_font then
+    --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
+    --   local diagnostic_signs = {}
+    --   for type, icon in pairs(signs) do
+    --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
+    --   end
+    --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
+    -- end
 
     local servers = {
-      -- basedpyright = {},
       ts_ls = {},
-      -- pyrefly = {},
       phpactor = {},
       lua_ls = {},
       emmet_language_server = {},

@@ -1,4 +1,15 @@
-[mgr]
-prepend_keymap = [
-  { on = ["M","s"], run = "plugin sshfs -- menu",            desc = "Open SSHFS options" },
-]
+[[mgr.prepend_keymap]]
+on   = ["g", "w"]
+for  = "linux"
+run  = 'shell --orphan -- killall swaybg; swaybg --mode fill -i "$1"'
+desc = "Set hovered file as wallpaper"
+
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = "<C-t>"
+run  = "plugin toggle-pane min-preview"
+desc = "Show or hide the preview pane"
