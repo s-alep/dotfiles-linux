@@ -7,6 +7,8 @@ $env.config.show_banner = false
 $env.config.table.header_on_separator = true
 $env.config.buffer_editor = "nvim"
 
+use ~/.config/nushell/startship.nu *
+
 alias lid = ~/.config/hypr/lua/lid.lua 0
 
 alias v = nvim
