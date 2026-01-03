@@ -36,7 +36,7 @@ config.disable_default_key_bindings = true
 config.hide_mouse_cursor_when_typing = true
 config.warn_about_missing_glyphs = false
 config.window_background_opacity = 1.0
-config.inactive_pane_hsb = {saturation = 1.0, brightness = 1.0,}
+config.inactive_pane_hsb = {saturation = 0.9, brightness = 0.9,}
 config.window_padding = {left = "0", right = "0", top = "0", bottom = "0",}
 config.window_decorations = "NONE"
 config.leader = { key = "s", mods = "CTRL" }

@@ -74,5 +74,5 @@ return {
 	{ key = "n", mods = "LEADER", action = act.SpawnCommandInNewTab(
 	    { args = { "nvim", "index.md" } ,cwd = "/home/salepakos/Documents/notes"}
 	)},
-	{ key = ".", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "/home/salepakos/.local/bin/config" } }) },
+	{ key = ".", mods = "LEADER", action = act.SpawnCommandInNewTab({ args = { "nvim", "+Configuration" } }) },
 }
