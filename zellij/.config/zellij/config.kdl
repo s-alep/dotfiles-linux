@@ -10,7 +10,7 @@ keybinds clear-defaults=true {
         bind "N" { Search "up"; }
         bind "w" { SearchToggleOption "Wrap"; }
     }
-    shared_except "locked" "scroll" "search" "tmux" {
+    shared_except  "scroll" "search" "tmux" {
         bind "Ctrl s" { SwitchToMode "tmux"; }
         bind "Ctrl 1" { GoToTab 1; SwitchToMode "Normal"; }
         bind "Ctrl 2" { GoToTab 2; SwitchToMode "Normal"; }
@@ -129,11 +129,22 @@ keybinds clear-defaults=true {
                 move_to_focused_tab true
                 cwd "/"
                 root_dirs "/home/salepakos/Documents/dev;"
-                session_layout ":compact"
+                session_layout "default"
             };
             SwitchToMode "Normal";
         }
 
+        bind "." {
+          Run "nvim" "+Configuration"{
+            close_on_exit true
+            floating true
+            x "10%"
+            y "15%"
+            width "80%"
+            height "70%"
+          };
+          SwitchToMode "Normal";
+        }
         bind "g" {
           Run "lazygit" {
             close_on_exit true
@@ -171,17 +182,15 @@ keybinds clear-defaults=true {
     }
 }
 
-// Plugin aliases - can be used to change the implementation of Zellij
-// changing these requires a restart to take effect
 plugins {
     compact-bar location="zellij:compact-bar"
     session-manager location="zellij:session-manager"
     sessionizer location="https://github.com/laperlej/zellij-sessionizer/releases/download/v0.4.3/zellij-sessionizer.wasm"
+    zellij-cb location="https://github.com/ndavd/zellij-cb/releases/download/v0.1.0/zellij-cb.wasm"
 }
 
 load_plugins {
-    // eg. "file:/path/to/my-plugin.wasm"
-    // eg. "https://example.com/my-plugin.wasm"
+    zellij-cb
 }
  
 simplified_ui true
@@ -191,18 +200,18 @@ default_mode "normal"
 show_startup_tips false
  
 layout_dir "/home/salepakos/.config/zellij/layouts"
-// theme_dir "/tmp"
  
-mouse_mode false
+mouse_mode true
 scroll_buffer_size 10000
-copy_command "wl-copy"                    // wayland
+copy_command "wl-copy"
 copy_clipboard "system"
+copy_on_select true
  
 attach_to_session true
 auto_layout true
 session_serialization false
 serialize_pane_viewport false
-// default_shell  "nu"
+default_shell  "nu"
 
 
 themes {
@@ -217,7 +226,7 @@ themes {
         }
         text_selected {
             base 229 233 240
-            background 40 44 52
+            background 229 233 240
             emphasis_0 208 135 112
             emphasis_1 136 192 208
             emphasis_2 163 190 140

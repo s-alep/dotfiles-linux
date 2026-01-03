@@ -1,6 +1,8 @@
 layout{
     pane size=1 borderless=true {
-        plugin location="zellij:compact-bar"
+        plugin location="https://github.com/ndavd/zellij-cb/releases/download/v0.1.0/zellij-cb.wasm"{
+                DisplaySessionDirectory false
+        }
     }
     pane
 }
