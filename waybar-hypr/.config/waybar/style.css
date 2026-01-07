@@ -1,5 +1,6 @@
 * {
-    background-color: #1d2021;
+    background-color: #131313;
+    /* background-color: #1d2021; */
     color: #FFFDF7;
     border: none;
     /* border-radius: 8px; */
@@ -30,6 +31,7 @@
 #submap{
     background: #b16286;
     color: #fbf1c7;
+    margin-right: 20px;
     margin-left: 20px;
     font-weight: 700;
     padding-right:10px;

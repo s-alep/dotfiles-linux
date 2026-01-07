@@ -32,8 +32,12 @@ def dps [] {
     docker ps | from ssv | select NAMES PORTS
 }
 
+# def conf [] {
+#     fd -d 1 -td -L . ~/.config | fzf --height=30% --border=rounded | xargs -r nvim
+# }
+#
 def conf [] {
-    fd -d 1 -td -L . ~/.config | fzf --height=30% --border=rounded | xargs -r nvim
+  nvim +Configuration
 }
 
 def --env d [] {

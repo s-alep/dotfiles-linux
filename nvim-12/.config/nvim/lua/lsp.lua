@@ -1,0 +1,5 @@
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('zls')
+vim.lsp.enable('basedpyright')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('rust_analyzer')
