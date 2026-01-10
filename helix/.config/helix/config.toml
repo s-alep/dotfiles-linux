@@ -1,8 +1,8 @@
-theme='ghostty'
+theme='ayu_mirage'
 
 [editor]
 line-number='relative'
-auto-completion=false
+auto-completion=true
 auto-format=false
 clipboard-provider='wayland'
 shell = ['nu',"--config", "~/.config/nushell/config.nu", "-c"]
@@ -21,3 +21,5 @@ render = true
 [keys.normal.space]
 f = "@<space>F<C-t>"
 g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+x = ":sh tmux new-window -n fx '~/.local/bin/yazi-picker.sh open'"
+

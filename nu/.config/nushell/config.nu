@@ -13,6 +13,8 @@ alias lid = ~/.config/hypr/lua/lid.lua 0
 
 alias v = nvim
 alias V = sudo nvim
+alias h = helix
+alias H = sudo helix
 alias z = zed
 alias Z = sudo zed
 alias la = ls -a

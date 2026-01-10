@@ -1,5 +1,5 @@
-font-family="JetBrainsMono Nerd Font"
-font-size=13
+font-family="ZedMono Nerd Font"
+font-size=14
 window-padding-y = 0,0
 window-padding-x = 0,0
 window-padding-balance=true
@@ -11,15 +11,14 @@ bell-features=no-title
 resize-overlay=never
 command=nu
 mouse-hide-while-typing=true
-# theme=Ghostty Default Style Dark
-theme=Gruvbox Dark Hard
+theme=Nvim Dark
 # gtk-single-instance = false
 gtk-wide-tabs = false
 
 window-decoration=none
 
-quick-terminal-position=center
-quick-terminal-size = 60%, 70%
+quick-terminal-position=bottom
+quick-terminal-size = 50%, 40%
 
 #gtk-custom-css=custom.css
 #config-file=keymaps

@@ -1,7 +1,3 @@
-vim.pack.add({
-    "https://github.com/ibhagwan/fzf-lua",
-})
-
 local fzf = require('fzf-lua')
 
 fzf.setup({
@@ -77,11 +73,13 @@ vim.keymap.set('n', 'gR' ,'<cmd>lua FzfLua.lsp_references()<cr>')
 vim.keymap.set('n', 'gy' ,'<cmd>lua FzfLua.lsp_typedefs()<cr>')
 vim.keymap.set('n', 'g.' ,'<cmd>lua FzfLua.lsp_code_actions()<cr>')
 vim.keymap.set('n', '<leader>q' ,'<cmd>lua FzfLua.lsp_document_diagnostics()<cr>')
-vim.keymap.set('n', '<leader>sr' ,'<cmd>lua FzfLua.resume()<cr>')
+vim.keymap.set('n', '<leader>m' ,'<cmd>lua FzfLua.marks()<cr>')
+vim.keymap.set('n', '<leader><leader>' ,'<cmd>lua FzfLua.resume()<cr>')
 vim.keymap.set('n', '<F1>' ,'<cmd>lua FzfLua.helptags()<cr>')
 vim.keymap.set('n', '<F2>' ,'<cmd>lua FzfLua.manpages()<cr>')
 vim.keymap.set('n', '<F3>' ,'<cmd>lua FzfLua.colorschemes()<cr>')
 vim.keymap.set('n', '<F4>' ,'<cmd>lua FzfLua.keymaps()<cr>')
+vim.keymap.set('n', '<F5>' ,'<cmd>lua FzfLua.awesome_colorschemes()<cr>')
 -- vim.keymap.set('n', '<leader>u' ,function() 
 --     require('fzf-lua').undotree({
 --         winopts = { preview = { hidden = false} }
@@ -117,8 +115,10 @@ _G.fzf_config = function()
             end,
             ['q'] = function()
                 vim.cmd.quit()
+            end,
+            ['esc'] = function()
+                vim.cmd.quit()
             end
-
         }
     }
     fzf_lua.fzf_exec("fd -a -td -tl -d 1", opts)

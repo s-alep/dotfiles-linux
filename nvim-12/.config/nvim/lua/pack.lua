@@ -1,18 +1,58 @@
-vim.pack.add({
-    "https://github.com/neanias/everforest-nvim",
+vim.pack.add {
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        data = { run = function(_) vim.cmd 'TSUpdate' end, },
+    },
+    "https://github.com/nvim-mini/mini.extra",
+    "https://github.com/nvim-mini/mini.ai",
+    "https://github.com/nvim-mini/mini.icons",
+    "https://github.com/nvim-mini/mini.diff",
+    "https://github.com/nvim-mini/mini.splitjoin",
+    "https://github.com/nvim-mini/mini.surround",
+    "https://github.com/nvim-mini/mini.pairs",
+    "https://github.com/nvim-mini/mini.cmdline",
+    "https://github.com/nvim-mini/mini.statusline",
+    "https://github.com/folke/flash.nvim",
+    "https://github.com/ibhagwan/fzf-lua",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/stevearc/oil.nvim",
-    "https://github.com/stevearc/quicker.nvim",
     "https://github.com/ziglang/zig.vim",
+    "https://github.com/sschleemilch/slimline.nvim",
     'https://github.com/mrjones2014/smart-splits.nvim',
+    'https://github.com/shortcuts/no-neck-pain.nvim',
+    "https://github.com/EdenEast/nightfox.nvim"
+}
+
+require('no-neck-pain').setup {
+    width = 150
+}
+
+require("slimline").setup({
+    style = "fg",
+    spaces = {
+        components = '',
+        left = '',
+        right = ''
+    }
 })
 
-require('everforest').setup{
-  transparent_background_level = 2
+require('nightfox').setup {
+    options = {
+        transparent = true,
+        terminal_colors = false,
+        dim_inactive = false,
+    }
 }
-vim.cmd.colorscheme('everforest')
+vim.cmd.colorscheme('duskfox')
+
+vim.keymap.set({'n', 'x', 'o'}, "gw", function()
+    require('flash').jump()
+end)
+
+require('flash').toggle()
 
 require('smart-splits').setup()
+
 vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
 vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
 vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
@@ -45,14 +85,4 @@ end, { desc = 'Oil SSH' })
 
 vim.keymap.set('n', '<leader>o', function()
     require('oil').toggle_float()
-end)
-
-require('quicker').setup {}
-
-vim.keymap.set('n', '<leader>xq', function()
-    require('quicker').toggle()
-end)
-
-vim.keymap.set('n', '<leader>xl', function()
-    require('quicker').toggle {loclist = true}
 end)
