@@ -64,3 +64,26 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+_G.fzf_config = function()
+    local fzf_lua = require'fzf-lua'
+    opts =  {
+        cwd = '/home/salepakos/.config',
+        prompt = "Configuration> ",
+        winopts = {
+            fullscreen = true
+        },
+        actions = {
+            ['default'] = function(selected)
+                vim.cmd("cd " .. selected[1])
+                vim.cmd(":e " .. selected[1])
+            end,
+            ['q'] = function()
+                vim.cmd.quit()
+            end
+
+        }
+    }
+    fzf_lua.fzf_exec("fd -a -td -tl -d 1", opts)
+end
+vim.cmd([[command! -nargs=* Configuration lua _G.fzf_config()]])

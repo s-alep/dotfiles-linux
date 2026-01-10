@@ -222,7 +222,7 @@ binds {
     Mod+Ctrl+t { spawn-sh "wezterm -e   --class=clock-rs.wez   $HOME/.cargo/bin/clock-rs";}
     Mod+Ctrl+b { spawn-sh "wezterm -e   --class=bt.wez         /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
     Mod+Ctrl+s { spawn-sh "wezterm -e   --class=wiremix.wez    wiremix";}
-    Mod+Ctrl+a { spawn-sh "wezterm -e   --class=opecode.wezz    opencode"; }
+    Mod+Ctrl+a { spawn-sh "wezterm -e   --class=opencode.wezz    opencode"; }
     Mod+Alt+l  { spawn "swaylock"; }
     Mod+Ctrl+m { spawn-sh "/home/salepakos/.local/bin/toggle_screen.py";}
 
@@ -239,8 +239,8 @@ binds {
     Mod+d { spawn-sh "hyprpicker -a";}
     Mod+z { maximize-window-to-edges; }
 
-    Mod+apostrophe { spawn "~/nisttell/nisttell";}
-    Mod+semicolon { spawn "~/nisttell/nisttell-switcher";}
+    // Mod+apostrophe { spawn "~/nisttell/nisttell";}
+    // Mod+semicolon { spawn "~/nisttell/nisttell-switcher";}
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }

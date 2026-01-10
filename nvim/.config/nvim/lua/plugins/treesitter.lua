@@ -77,6 +77,8 @@ return {
             local ignore_filetypes = {
                 'checkhealth',
                 'lazy',
+                'fzf',
+                'oil',
                 'mason',
                 'snacks_dashboard',
                 'snacks_notif',

@@ -3,6 +3,7 @@ vim.g.netrw_banner = 0
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showbreak = '↪ '
+vim.o.cmdheight=0
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4

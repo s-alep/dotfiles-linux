@@ -6,7 +6,7 @@ require('tokyonight').setup{
     style= 'night'
 }
 require('hybrid').setup {
-    transparent = true,
+    -- transparent = true,
 }
 require('kanagawa').setup {
     theme ='dragon',
@@ -35,4 +35,10 @@ require('kanagawa').setup {
     end,
 }
 
-vim.cmd.colorscheme('terafox')
+require('nightfox').setup({
+    options = {
+        dim_inactive = true,
+        transparent = true,
+    }
+})
+vim.cmd.colorscheme('nordfox')
