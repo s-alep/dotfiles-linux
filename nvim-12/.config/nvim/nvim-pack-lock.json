@@ -48,6 +48,10 @@
       "rev": "cc7b9d0a056b5fa6915ffac1cb91f29bf7c96f69",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "neovim-ayu": {
+      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
+      "src": "https://github.com/Shatur/neovim-ayu"
+    },
     "nightfox.nvim": {
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
       "src": "https://github.com/EdenEast/nightfox.nvim"
@@ -83,6 +87,14 @@
     "smart-splits.nvim": {
       "rev": "fdd63c566e760f14d9390d43d5dc6bf6eea5a07b",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
+    },
+    "tuis.nvim": {
+      "rev": "561ad5551145f8423c433c7e5a1943796e8d53ef",
+      "src": "https://github.com/jrop/tuis.nvim"
+    },
+    "vscode.nvim": {
+      "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
+      "src": "https://github.com/Mofiqul/vscode.nvim"
     },
     "zig.vim": {
       "rev": "1a1112eec20e28c832a06ddb1d0060f6ce652372",

@@ -1,4 +1,4 @@
-vim.cmd.compiler("zig_build_exe")
+vim.cmd.compiler("zig_build")
 vim.opt.shell = "/bin/bash"
 
 
