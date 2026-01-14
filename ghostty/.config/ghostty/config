@@ -17,11 +17,11 @@ gtk-wide-tabs = false
 
 window-decoration=none
 
-quick-terminal-position=bottom
-quick-terminal-size = 50%, 40%
+quick-terminal-position=top
+quick-terminal-size = 50%, 80%
 
 #gtk-custom-css=custom.css
-#config-file=keymaps
+config-file=keymaps
 
 keybind = ctrl+1=text:\x131
 keybind = ctrl+2=text:\x132
@@ -35,4 +35,5 @@ keybind = ctrl+9=text:\x139
 
 keybind = ctrl+q>;=toggle_quick_terminal
 keybind = ctrl+q>'=toggle_command_palette
+keybind = global:ctrl+`=toggle_quick_terminal
 keybind = ctrl+q>r=reload_config
