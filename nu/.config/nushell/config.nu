@@ -34,13 +34,13 @@ def dps [] {
     docker ps | from ssv | select NAMES PORTS
 }
 
-# def conf [] {
-#     fd -d 1 -td -L . ~/.config | fzf --height=30% --border=rounded | xargs -r nvim
-# }
-#
 def conf [] {
-  nvim +Configuration
+    fd -d 1 -td -L . ~/.config | fzf --height=30% --border=rounded | xargs -r nvim
 }
+#
+# def conf [] {
+#   nvim +Configuration
+# }
 
 def --env d [] {
         ^fd --absolute-path -t d -d 2 . $"($env.HOME)/Documents/dev"
