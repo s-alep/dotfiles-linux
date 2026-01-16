@@ -3,6 +3,8 @@ vim.pack.add {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         data = { run = function(_) vim.cmd 'TSUpdate' end, },
     },
+    "https://github.com/Mofiqul/vscode.nvim",
+    "https://github.com/Shatur/neovim-ayu",
     "https://github.com/nvim-mini/mini.extra",
     "https://github.com/nvim-mini/mini.ai",
     "https://github.com/nvim-mini/mini.icons",
@@ -20,7 +22,6 @@ vim.pack.add {
     "https://github.com/sschleemilch/slimline.nvim",
     'https://github.com/mrjones2014/smart-splits.nvim',
     'https://github.com/shortcuts/no-neck-pain.nvim',
-    "https://github.com/EdenEast/nightfox.nvim"
 }
 
 require('no-neck-pain').setup {
@@ -36,14 +37,7 @@ require("slimline").setup({
     }
 })
 
-require('nightfox').setup {
-    options = {
-        transparent = true,
-        terminal_colors = false,
-        dim_inactive = false,
-    }
-}
-vim.cmd.colorscheme('duskfox')
+vim.cmd.colorscheme('vscode')
 
 vim.keymap.set({'n', 'x', 'o'}, "gw", function()
     require('flash').jump()

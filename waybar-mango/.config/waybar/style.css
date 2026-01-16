@@ -1,0 +1,80 @@
+* {
+    background-color: #131313;
+    /* background-color: #1d2021; */
+    color: #FFFDF7;
+    border: none;
+    /* border-radius: 8px; */
+    min-height: 28px;
+    font-family: Adwaita Mono;
+    font-size: 16px;
+}
+
+
+.modules-left {
+    margin-left: 8px;
+}
+
+.modules-right {
+    margin-right: 8px;
+}
+
+#workspaces button {
+    all: initial;
+    padding: 0 6px;
+    margin: 0 1.5px;
+    min-width: 9px;
+}
+
+#windowcount{
+    padding-left:30px;
+}
+#submap{
+    background: #b16286;
+    color: #fbf1c7;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-weight: 700;
+    padding-right:10px;
+    padding-left:10px;
+}
+
+#window {
+    padding-left : 5px;
+}
+
+#tray,
+#cpu,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#clock,
+#language,
+#brightness,
+#custom-brightness,
+#custom-power-menu {
+    margin: 0 10.5px;
+}
+
+#battery.critical,
+#network.disabled,
+#network.disconnected,
+#pulseaudio.muted,
+#bluetooth.disabled,
+#bluetooth.off,
+#bluetooth.no-controller
+{
+    color: #fb4934;
+}
+
+#battery.warning{
+    color: #fabd2f;
+}
+
+#custom-expand-icon {
+    margin-right: 12px;
+}
+
+tooltip {
+    padding: 2px;
+}

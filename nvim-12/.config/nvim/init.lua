@@ -11,4 +11,3 @@ vim.cmd('packadd! nvim.undotree')
 vim.cmd('packadd! nohlsearch')
 vim.keymap.set('n', '<leader>u', ':Undotree<cr>')
 require('vim._extui').enable {}
-
