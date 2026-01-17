@@ -13,7 +13,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
-
+vim.lsp.enable({
+  "basedpyright",
+  "emmet-language-server",
+  "cssls",
+  "ts_ls"
+})
 require('lazy').setup({
   {
     'folke/lazydev.nvim',
