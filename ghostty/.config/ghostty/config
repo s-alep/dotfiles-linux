@@ -21,7 +21,7 @@ quick-terminal-position=top
 quick-terminal-size = 50%, 80%
 
 #gtk-custom-css=custom.css
-config-file=keymaps
+#config-file=keymaps
 
 keybind = ctrl+1=text:\x131
 keybind = ctrl+2=text:\x132

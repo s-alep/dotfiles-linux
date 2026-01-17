@@ -1,0 +1,28 @@
+vim.keymap.set({'n',"v"}, '<leader>y', '"+y')
+vim.keymap.set({'n'}, '<leader>Y', '"+yy')
+vim.keymap.set({'n', "v"}, '<leader>p', '"+p')
+vim.keymap.set({'n', "v"}, '<leader>P', '"+P')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'R', 'viwp')
+vim.keymap.set('n', '<leader>r', 'viw"+p')
+
+vim.keymap.set('n', ';;', 'A;<Esc>', { desc = 'Add ;' })
+vim.keymap.set('v', 'tf', vim.lsp.buf.format, { desc = '[T]ap [F]ormat' })
+vim.keymap.set('n', 'gD', '<cmd>vsplit | wincmd l | lua vim.lsp.buf.definition()<cr>')
+vim.keymap.set('n', [["]], '<cmd>lua vim.diagnostic.open_float()<cr>' )
+vim.keymap.set('n', 'gh', '^')
+vim.keymap.set('n', 'gl', '$')
+vim.keymap.set('n', '$', 'ggVG')
+
+vim.keymap.set('n', '<C-Tab>', '<cmd>b#<cr>')
+
+vim.keymap.set('t', '<C-w>q', '<c-\\><c-n><c-w>q')
+vim.keymap.set('t', '<C-[>', '<c-\\><c-n>')
+
+vim.keymap.set('n', '<leader>f',        '<cmd>Pick files<cr>')
+vim.keymap.set('n', 'g/',               '<cmd>Pick grep_live<cr>')
+vim.keymap.set('n', '<leader>w',        '<cmd>Pick buffers<cr>')
+vim.keymap.set('n', '<leader><leader>', '<cmd>Pick resume<cr>')
+vim.keymap.set('n', '<F1>',             '<cmd>Pick help<cr>')
