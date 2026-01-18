@@ -5,8 +5,8 @@ size=12
 hide_when_typing=true
 [terminal]
 shell = "nu"
-[colors.primary]
-background = "#282C34"
+# [colors.primary]
+# background = "#282C34"
 
 [keyboard]
 bindings = [
