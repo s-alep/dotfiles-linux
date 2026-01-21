@@ -4,7 +4,7 @@ local selected = ""
 if arg[1] then
 	selected = arg[1]
 else
-	selected = io.popen("fd -td --no-hidden --max-depth 2 . /home/salepakos/Documents/dev/ | fzf"):read("*a")
+	selected = io.popen("fd -td --no-hidden --max-depth 1 . /home/salepakos/Documents/dev/ | fzf"):read("*a")
 end
 
 if selected == "" then

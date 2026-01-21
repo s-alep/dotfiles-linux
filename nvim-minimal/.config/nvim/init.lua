@@ -85,6 +85,8 @@ vim.keymap.set({'n', 'v'}, 'gl',             '$')
 vim.keymap.set('n',        '$',              'ggVG')
 vim.keymap.set('n',        [["]],            '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n',        "<leader>q",      '<cmd>lua vim.diagnostic.setloclist()<cr>')
+vim.keymap.set('n',        "<C-v>i",         function() vim.cmd.source('.nvim/init.lua') end)
+vim.keymap.set('n',        "<C-v>e",         function() vim.cmd.edit('.nvim/init.lua') end)
 vim.keymap.set('i',        "<C-a>",          '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
 -- LSP
@@ -108,12 +110,21 @@ vim.pack.add {
     "https://github.com/neovim/nvim-lspconfig",
     'https://github.com/mrjones2014/smart-splits.nvim',
 }
+
 require('rose-pine').setup {
     variant = 'moon',
+    enable= {
+        terminal = false
+    },
     styles = {
         italic = false,
         transparency = true
-    }
+    },
+    highlight_groups={
+        StatusLineTerm = {link = "Normal"},
+        StatusLineTermNC = {link = "Normal"}
+   }
+
 }
 vim.cmd.colorscheme "rose-pine"
 
@@ -158,3 +169,10 @@ require('mini.cmdline').setup {
         enable = false
     }
 }
+
+
+-- vim.diagnostic.config({
+--     virtual_lines = true
+-- })
+
+vim.lsp.inlay_hint.enable(true, { 0 })

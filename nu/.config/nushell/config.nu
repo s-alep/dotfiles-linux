@@ -13,10 +13,7 @@ alias lid = ~/.config/hypr/lua/lid.lua 0
 
 alias v = nvim
 alias V = sudo nvim
-alias h = helix
-alias H = sudo helix
-alias z = zed
-alias Z = sudo zed
+alias vinit = nvim -S .nvim/init.lua
 alias la = ls -a
 alias cat = bat
 alias x = xdg-open
