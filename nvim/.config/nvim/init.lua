@@ -15,30 +15,26 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  {
-    'folke/lazydev.nvim',
-    'folke/tokyonight.nvim',
-    'neanias/everforest-nvim',
-    'rebelot/kanagawa.nvim',
-    "uhs-robert/sshfs.nvim",
-    "HoNamDuong/hybrid.nvim",
-    "EdenEast/nightfox.nvim",
-    ft = 'lua',
-    opts = {
-      library = {
-        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-      },
-    },
-  },
+  {'folke/lazydev.nvim', {
+    'rose-pine/neovim',
+    config = function()
+      require('rose-pine').setup {
+        variant = 'moon',
+        styles = { italic = false, transparency = true }
+      }
+      vim.cmd.colorscheme "rose-pine"
+    end
+  }, ft = 'lua', opts = { library = { { path = '${3rd}/luv/library', words = { 'vim%.uv' } }, }, },},
   { import = 'plugins' },
-}, {
-    rocks={
-      enabled = false,
-    },
-    ui = {
-      icons = {},
-    },
-  })
+},
+{
+  rocks={
+    enabled = false,
+  },
+  ui = {
+    icons = {},
+  }
+})
 
 require 'keymap'
 
@@ -46,8 +42,4 @@ vim.lsp.enable('copilot')
 vim.lsp.enable('zls')
 vim.lsp.enable('basedpyright')
 
-require('sshfs').setup{}
-require "themes"
--- require("lualine").setup{}
--- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
