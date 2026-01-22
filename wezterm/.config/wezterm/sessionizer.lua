@@ -98,7 +98,7 @@ M.toggle = function(window, pane)
   local success, stdout, stderr = wezterm.run_child_process({
     fd,
     "-td",
-    "--max-depth=2",
+    "--max-depth=1",
     ".",
     rootPath,
   })
