@@ -155,7 +155,7 @@ layout {
 // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "waybar"
 spawn-sh-at-startup "mako"
-spawn-sh-at-startup "swaybg  -m fit -i ~/Pictures/wallpapers/badbitches.jpeg"
+spawn-sh-at-startup "swaybg  -m fit -i ~/Pictures/wallpapers/375strog.jpg"
 spawn-sh-at-startup "brave --no-startup-window"
 
 
