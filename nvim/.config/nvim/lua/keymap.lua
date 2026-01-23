@@ -74,3 +74,5 @@ vim.keymap.set('n', '<leader>tw',function()
   vim.o.wrap = not vim.o.wrap
 end)
 
+vim.keymap.set('n', "<C-v>i", function() vim.cmd.source '.nvim/init.lua'end)
+vim.keymap.set('n', "<C-v>e", function() vim.cmd.edit '.nvim/init.lua'end)

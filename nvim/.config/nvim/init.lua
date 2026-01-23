@@ -15,16 +15,18 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  {'folke/lazydev.nvim', {
-    'rose-pine/neovim',
-    config = function()
-      require('rose-pine').setup {
-        variant = 'moon',
-        styles = { italic = false, transparency = true }
-      }
-      vim.cmd.colorscheme "rose-pine"
-    end
-  }, ft = 'lua', opts = { library = { { path = '${3rd}/luv/library', words = { 'vim%.uv' } }, }, },},
+  {'folke/lazydev.nvim',
+    {
+      'rose-pine/neovim',
+      config = function()
+        require('rose-pine').setup {
+          variant = 'moon',
+          styles = { italic = false, transparency = true }
+        }
+        vim.cmd.colorscheme "rose-pine"
+      end
+    },
+    ft = 'lua', opts = { library = { { path = '${3rd}/luv/library', words = { 'vim%.uv' } }, }, },},
   { import = 'plugins' },
 },
 {
@@ -37,7 +39,6 @@ require('lazy').setup({
 })
 
 require 'keymap'
-
 vim.lsp.enable('copilot')
 vim.lsp.enable('zls')
 vim.lsp.enable('basedpyright')
