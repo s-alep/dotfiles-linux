@@ -2,11 +2,32 @@ local wezterm = require('wezterm')
 local lo = require('layouts')
 local act = wezterm.action
 
+local on_call = function(window,pane)
+  local current_win = window:mux_window()
+
+  local tab, gsport_pane , mux_window = current_win:spawn_tab{
+        workspace = 'on_call',
+        domain = 'DefaultDomain'
+  }
+
+  local sl2_pane = gsport_pane:split {
+    direction = 'Right',
+    domain = 'DefaultDomain'
+  }
+
+  wezterm.time.call_after(0.1, function()
+    gsport_pane:send_text('ssh ovh docker logs -f gsport_app\r\n')
+    sl2_pane:send_text('ssh ovh docker logs -f sl2_app\r\n')
+  end)
+
+  tab:set_title 'on_call'
+end
+
 return {
 	{
-		brief = 'Sl2dev',
+		brief = 'On Call',
 		icon = 'md_soccer',
-		action = wezterm.action_callback(lo.sl2dev)
+		action = wezterm.action_callback(on_call)
 	},
 	{
 		brief = 'Toggle Dark/Light',
@@ -25,11 +46,6 @@ return {
                 window:set_config_overrides(overrides)
             end
 		)
-	},
-	{
-		brief = 'Super League 2',
-		icon = 'md_soccer',
-		action = wezterm.action_callback(lo.sl2)
 	},
 	{
 		brief = 'Open Git Repo in Brave',
