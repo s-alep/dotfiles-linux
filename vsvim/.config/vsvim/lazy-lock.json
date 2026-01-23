@@ -1,5 +1,8 @@
 {
-  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "mini.ai": { "branch": "main", "commit": "e139eb1101beb0250fea322f8c07a42f0f175688" },
-  "mini.surround": { "branch": "main", "commit": "5aab42fcdcf31fa010f012771eda5631c077840a" }
+  "mini.extra": { "branch": "main", "commit": "570d18489cf82d435566dc9e94530b67939e95f4" },
+  "mini.surround": { "branch": "main", "commit": "5aab42fcdcf31fa010f012771eda5631c077840a" },
+  "nvim-treesitter": { "branch": "main", "commit": "88f1dfc211c3a2fb47f1451fd5edc972ec697e58" },
+  "nvim-treesitter-textobjects": { "branch": "main", "commit": "4d55f63252e04c5212daed958e4e940915ff16ce" }
 }

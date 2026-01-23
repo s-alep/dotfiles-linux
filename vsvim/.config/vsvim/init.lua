@@ -1,7 +1,3 @@
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.cmdheight = 10
@@ -28,9 +24,22 @@ require('lazy').setup({
   {
     'nvim-mini/mini.ai',
     version = '*',
+    after = 'mini.extra',
     config = function()
+      local treesitter = require('mini.ai').gen_spec.treesitter
+      local ai = require('mini.extra').gen_ai_spec
+      local pair = require('mini.ai').gen_spec.pair
       require('mini.ai').setup {
         n_lines = 500,
+        custom_textobjects = {
+          f = treesitter { a = '@function.outer', i = '@function.inner' },
+          c = treesitter { a = '@class.outer', i = '@class.inner' },
+          g = treesitter { a = '@comment.outer', i = '@comment.inner' },
+          i = ai.indent(),
+          B = ai.buffer(),
+          ['u'] = pair('_', '_', {type = "greedy"}),
+          ['d'] = pair('-', '-', {type = "greedy"})
+        },
       }
     end,
   },
@@ -41,19 +50,95 @@ require('lazy').setup({
       require('mini.surround').setup {}
     end,
   },
-}, {
-  ui = {
-    icons = {},
+  {'nvim-mini/mini.extra', version = false, config = function()  require('mini.extra').setup()end,},
+  {  'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+    branch = 'main'
   },
-})
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    branch = 'main',
+    build = ':TSUpdate',
+    config = function()
+      local ts = require('nvim-treesitter')
+      ts.install({
+        'bash',
+        'comment',
+        'css',
+        'diff',
+        'fish',
+        'git_config',
+        'git_rebase',
+        'gitcommit',
+        'gitignore',
+        'html',
+        'javascript',
+        'json',
+        'latex',
+        'lua',
+        'luadoc',
+        'make',
+        'markdown',
+        'markdown_inline',
+        'python',
+        'php',
+        'query',
+        'regex',
+        'scss',
+        'svelte',
+        'toml',
+        'tsx',
+        'typescript',
+        'typst',
+        'vim',
+        'vimdoc',
+        'vue',
+        'xml',
+        'kdl'
+      })
+
+      local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
+
+      local ignore_filetypes = {
+        'checkhealth',
+        'lazy',
+        'fzf',
+        'oil',
+        'mason',
+        'snacks_dashboard',
+        'snacks_notif',
+        'snacks_win',
+      }
+
+      -- Auto-install parsers and enable highlighting on FileType
+      vim.api.nvim_create_autocmd('FileType', {
+        group = group,
+        desc = 'Enable treesitter highlighting and indentation',
+        callback = function(event)
+          if vim.tbl_contains(ignore_filetypes, event.match) then
+            return
+          end
+          local lang = vim.treesitter.language.get_lang(event.match) or event.match
+          local buf = event.buf
+          pcall(vim.treesitter.start, buf, lang)
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          ts.install({ lang })
+        end,
+      })
+    end,
+  }
+}, {
+    ui = {
+      icons = {},
+    },
+  })
 
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.o.cmdheight = 10
 
 local map = vim.keymap
 
@@ -67,9 +152,14 @@ map.set('n', ';;', 'A;<esc>')
 map.set('n', 'za', "<Cmd>lua require('vscode').call('editor.toggleFold')<CR>", opts)
 map.set('n', '<leader>=', "<Cmd>lua require('vscode').call('editor.action.formatDocument')<CR>", opts)
 
+map.set('n', 'h', 'gh',opts)
+map.set('n', 'j', 'gj',opts)
+map.set('n', 'k', 'gk',opts)
+map.set('n', 'l', 'gl',opts)
+
 -- Code Actions
 map.set('v', 'grn', "<Cmd>lua require('vscode').call('editor.action.rename')<CR>")
-map.set('n', 'gca', "<Cmd>lua require('vscode').call('editor.action.quickFix')<CR>")
+map.set('n', 'g.', "<Cmd>lua require('vscode').call('editor.action.quickFix')<CR>")
 map.set('n', '<C-s>', "<Cmd>lua require('vscode').call('editor.action.triggerSuggest')<CR>")
 -- Code Navigation
 map.set('n', '<leader>f', "<Cmd>lua require('vscode').call('workbench.action.quickOpen')<CR>", opts)
@@ -80,7 +170,7 @@ map.set('n', [["]], "<Cmd>lua require('vscode').call('editor.action.showHover')<
 map.set('n', 'gD', "<Cmd>lua require('vscode').call('editor.action.revealDefinitionAside')<CR>", opts)
 map.set('n', 'gR', "<Cmd>lua require('vscode').call('references-view.findReferences')<CR>", opts)
 map.set('n', '<leader>q', "<Cmd>lua require('vscode').call('workbench.actions.view.problems')<CR>", opts)
-map.set('n', '<leader><leader>', "<Cmd>lua require('vscode').call('workbench.action.showAllEditors')<CR>", opts)
+map.set('n', '<leader>w', "<Cmd>lua require('vscode').call('workbench.action.showAllEditors')<CR>", opts)
 map.set('n', 'g/', "<Cmd>lua require('vscode').call('workbench.action.quickOpen',{ args = {'%'}})<CR>", opts)
 map.set('n', '<F3>', "<Cmd>lua require('vscode').call('workbench.action.selectTheme')<CR>", opts)
 map.set('n', '<leader>/', "<Cmd>lua require('vscode').call('fuzzySearch.activeTextEditor')<CR>", opts)
@@ -89,11 +179,13 @@ map.set('n', '<leader>/', "<Cmd>lua require('vscode').call('fuzzySearch.activeTe
 map.set('n', '<leader>x', "<Cmd>lua require('vscode').call('workbench.view.explorer')<CR>", opts)
 map.set('n', '<leader>X', "<Cmd>lua require('vscode').call('workbench.view.extensions')<CR>", opts)
 map.set('n', '<leader>g', "<Cmd>lua require('vscode').call('workbench.view.scm')<CR>", opts)
+map.set('n', '<leader>r', "<Cmd>lua require('vscode').call('workbench.view.remote')<CR>", opts)
 map.set('n', '<leader>a', "<Cmd>lua require('vscode').call('workbench.action.toggleSidebarVisibility')<CR>", opts)
 map.set('n', '<leader>tt', "<Cmd>lua require('vscode').call('workbench.action.terminal.toggleTerminal')<CR>", opts)
 map.set('n', '<leader>tc', "<Cmd>lua require('vscode').call('workbench.action.toggleCenteredLayout')<CR>", opts)
 map.set('n', '<leader>tz', "<Cmd>lua require('vscode').call('workbench.action.toggleZenMode')<CR>", opts)
 map.set('n', '<leader>tf', "<Cmd>lua require('vscode').call('workbench.action.toggleFullScreen')<CR>", opts)
+map.set('n', '<leader>tw', "<Cmd>lua require('vscode').call('editor.action.toggleWordWrap')<CR>", opts)
 
 -- Git stuff
 map.set('n', '[c', "<Cmd>lua require('vscode').call('workbench.action.editor.previousChange')<CR>", opts)
@@ -102,9 +194,9 @@ map.set('n', '<leader>hb', "<Cmd>lua require('vscode').call('git.blame.toggleEdi
 map.set('n', '<leader>hd', "<Cmd>lua require('vscode').call('editor.action.dirtydiff.next')<CR>", opts)
 map.set('v', '<leader>hr', "<Cmd>lua require('vscode').call('git.revertSelectedRanges')<CR>", opts)
 -- Copilot
-map.set('n', '<leader>ww', "<Cmd>lua require('vscode').call('workbench.action.chat.open')<CR>", opts)
-map.set('n', '<leader>wn', "<Cmd>lua require('vscode').call('workbench.action.chat.toggleAgentMode')<CR>", opts)
-map.set({ 'v', 'n' }, '<leader>wi', "<Cmd>lua require('vscode').call('inlineChat.start')<CR>", opts)
+-- map.set('n', '<leader>ww', "<Cmd>lua require('vscode').call('workbench.action.chat.open')<CR>", opts)
+-- map.set('n', '<leader>wn', "<Cmd>lua require('vscode').call('workbench.action.chat.toggleAgentMode')<CR>", opts)
+-- map.set({ 'v', 'n' }, '<leader>wi', "<Cmd>lua require('vscode').call('inlineChat.start')<CR>", opts)
 
 -- Debugging
 map.set('n', '<leader>b', "<Cmd>lua require('vscode').call('editor.debug.action.toggleBreakpoint')<CR>", opts)
