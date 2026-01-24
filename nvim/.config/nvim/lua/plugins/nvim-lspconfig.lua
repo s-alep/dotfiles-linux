@@ -7,7 +7,6 @@ return {
     'saghen/blink.cmp',
   },
   config = function()
-
     local servers = {
       ts_ls = {},
       phpactor = {},

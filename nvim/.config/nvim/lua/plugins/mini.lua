@@ -1,13 +1,9 @@
 return {
-    {'nvim-mini/mini.extra', version = false, config = function()  require('mini.extra').setup()end,},
-    { 'nvim-mini/mini.jump2d', version = '*', config= function() require('mini.jump2d').setup({
-        mappings = {
-            start_jumping = "gw"
-        }
-    }) end},
-    {
-        'nvim-mini/mini.ai',
-        version = '*',
+    {'nvim-mini/mini.extra', version = false, config = true,},
+    {'nvim-mini/mini.icons', version = '*', config = true},
+    {'nvim-mini/mini.surround', version = '*', config = true},
+    {'nvim-mini/mini.pairs', version = '*', config = true},
+    {'nvim-mini/mini.ai', version = '*',
         config = function()
             local treesitter = require('mini.ai').gen_spec.treesitter
             local ai = require('mini.extra').gen_ai_spec
@@ -26,35 +22,32 @@ return {
             }
         end,
     },
-    {'nvim-mini/mini.icons', version = '*', config = function()   require('mini.icons').setup {}end,},
-    { 'nvim-mini/mini.diff', version = false, config = function()
-        require('mini.diff').setup{
+    {'nvim-mini/mini.diff', version = false,
+        opts = {
             mappings = {
                 apply = 'gq',
                 reset = 'gz',
                 textobject = 'gz'
             }
-        }
-        vim.keymap.set('n', 'gZ', '<cmd>lua  MiniDiff.toggle_overlay()<cr>')
-    end},
-    {
-        'nvim-mini/mini.splitjoin',
-        version = '*',
-        config = function()
-            require('mini.splitjoin').setup {
-                mappings = { toggle = 'grs', split = '', join = '' }
-            }
-        end,
-    },
-    {'nvim-mini/mini.surround', version = '*', config = function()   require('mini.surround').setup {}end,},
-    {'nvim-mini/mini.pairs', version = '*', config = function()   require('mini.pairs').setup()end },
-    {'nvim-mini/mini.cmdline', version = '*', config = function()   require('mini.cmdline').setup({
-        autocomplete ={
-            enable = true,
-            delay = 300
         },
-        autopeek = {
-            enable = false
+        keys = {
+            {'gZ', '<cmd>lua  MiniDiff.toggle_overlay()<cr>'}
         }
-    })end },
+    },
+    {'nvim-mini/mini.splitjoin', version = '*',
+        opts =  {
+            mappings = { toggle = 'grs', split = '', join = '' }
+        }
+    },
+    {'nvim-mini/mini.cmdline', version = '*',
+        opts = {
+            autocomplete ={
+                enable = true,
+                delay = 300
+            },
+            autopeek = {
+                enable = false
+            }
+        }
+    }
 }
