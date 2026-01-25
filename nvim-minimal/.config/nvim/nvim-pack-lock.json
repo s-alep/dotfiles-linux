@@ -1,8 +1,24 @@
 {
   "plugins": {
+    "flash.nvim": {
+      "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
+      "src": "https://github.com/folke/flash.nvim"
+    },
     "fzf-lua": {
       "rev": "578a11f9f7c5f4436b833731ccceeda9479562f0",
       "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gruvbox-baby": {
+      "rev": "bd52e62d8134647090108189e69c8b3cd18bdbbf",
+      "src": "https://github.com/luisiacc/gruvbox-baby"
+    },
+    "gruvbox.nvim": {
+      "rev": "2895bc4e4773bcd01f12b9bd146ac780ae86e3ea",
+      "src": "https://gitlab.com/motaz-shokry/gruvbox.nvim"
+    },
+    "material.nvim": {
+      "rev": "52c121551ffbf7b8f25bed3ef5878e5d6896c786",
+      "src": "https://github.com/marko-cerovac/material.nvim"
     },
     "mini.ai": {
       "rev": "bfb26d9072670c3aaefab0f53024b2f3729c8083",
@@ -11,6 +27,14 @@
     "mini.cmdline": {
       "rev": "9b55f71f84b11627e80f6a060979695cb5c6e0c0",
       "src": "https://github.com/nvim-mini/mini.cmdline"
+    },
+    "mini.diff": {
+      "rev": "6010e588e9ed14724880f244d7fa3df8f0be3f46",
+      "src": "https://github.com/nvim-mini/mini.diff"
+    },
+    "mini.extra": {
+      "rev": "8bb48fadc6e31d8b3550f587661ded15d4396451",
+      "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.icons": {
       "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
@@ -28,6 +52,10 @@
       "rev": "9fcd8856efb95a505090c3225726466494076127",
       "src": "https://github.com/nvim-mini/mini.splitjoin"
     },
+    "mini.statusline": {
+      "rev": "3e96596ebe51b899874d8174409cdc4f3c749d9a",
+      "src": "https://github.com/nvim-mini/mini.statusline"
+    },
     "mini.surround": {
       "rev": "cc7b9d0a056b5fa6915ffac1cb91f29bf7c96f69",
       "src": "https://github.com/nvim-mini/mini.surround"
@@ -35,6 +63,18 @@
     "neovim": {
       "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
       "src": "https://github.com/rose-pine/neovim"
+    },
+    "neovim-ayu": {
+      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
+      "src": "https://github.com/Shatur/neovim-ayu"
+    },
+    "nightfox.nvim": {
+      "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
+      "src": "https://github.com/EdenEast/nightfox.nvim"
+    },
+    "no-neck-pain.nvim": {
+      "rev": "4bc52782524fd50c5658685d584df6fa48fe49f9",
+      "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
     "nvim-lspconfig": {
       "rev": "92ee7d42320edfbb81f3cad851314ab197fa324a",
