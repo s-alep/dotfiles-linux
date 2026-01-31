@@ -14,7 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
+require('lazy').setup {
   {
     'rose-pine/neovim',
     name='rose-pine',
@@ -23,18 +23,41 @@ require('lazy').setup({
         styles = { italic = false, transparency = true }
       }
   },
-  { import = 'plugins' },
-},
-{
-  rocks={
-    enabled = false,
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      bright_border = true,
+      transparent = {
+        bg = true,
+        float = true
+      },
+      italic_comments = false
+    }
   },
-  ui = {
-    icons = {},
-  }
-})
+  {
+    'ribru17/bamboo.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = 'vulgaris',
+      transparent = true,
+      code_style = {
+        comments = { italic = false },
+        conditionals = { italic = false },
+        namespaces = { italic = false },
+        parameters = { italic = false },
+      },
+      lualine={
+        transparent = true
+      }
+    }
+  },
+  { import = 'plugins' }
+}
 
-vim.cmd.colorscheme "rose-pine"
+vim.cmd.colorscheme "bamboo"
 
 require 'keymap'
 vim.lsp.enable('copilot')

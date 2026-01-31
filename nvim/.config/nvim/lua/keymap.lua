@@ -65,3 +65,5 @@ end)
 vim.keymap.set('n', '<leader>tw',function()
   vim.o.wrap = not vim.o.wrap
 end)
+
+vim.keymap.set('n', 'gZ', function() require 'mini.diff'.toggle_overlay() end)

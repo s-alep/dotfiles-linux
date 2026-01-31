@@ -22,32 +22,20 @@ return {
             }
         end,
     },
-    {'nvim-mini/mini.diff', version = false,
-        opts = {
-            mappings = {
-                apply = 'gq',
-                reset = 'gz',
-                textobject = 'gz'
-            }
-        },
-        keys = {
-            {'gZ', '<cmd>lua  MiniDiff.toggle_overlay()<cr>'}
+    {'nvim-mini/mini.diff', version = "*",
+        opts =  {
+            mappings = { apply = 'gq', reset = 'gz', textobject = 'gz'}
         }
     },
     {'nvim-mini/mini.splitjoin', version = '*',
         opts =  {
-            mappings = { toggle = 'grs', split = '', join = '' }
+            mappings = { toggle = 'grt', split = 'grs', join = 'grj' }
         }
     },
     {'nvim-mini/mini.cmdline', version = '*',
         opts = {
-            autocomplete ={
-                enable = true,
-                delay = 300
-            },
-            autopeek = {
-                enable = false
-            }
+            autocomplete = { enable = true, delay = 300 },
+            autopeek = { enable = false }
         }
     }
 }

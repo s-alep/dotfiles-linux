@@ -65,7 +65,7 @@ return {
                 'vimdoc',
                 'vue',
                 'xml',
-                'kdl'
+                'kdl',
             })
 
             local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
@@ -75,10 +75,12 @@ return {
                 'lazy',
                 'fzf',
                 'oil',
+                'netrw',
                 'mason',
                 'snacks_dashboard',
                 'snacks_notif',
                 'snacks_win',
+                'conf'
             }
 
             -- Auto-install parsers and enable highlighting on FileType

@@ -1,5 +1,6 @@
 return {
   'stevearc/oil.nvim',
+    lazy=false,
     keys = {
         {'<leader>o', function() require 'oil'.toggle_float() end},
         {'<leader>O', function()
