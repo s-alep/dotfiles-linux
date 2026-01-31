@@ -152,11 +152,6 @@ map.set('n', ';;', 'A;<esc>')
 map.set('n', 'za', "<Cmd>lua require('vscode').call('editor.toggleFold')<CR>", opts)
 map.set('n', '<leader>=', "<Cmd>lua require('vscode').call('editor.action.formatDocument')<CR>", opts)
 
-map.set('n', 'h', 'gh',opts)
-map.set('n', 'j', 'gj',opts)
-map.set('n', 'k', 'gk',opts)
-map.set('n', 'l', 'gl',opts)
-
 -- Code Actions
 map.set('v', 'grn', "<Cmd>lua require('vscode').call('editor.action.rename')<CR>")
 map.set('n', 'g.', "<Cmd>lua require('vscode').call('editor.action.quickFix')<CR>")
