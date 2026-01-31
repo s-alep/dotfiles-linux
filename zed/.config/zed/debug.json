@@ -15,12 +15,12 @@
     "cwd": "$ZED_WORKTREE_ROOT",
     "port": 5678,
     "log": true,
-    "pathMappings": [
-      {
-        "localRoot": "${ZED_WORKTREE_ROOT}",
-        "remoteRoot": "/workspace"
-      }
-    ]
+    // "pathMappings": [
+    //   {
+    //     "localRoot": "${ZED_WORKTREE_ROOT}",
+    //     "remoteRoot": "/workspace"
+    //   }
+    // ]
   },
   {
     "label": "Debug active Python file",
