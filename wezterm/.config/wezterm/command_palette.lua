@@ -1,7 +1,9 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
 
-local on_call = function(window,pane)
+M = {}
+
+M.on_call = function(window,pane)
     local current_win = window:mux_window()
 
     local tab, gsport_pane , mux_window = current_win:spawn_tab{
@@ -22,11 +24,11 @@ local on_call = function(window,pane)
     tab:set_title 'on_call'
 end
 
-return {
+M.list = {
     {
         brief = 'On Call',
         icon = 'md_soccer',
-        action = wezterm.action_callback(on_call)
+        action = wezterm.action_callback(M.on_call)
     },
     {
         brief = 'Toggle Dark/Light',
@@ -70,3 +72,4 @@ return {
     },
 }
 
+return M
