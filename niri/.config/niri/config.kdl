@@ -15,15 +15,14 @@ output "DP-1" {
 
 workspace "browser" {
     open-on-output "DP-1"
+    layout {
+        default-column-width { proportion 0.5; }
+    }
 }
-workspace "term"{
+workspace "term" {
     open-on-output "eDP-1"
-    layout{
-        // gaps 0
-        border {
-            // off
-        }
-        // default-column-width { proportion 1.0000; }
+    layout {
+        default-column-width { proportion 1.0; }
     }
 }
 workspace "mail" {
@@ -61,6 +60,7 @@ input {
         // disabled-on-external-mouse
     }
 
+    focus-follows-mouse max-scroll-amount="0%"
     mouse {
         // off
         // natural-scroll
@@ -88,11 +88,12 @@ gestures{
         off
     }
 }
+
 overview{
     workspace-shadow{
         off
     }
-    zoom 0.55555
+    zoom 0.7
 }
 
 environment{
@@ -104,7 +105,10 @@ layout {
     gaps 10
     center-focused-column "never"
     always-center-single-column 
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    tab-indicator {
+        hide-when-single-tab
+    }
+
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
@@ -112,12 +116,8 @@ layout {
     }
 
     background-color "transparent"
-    // preset-window-heights { }
 
-    // You can change the default width of the new windows.
     default-column-width { proportion 0.66667; }
-    // default-column-width {}
-    // `draw-border-with-background`.
 
     focus-ring {
         off
@@ -125,7 +125,7 @@ layout {
 
     border {
         // off
-        width 3
+        width 2
         active-color "#7fc8ff"
         inactive-color "#505050"
         urgent-color "#9b0000"
@@ -138,24 +138,12 @@ layout {
         offset x=0 y=5
         color "#0007"
     }
-
-    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
-    // You can think of them as a kind of outer gaps. They are set in logical pixels.
-    // Left and right struts will cause the next window to the side to always be visible.
-    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
-    // layer-shell panels and regular gaps.
-    struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
-    }
 }
 
 // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "waybar"
 spawn-sh-at-startup "mako"
-spawn-sh-at-startup "swaybg  -m fit -i ~/Pictures/wallpapers/375strog.jpg"
+spawn-sh-at-startup "swaybg -m fit -i ~/Pictures/wallpapers/orange.png"
 spawn-sh-at-startup "brave --no-startup-window"
 
 
@@ -227,23 +215,24 @@ binds {
     Mod+Ctrl+b  { spawn-sh "wezterm -e   --class=bt.wez         /home/salepakos/.config/waybar/lua/bluetooth.lua 1";}
     Mod+Ctrl+s  { spawn-sh "wezterm -e   --class=wiremix.wez    wiremix";}
     Mod+Ctrl+a  { spawn-sh "wezterm -e   --class=opencode.wezz  opencode"; }
-    Mod+Alt+l   { spawn    "swaylock"; }
+    Mod+F9      { spawn    "swaylock"; }
     Mod+Ctrl+m  { spawn-sh "/home/salepakos/.local/bin/toggle_screen.py";}
 
     Mod+Space   { spawn    "fuzzel"; }
     Mod+e       { spawn    "nautilus"; }
 
-    Mod+Return  { spawn-sh "wezterm start --always-new-process"; }
+    Mod+Return       { spawn-sh "wezterm start --always-new-process"; }
+    Mod+Ctrl+Return  { spawn "ghostty"; }
     Mod+p       { spawn-sh "/home/salepakos/.local/bin/nscratch -a --spawn spotify -id spotify"; }
     Mod+a       { spawn-sh "brave --new-window --app=https://chatgpt.com"; }
     Mod+n       { spawn-sh "brave --new-window --app=https://messenger.com"; }
     Mod+s       { spawn-sh "/home/salepakos/.local/bin/nscratch -a --spawn discord -id discord"; }
     Mod+m       { spawn-sh "brave --new-window --app=https://teams.microsoft.com/v2/ && brave --new-window --app=https://outlook.office.com/mail/"; }
-    Mod+b       { spawn-sh "killall waybar || waybar "; }
+    Mod+b       { spawn    "brave"; }
     Mod+Ctrl+n  { spawn-sh "pkill wlsunset || wlsunset -t 3500 "; }
     Mod+d       { spawn-sh "hyprpicker -a";}
-    Mod+z       { maximize-window-to-edges; }
-    Mod+Ctrl+z  { spawn-sh "/home/salepakos/.local/bin/niri-workspace-windows.sh"; }
+    Mod+w       { maximize-window-to-edges; }
+    Mod+Ctrl+z  { spawn-sh "/home/salepakos/.local/bin/niri-middle.sh"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
@@ -315,8 +304,8 @@ binds {
     Mod+R                                    { switch-preset-column-width; }
     Mod+Shift+R                              { switch-preset-window-height; }
     Mod+Ctrl+R                               { reset-window-height; }
-    Mod+w                                    { maximize-column; }
-    F11                                      { fullscreen-window; }
+    Mod+z                                    { maximize-column; }
+    Mod+F12                                  { fullscreen-window; }
 
     Mod+Ctrl+F                               { expand-column-to-available-width; }
     Mod+f                                    { center-column; }
